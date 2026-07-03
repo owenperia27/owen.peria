@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Owen Peria — Festivals photography. Live performances and nightlife. Based in Toulouse & Paris." />
+  <meta name="author" content="Owen Peria" />
+  <meta property="og:title" content="Owen Peria — Festivals" />
+  <meta property="og:description" content="Festivals photography by Owen Peria : BVAS, Rose Festival, Francofolies, etc." />
+  <meta property="og:type" content="website" />
+  <title>Owen Peria — Festivals</title>
+
+  <!-- Google Fonts : Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ─────────────────────────────────────────────────────────────
+       POLICE LOCALE : PLIANT (Variable Font)
+    ───────────────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Pliant';
+      src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Pliant';
+      src: url('fonts/Pliant-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESET GLOBAL
+    ───────────────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+        /* ─────────────────────────────────────────────────────────────
+       HEADER — STATIC
+    ───────────────────────────────────────────────────────────── */
+    #site-header {
+      position: relative;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 50;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1.5rem 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .header-inner {
+        padding: 1.5rem 3rem;
+      }
+    }
+
+    .site-title {
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) {
+      .site-title {
+        font-size: 0.875rem;
+      }
+    }
+
+    /* ─── Navigation desktop ─────────────────────────────────── */
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    @media (min-width: 768px) {
+      .nav-desktop {
+        gap: 2rem;
+      }
+    }
+
+    .nav-desktop > li > a {
+      display: inline-block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 0.5rem 0;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+      line-height: 1;
+    }
+    @media (min-width: 768px) {
+      .nav-desktop > li > a { font-size: 0.875rem; }
+    }
+
+    .nav-desktop > li > a:hover {
+      opacity: 0.6;
+    }
+
+    /* ─── DROPDOWN "LIVE & NIGHTLIFE" ────────────────────────── */
+    .nav-item-dropdown {
+      position: relative;
+    }
+
+    .nav-item-dropdown > .nav-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 0.5rem 0;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      line-height: 1;
+      user-select: none;
+    }
+    @media (min-width: 768px) {
+      .nav-item-dropdown > .nav-trigger { font-size: 0.875rem; }
+    }
+
+    .nav-item-dropdown:hover .nav-trigger {
+      opacity: 0.6;
+    }
+
+    .dropdown-panel {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 160px;
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      list-style: none;
+      display: none;
+      flex-direction: column;
+      z-index: 50;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item-dropdown:hover .dropdown-panel {
+      display: flex;
+    }
+
+    .dropdown-panel li a {
+      display: block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1;
+    }
+
+    .dropdown-panel li a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    @media (max-width: 1023px) {
+      .hidden-lg { display: none !important; }
+    }
+
+    /* ─── Hamburger (mobile) ─────────────────────────────────── */
+    .btn-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .btn-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: #000000;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    .btn-hamburger.is-open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .btn-hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .btn-hamburger.is-open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ─── Navigation mobile ──────────────────────────────── */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background-color: #ffffff;
+      border-top: 1px solid #000000;
+      list-style: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .nav-mobile.is-open {
+      max-height: 600px;
+    }
+
+    .nav-mobile > li > a,
+    .nav-mobile > li > .mobile-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 13px 1.25rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .nav-mobile > li > a:hover,
+    .nav-mobile > li > .mobile-trigger:hover,
+    .nav-mobile > li > a.is-active {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .mobile-submenu {
+      list-style: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      background-color: #f8f8f8;
+    }
+
+    .mobile-submenu.is-open {
+      max-height: 200px;
+    }
+
+    .mobile-submenu li a {
+      display: block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 11px 1.25rem 11px 2rem;
+      border-bottom: 1px solid #ebebeb;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .mobile-submenu li:last-child a {
+      border-bottom: none;
+    }
+
+    .mobile-submenu li a:hover,
+    .mobile-submenu li a.is-active {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .mobile-trigger-arrow {
+      font-size: 0.6rem;
+      opacity: 0.5;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .nav-mobile > li.is-open .mobile-trigger-arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .nav-mobile > li:last-child > a {
+      border-bottom: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       GALERIE FESTIVALS
+    ───────────────────────────────────────────────────────────── */
+    
+    #festivals-gallery {
+      /* p-4 -> 1rem */
+      padding: 1rem;
+    }
+    @media (min-width: 768px) {
+      #festivals-gallery {
+        /* md:p-12 -> 3rem */
+        padding: 3rem;
+      }
+    }
+
+    .festival-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem; /* ~8px — inter-espace équilibré sur tous les écrans */
+    }
+
+    .festival-card {
+      /* relative group overflow-hidden — ratio paysage 16:9 strict */
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background-color: #f0f0f0; /* fallback pour images qui chargent */
+    }
+
+    .festival-card img {
+      /* couvre le conteneur 16:9 sans déformation */
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .festival-overlay {
+      /* bg-black/35, flex center, hidden by default */
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .festival-card:hover .festival-overlay,
+    .festival-card:focus-visible .festival-overlay {
+      opacity: 1;
+    }
+
+    .festival-title {
+      /* text-xs font-medium uppercase tracking-[0.2em] text-white text-center px-4 */
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;  /* text-xs */
+      font-weight: 500;    /* font-medium */
+      letter-spacing: 0.2em; /* tracking-[0.2em] */
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .festival-title {
+        font-size: 0.875rem; /* text-sm */
+      }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE — MOBILE (< 768px)
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .nav-desktop {
+        display: none;
+      }
+
+      .btn-hamburger {
+        display: flex;
+      }
+
+      .nav-mobile {
+        display: flex;
+      }
+    }
+
+    /* ─── Tablette ─────────────────────────────────────────── */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .header-inner {
+        padding: 1.25rem 2rem;
+      }
+
+      .nav-desktop > li > a,
+      .nav-trigger,
+      .dropdown-panel li a {
+        font-size: 0.625rem;
+        font-weight: 500;
+        padding: 4px 7px;
+      }
+    }
+
+    /* ─── Grand desktop ───────────────────────────────────── */
+    @media (min-width: 1440px) {
+      .header-inner {
+        padding: 1.75rem 4rem;
+      }
+      
+      #festivals-gallery {
+        padding: 3rem 4rem;
+      }
+      
+      .festival-grid {
+        gap: 2rem;
+      }
+    }
+
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+<header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
+  <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
+    <a href="index.html" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+    <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
+      <div class="relative group cursor-pointer py-2">
+        <span class="flex items-center gap-1 hover:opacity-50 transition-opacity">LIVE & NIGHTLIFE +</span>
+        <div class="absolute right-0 top-full hidden group-hover:flex flex-col bg-white border border-black/10 min-w-[150px] shadow-sm z-50">
+          <a href="artists.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
+          <a href="festivals.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
+        </div>
+      </div>
+      <a href="studio.html" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
+      <a href="info.html" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
+      <a href="https://rowenstudio.fr" target="_blank" class="hover:opacity-50 transition-opacity py-2 whitespace-nowrap text-black/80">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
+    </nav>
+  </div>
+  <div id="mobile-drawer" class="hidden md:hidden bg-white border-t border-black/5 w-full px-6 py-6">
+    <nav style="font-family: 'Pliant', sans-serif; font-size: 11px;" class="flex flex-col gap-5 font-medium uppercase tracking-[0.2em] text-black">
+      <div class="border-b border-black/5 pb-2">
+        <button onclick="document.getElementById('mobile-sub-menu').classList.toggle('hidden')" class="w-full flex justify-between items-center text-left uppercase tracking-[0.2em] focus:outline-none font-medium text-black"><span>LIVE & NIGHTLIFE</span><span class="text-xs text-black/50">+</span></button>
+        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="artists.html" class="py-1">ARTISTS</a><a href="festivals.html" class="py-1">FESTIVALS</a></div>
+      </div>
+      <a href="studio.html" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
+      <a href="info.html" class="py-1 border-b border-black/5">INFO & CONTACT</a>
+      <a href="https://rowenstudio.fr" target="_blank" class="py-1 text-black/70">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================================================================= -->
+<!-- GRILLE FESTIVALS AVEC LIENS ACTIFS (Format Paysage Épuré) -->
+<!-- ======================================================================= -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-12">
+  
+  <!-- PROJET 01 : BVAS RIO LOCO -->
+  <a href="BVAS.html" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img src="BVAS-RIO-LOCO/SIM02306.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+        BVAS — RIO LOCO
+      </span>
+    </div>
+  </a>
+
+  <!-- PROJET 02 : ROSE FESTIVAL -->
+  <a href="ROSE.html" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img src="ROSE-Festival/DSC07549.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+        ROSE FESTIVAL
+      </span>
+    </div>
+  </a>
+
+  <!-- PROJET 03 : FRANCOFOLIES -->
+  <a href="FRANCOFOLIES.html" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img src="Francofolies/DSC01010.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+        FRANCOFOLIES DE LA ROCHELLE
+      </span>
+    </div>
+  </a>
+
+</div>
+
+  <!-- Script pour le menu mobile (identique à l'index) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Hamburger Menu
+      const btnHamburger = document.getElementById("btn-hamburger");
+      const navMobile = document.getElementById("nav-mobile");
+
+      if (btnHamburger && navMobile) {
+        btnHamburger.addEventListener("click", () => {
+          const isOpen = btnHamburger.classList.contains("is-open");
+          btnHamburger.classList.toggle("is-open");
+          navMobile.classList.toggle("is-open");
+          btnHamburger.setAttribute("aria-expanded", !isOpen);
+        });
+      }
+
+      // Dropdown Mobile
+      const liveTrigger = document.getElementById("mobile-live-trigger");
+      const liveItem = document.getElementById("mobile-live-item");
+      const liveSubmenu = document.getElementById("mobile-live-submenu");
+
+      if (liveTrigger && liveSubmenu && liveItem) {
+        liveTrigger.addEventListener("click", () => {
+          const isExpanded = liveTrigger.getAttribute("aria-expanded") === "true";
+          liveTrigger.setAttribute("aria-expanded", !isExpanded);
+          liveItem.classList.toggle("is-open");
+          liveSubmenu.classList.toggle("is-open");
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

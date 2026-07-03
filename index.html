@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Owen Peria — Photographe &amp; Réalisateur. Live &amp; Nightlife, Studio &amp; Editorial, Street Photography. Based in Toulouse &amp; Paris." />
+  <meta name="author" content="Owen Peria" />
+  <meta property="og:title" content="Owen Peria — Photographe &amp; Réalisateur" />
+  <meta property="og:description" content="Portfolio de photographie et direction artistique : live &amp; nightlife, studio &amp; editorial, projets personnels." />
+  <meta property="og:type" content="website" />
+  <title>Owen Peria — Photographe &amp; Réalisateur</title>
+
+  <!-- Google Fonts : Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ─────────────────────────────────────────────────────────────
+       POLICE LOCALE : PLIANT (Variable Font)
+       Fichiers : fonts/Pliant-VariableFont_wdth,wght.ttf
+                  fonts/Pliant-Italic-VariableFont_wdth,wght.ttf
+       → Police variable : un seul fichier couvre tous les graisses
+         (100 à 900) et toutes les largeurs.
+    ───────────────────────────────────────────────────────────── */
+
+    /* Romain (normal) */
+    @font-face {
+      font-family: 'Pliant';
+      src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Italique */
+    @font-face {
+      font-family: 'Pliant';
+      src: url('fonts/Pliant-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* Classe utilitaire réutilisable */
+    .font-pliant {
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESET GLOBAL
+    ───────────────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HEADER — STATIC (non sticky)
+    ───────────────────────────────────────────────────────────── */
+    #site-header {
+      position: static;
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      /* Logo collé à l'extrême gauche, nav collée à l'extrême droite */
+      padding: 1.25rem 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .header-inner {
+        padding: 1.25rem 3rem;
+      }
+    }
+
+    /* Titre gauche — police Pliant */
+    .site-title {
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Ligne séparatrice header / grille */
+    /* ─── Navigation desktop ─────────────────────────────────── */
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+
+    /* Élément nav standard — police Pliant */
+    .nav-desktop > li > a {
+      display: inline-block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 5px 10px;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1;
+    }
+
+    .nav-desktop > li > a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* ─── DROPDOWN "LIVE & NIGHTLIFE" ────────────────────────── */
+    .nav-item-dropdown {
+      position: relative;
+    }
+
+    /* Déclencheur du dropdown — police Pliant */
+    .nav-item-dropdown > .nav-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 5px 10px;
+      white-space: nowrap;
+      cursor: default;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Flèche indicatrice discrète */
+    .nav-trigger::after {
+      content: '↓';
+      font-size: 0.55rem;
+      opacity: 0.55;
+      display: inline-block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-item-dropdown:hover .nav-trigger {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .nav-item-dropdown:hover .nav-trigger::after {
+      opacity: 1;
+      transform: rotate(180deg);
+    }
+
+    /* Panneau dropdown */
+    .dropdown-panel {
+      position: absolute;
+      top: calc(100% + 0px);
+      left: 0;
+      min-width: 140px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+      z-index: 100;
+    }
+
+    .nav-item-dropdown:hover .dropdown-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Sous-liens — police Pliant */
+    .dropdown-panel li a {
+      display: block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 8px 10px;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      line-height: 1;
+    }
+
+    .dropdown-panel li a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* ─── Hamburger (mobile uniquement) ─────────────────────── */
+    .btn-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .btn-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: #000000;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    /* Hamburger → Croix */
+    .btn-hamburger.is-open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .btn-hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .btn-hamburger.is-open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ─── Navigation mobile ──────────────────────────────────── */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background-color: #ffffff;
+      border-top: 1px solid #000000;
+      list-style: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .nav-mobile.is-open {
+      max-height: 600px;
+    }
+
+    .nav-mobile > li > a,
+    .nav-mobile > li > .mobile-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 13px 1.25rem;
+      border-bottom: 1px solid #ebebeb;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .nav-mobile > li > a:hover,
+    .nav-mobile > li > .mobile-trigger:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Sous-menu accordéon mobile */
+    .mobile-submenu {
+      list-style: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      background-color: #f8f8f8;
+    }
+
+    .mobile-submenu.is-open {
+      max-height: 200px;
+    }
+
+    .mobile-submenu li a {
+      display: block;
+      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
+                   'Helvetica Neue', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 11px 1.25rem 11px 2rem;
+      border-bottom: 1px solid #ebebeb;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .mobile-submenu li:last-child a {
+      border-bottom: none;
+    }
+
+    .mobile-submenu li a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Chevron flèche mobile */
+    .mobile-trigger-arrow {
+      font-size: 0.6rem;
+      opacity: 0.5;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .nav-mobile > li.is-open .mobile-trigger-arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .nav-mobile > li:last-child > a {
+      border-bottom: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       GALERIE — GRILLE 3 COLONNES INDÉPENDANTES
+    ───────────────────────────────────────────────────────────── */
+    #gallery {
+      padding: 3rem;
+    }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .grid-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .grid-item {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    /* Images — zéro effet au survol */
+    .grid-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Sur desktop : masquer les blocs extra (réservés au mobile) */
+    .mobile-extra {
+      display: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER ÉDITORIAL
+    ───────────────────────────────────────────────────────────── */
+    #site-footer {
+      margin-top: 6rem;
+      margin-bottom: 3rem;
+      padding: 0 3rem;
+    }
+
+    .footer-rule {
+      border: none;
+      border-top: 1px solid #000000;
+      margin-bottom: 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .footer-signature {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #000000;
+      line-height: 1.75;
+    }
+
+    /* Icônes sociales */
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000000;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.4;
+    }
+
+    .footer-socials svg {
+      width: 18px;
+      height: 18px;
+      fill: #000000;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE — MOBILE (< 768px)
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 767px) {
+
+      .header-inner {
+        padding: 1rem;
+      }
+
+      .nav-desktop {
+        display: none;
+      }
+
+      .btn-hamburger {
+        display: flex;
+      }
+
+      .nav-mobile {
+        display: flex;
+      }
+
+      #gallery {
+        padding: 0.75rem;
+      }
+
+      /* 2 colonnes parallèles */
+      .grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+      }
+
+      .grid-col {
+        gap: 0.6rem;
+      }
+
+      /* Masquer la 3e colonne */
+      #col-3 {
+        display: none;
+      }
+
+      /* Afficher les images col-3 redistribuées */
+      .mobile-extra {
+        display: block;
+      }
+
+      #site-footer {
+        padding: 0 1rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ─── Tablette ───────────────────────────────────────────── */
+    @media (min-width: 768px) and (max-width: 1023px) {
+
+      .header-inner {
+        padding: 1.25rem 2rem;
+      }
+
+      .nav-desktop > li > a,
+      .nav-trigger,
+      .dropdown-panel li a {
+        font-size: 0.625rem;
+        font-weight: 500;
+        padding: 4px 7px;
+      }
+
+      #gallery {
+        padding: 2rem;
+      }
+
+      .grid-wrapper {
+        gap: 1rem;
+      }
+
+      .grid-col {
+        gap: 1rem;
+      }
+
+      #site-footer {
+        padding: 0 2rem;
+      }
+    }
+
+    /* ─── Grand desktop ──────────────────────────────────────── */
+    @media (min-width: 1440px) {
+
+      .header-inner {
+        padding: 1.75rem 4rem;
+      }
+
+      #gallery {
+        padding: 3rem 4rem;
+      }
+
+      .grid-wrapper {
+        gap: 2rem;
+      }
+
+      .grid-col {
+        gap: 2rem;
+      }
+
+      #site-footer {
+        padding: 0 4rem;
+        margin-top: 8rem;
+      }
+    }
+
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+<header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
+  <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
+    <a href="index.html" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+    <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
+      <div class="relative group cursor-pointer py-2">
+        <span class="flex items-center gap-1 hover:opacity-50 transition-opacity">LIVE & NIGHTLIFE +</span>
+        <div class="absolute right-0 top-full hidden group-hover:flex flex-col bg-white border border-black/10 min-w-[150px] shadow-sm z-50">
+          <a href="artists.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
+          <a href="festivals.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
+        </div>
+      </div>
+      <a href="studio.html" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
+      <a href="info.html" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
+      <a href="https://rowenstudio.fr" target="_blank" class="hover:opacity-50 transition-opacity py-2 whitespace-nowrap text-black/80">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
+    </nav>
+  </div>
+  <div id="mobile-drawer" class="hidden md:hidden bg-white border-t border-black/5 w-full px-6 py-6">
+    <nav style="font-family: 'Pliant', sans-serif; font-size: 11px;" class="flex flex-col gap-5 font-medium uppercase tracking-[0.2em] text-black">
+      <div class="border-b border-black/5 pb-2">
+        <button onclick="document.getElementById('mobile-sub-menu').classList.toggle('hidden')" class="w-full flex justify-between items-center text-left uppercase tracking-[0.2em] focus:outline-none font-medium text-black"><span>LIVE & NIGHTLIFE</span><span class="text-xs text-black/50">+</span></button>
+        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="artists.html" class="py-1">ARTISTS</a><a href="festivals.html" class="py-1">FESTIVALS</a></div>
+      </div>
+      <a href="studio.html" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
+      <a href="info.html" class="py-1 border-b border-black/5">INFO & CONTACT</a>
+      <a href="https://rowenstudio.fr" target="_blank" class="py-1 text-black/70">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Ligne de séparation -->
+  <!-- ═══════════════════════════════════════════════════════════
+       GALERIE — GRILLE 3 × 7 IMAGES
+  ══════════════════════════════════════════════════════════════ -->
+  <main id="gallery" role="main">
+    <div class="grid-wrapper">
+
+      <!-- ─── COLONNE 1 (Gauche) ──────────────────────────── -->
+      <div class="grid-col" id="col-1">
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC07978.webp"
+            alt="Portrait profil en noir et blanc épuré"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC03180-5.webp"
+            alt="Concert — lumières bleues plein phare"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/SIM01217.webp"
+            alt="Street — plan serré style urbain"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC00318.webp"
+            alt="Portrait — lumière et ombre studio douce"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/HR9A0769.webp"
+            alt="Scène de nuit contrastée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/HR9A0808.webp"
+            alt="Architecture — entrée géométrique"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC04588.webp"
+            alt="Portrait éditorial — tons verts"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <!-- Mobile extra : images col-3 redistribuées (positions impaires) -->
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/DSC05094.webp"
+            alt="Vue du dessus — foule et ombres portées"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/DSC00231.webp"
+            alt="Silhouette mode extérieur"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/SIM02244.webp"
+            alt="Street — action et guitare de rue"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/HR9A0963.webp"
+            alt="Détail — tons chauds de fin de journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+      </div>
+      <!-- /col-1 -->
+
+      <!-- ─── COLONNE 2 (Milieu) ───────────────────────────── -->
+      <div class="grid-col" id="col-2">
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC08492.webp"
+            alt="Portrait serré aux reflets roses et néons"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/SIM01733.webp"
+            alt="Street — composition drapeau"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC08908-Modifier.webp"
+            alt="Graphique — tunnel de traits de lumière fins"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/HR9A0911.webp"
+            alt="Street — perspective dôme en journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC05214.webp"
+            alt="Concert — artiste micro en main"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSCF2573.webp"
+            alt="Street / life — scène de mouvement"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC08891.webp"
+            alt="Intérieur — cadrage lignes de fuite"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <!-- Mobile extra : images col-3 redistribuées (positions paires) -->
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/DSC08603.webp"
+            alt="Artiste — flash direct et fond rouge saturé"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/SIM01938.webp"
+            alt="Street — homme à vélo sur le pont"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+        <div class="grid-item mobile-extra">
+          <img
+            src="assets/DSC09915.webp"
+            alt="Mode — perspective urbaine colorée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+      </div>
+      <!-- /col-2 -->
+
+      <!-- ─── COLONNE 3 (Droite) — masquée sur mobile ──────── -->
+      <div class="grid-col" id="col-3">
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC05094.webp"
+            alt="Vue du dessus — foule et ombres portées"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC08603.webp"
+            alt="Artiste — flash direct et fond rouge saturé"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC00231.webp"
+            alt="Silhouette mode extérieur"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/SIM01938.webp"
+            alt="Street — homme à vélo sur le pont"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/SIM02244.webp"
+            alt="Street — action et guitare de rue"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/DSC09915.webp"
+            alt="Mode — perspective urbaine colorée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+        <div class="grid-item">
+          <img
+            src="assets/HR9A0963.webp"
+            alt="Détail — tons chauds de fin de journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
+        </div>
+
+      </div>
+      <!-- /col-3 -->
+
+    </div>
+    <!-- /grid-wrapper -->
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER ÉDITORIAL
+  ══════════════════════════════════════════════════════════════ -->
+  <footer id="site-footer" role="contentinfo">
+    <hr class="footer-rule" />
+    <div class="footer-inner">
+
+      <!-- Signature -->
+      <p class="footer-signature">
+        Photographer &amp; Filmmaker<br />
+        Based in Paris
+      </p>
+
+      <!-- Liens sociaux SVG -->
+      <div class="footer-socials" aria-label="Réseaux sociaux">
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/owen.peria/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram de Owen Peria"
+          id="link-instagram"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <!-- TikTok -->
+        <a
+          href="https://www.tiktok.com/@owen.peria"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok de Owen Peria"
+          id="link-tiktok"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.26 8.26 0 0 0 4.84 1.55V6.79a4.84 4.84 0 0 1-1.07-.1z"/>
+          </svg>
+        </a>
+
+        <!-- Mail -->
+        <a
+          href="mailto:Owenperia27@gmail.com"
+          aria-label="Envoyer un email à Owen Peria"
+          id="link-email"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT — HAMBURGER & ACCORDÉON MOBILE
+  ══════════════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Hamburger principal ─────────────────────────────── */
+      var btnHamburger = document.getElementById('btn-hamburger');
+      var navMobile    = document.getElementById('nav-mobile');
+      var siteHeader   = document.getElementById('site-header');
+
+      if (!btnHamburger || !navMobile) return;
+
+      function openMenu() {
+        btnHamburger.classList.add('is-open');
+        navMobile.classList.add('is-open');
+        btnHamburger.setAttribute('aria-expanded', 'true');
+        btnHamburger.setAttribute('aria-label', 'Fermer le menu');
+      }
+
+      function closeMenu() {
+        btnHamburger.classList.remove('is-open');
+        navMobile.classList.remove('is-open');
+        btnHamburger.setAttribute('aria-expanded', 'false');
+        btnHamburger.setAttribute('aria-label', 'Ouvrir le menu');
+        /* Ferme aussi le sous-menu accordéon */
+        closeLiveSubmenu();
+      }
+
+      function toggleMenu() {
+        navMobile.classList.contains('is-open') ? closeMenu() : openMenu();
+      }
+
+      btnHamburger.addEventListener('click', toggleMenu);
+
+      /* Fermeture au clic extérieur */
+      document.addEventListener('click', function (e) {
+        if (siteHeader && !siteHeader.contains(e.target)) closeMenu();
+      });
+
+      /* Fermeture sur un lien (sauf le trigger accordéon) */
+      navMobile.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      /* Fermeture si viewport > mobile */
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) closeMenu();
+      });
+
+      /* Fermeture avec Échap */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      /* ── Accordéon mobile : Live & Nightlife ─────────────── */
+      var liveTrigger  = document.getElementById('mobile-live-trigger');
+      var liveSubmenu  = document.getElementById('mobile-live-submenu');
+      var liveItem     = document.getElementById('mobile-live-item');
+
+      function openLiveSubmenu() {
+        if (!liveSubmenu || !liveItem || !liveTrigger) return;
+        liveSubmenu.classList.add('is-open');
+        liveItem.classList.add('is-open');
+        liveTrigger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeLiveSubmenu() {
+        if (!liveSubmenu || !liveItem || !liveTrigger) return;
+        liveSubmenu.classList.remove('is-open');
+        liveItem.classList.remove('is-open');
+        liveTrigger.setAttribute('aria-expanded', 'false');
+      }
+
+      if (liveTrigger) {
+        liveTrigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          liveItem.classList.contains('is-open')
+            ? closeLiveSubmenu()
+            : openLiveSubmenu();
+        });
+      }
+
+      /* ── Dropdown desktop : accessibilité clavier ────────── */
+      var dropdownLive = document.getElementById('dropdown-live');
+      var navTrigger   = dropdownLive ? dropdownLive.querySelector('.nav-trigger') : null;
+
+      if (navTrigger) {
+        navTrigger.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            var expanded = navTrigger.getAttribute('aria-expanded') === 'true';
+            navTrigger.setAttribute('aria-expanded', String(!expanded));
+          }
+        });
+      }
+
+    }());
+  </script>
+
+</body>
+</html>
