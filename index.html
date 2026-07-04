@@ -585,6 +585,27 @@
       }
     }
 
+  
+    @media (max-width: 767px) {
+      #gallery {
+        padding: 0.75rem !important;
+      }
+      .grid-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem !important;
+      }
+      .grid-item {
+        height: auto !important;
+        aspect-ratio: 3/4 !important;
+        will-change: transform;
+        overflow: hidden;
+      }
+      .grid-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+    }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -647,7 +668,6 @@
             alt="Portrait profil en noir et blanc épuré"
             loading="eager"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -657,7 +677,6 @@
             alt="Concert — lumières bleues plein phare"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -667,7 +686,6 @@
             alt="Street — plan serré style urbain"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -677,7 +695,6 @@
             alt="Portrait — lumière et ombre studio douce"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -687,7 +704,6 @@
             alt="Scène de nuit contrastée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -697,7 +713,6 @@
             alt="Architecture — entrée géométrique"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -707,7 +722,6 @@
             alt="Portrait éditorial — tons verts"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -718,7 +732,6 @@
             alt="Vue du dessus — foule et ombres portées"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
         <div class="grid-item mobile-extra">
@@ -727,7 +740,6 @@
             alt="Silhouette mode extérieur"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
         <div class="grid-item mobile-extra">
@@ -736,7 +748,6 @@
             alt="Street — action et guitare de rue"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
         <div class="grid-item mobile-extra">
@@ -745,7 +756,6 @@
             alt="Détail — tons chauds de fin de journée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -761,7 +771,6 @@
             alt="Portrait serré aux reflets roses et néons"
             loading="eager"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -771,7 +780,6 @@
             alt="Street — composition drapeau"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -781,7 +789,6 @@
             alt="Graphique — tunnel de traits de lumière fins"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -791,7 +798,6 @@
             alt="Street — perspective dôme en journée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -801,7 +807,6 @@
             alt="Concert — artiste micro en main"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -811,7 +816,6 @@
             alt="Street / life — scène de mouvement"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -821,7 +825,6 @@
             alt="Intérieur — cadrage lignes de fuite"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -832,7 +835,6 @@
             alt="Artiste — flash direct et fond rouge saturé"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
         <div class="grid-item mobile-extra">
@@ -841,7 +843,6 @@
             alt="Street — homme à vélo sur le pont"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
         <div class="grid-item mobile-extra">
@@ -850,7 +851,6 @@
             alt="Mode — perspective urbaine colorée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -866,7 +866,6 @@
             alt="Vue du dessus — foule et ombres portées"
             loading="eager"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -876,7 +875,6 @@
             alt="Artiste — flash direct et fond rouge saturé"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -886,7 +884,6 @@
             alt="Silhouette mode extérieur"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -896,7 +893,6 @@
             alt="Street — homme à vélo sur le pont"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -906,7 +902,6 @@
             alt="Street — action et guitare de rue"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -916,7 +911,6 @@
             alt="Mode — perspective urbaine colorée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
@@ -926,7 +920,6 @@
             alt="Détail — tons chauds de fin de journée"
             loading="lazy"
             decoding="async"
-            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
           />
         </div>
 
