@@ -6,22 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Owen Peria — Photographer, Filmmaker. Live &amp; Nightlife, Studio &amp; Editorial, Street Photography. Based in Paris." />
-  <meta name="author" content="Owen Peria" />
-  <meta property="og:title" content="Owen Peria — Photographer, Filmmaker" />
-  <meta property="og:description"
-    content="Photography portfolio and artistic direction: live &amp; nightlife, studio &amp; editorial, personal projects." />
-  <meta property="og:type" content="website" />
   <title>Owen Peria — Photographer, Filmmaker</title>
 
-  <!-- Google Fonts : Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─────────────────────────────────────────────────────────────
-       POLICE LOCALE : PLIANT (Variable Font)
-    ───────────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Pliant';
       src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
@@ -38,13 +29,6 @@
       font-display: swap;
     }
 
-    .font-pliant {
-      font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       RESET GLOBAL
-    ───────────────────────────────────────────────────────────── */
     *,
     *::before,
     *::after {
@@ -56,16 +40,13 @@
     html {
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
       scroll-behavior: smooth;
     }
 
     body {
       background-color: #ffffff;
       color: #000000;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 400;
+      font-family: 'Inter', sans-serif;
       min-height: 100vh;
       -webkit-overflow-scrolling: touch;
     }
@@ -75,15 +56,7 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       HEADER (Statique)
-    ───────────────────────────────────────────────────────────── */
+    /* HEADER */
     #site-header {
       position: static;
       width: 100%;
@@ -114,7 +87,6 @@
       flex-shrink: 0;
     }
 
-    /* Navigation Desktop */
     .nav-desktop {
       display: flex;
       align-items: center;
@@ -138,7 +110,6 @@
       color: #ffffff;
     }
 
-    /* Dropdown */
     .nav-item-dropdown {
       position: relative;
     }
@@ -211,7 +182,7 @@
       color: #ffffff;
     }
 
-    /* Hamburger Mobile */
+    /* MENU MOBILE */
     .btn-hamburger {
       display: none;
       flex-direction: column;
@@ -314,10 +285,6 @@
       transition: 0.15s ease;
     }
 
-    .mobile-submenu li:last-child a {
-      border-bottom: none;
-    }
-
     .mobile-submenu li a:hover {
       background-color: #000000;
       color: #ffffff;
@@ -336,46 +303,48 @@
     }
 
     /* ─────────────────────────────────────────────────────────────
-       GALERIE — MAÇONNERIE PURE (ZÉRO HACK)
+       GALERIE — CSS MASONRY NATIVE (MÉTHODE FRANCOFOLIES)
     ───────────────────────────────────────────────────────────── */
     #gallery {
-      padding: 3rem;
-    }
-
-    .grid-wrapper {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .grid-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    /* Plus de contain: paint, plus de min-height, juste une boîte propre */
-    .grid-item {
-      display: block;
       width: 100%;
-      position: relative;
+      margin: 0 auto;
     }
 
-    .grid-item img {
-      display: block;
+    .masonry-gallery {
+      column-count: 2;
+      column-gap: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .masonry-gallery {
+        column-count: 3;
+        column-gap: 1.5rem;
+        padding: 3rem;
+      }
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 0.75rem;
+      transform: translateZ(0);
+      /* Sécurise le GPU iOS */
+    }
+
+    @media (min-width: 768px) {
+      .masonry-item {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .masonry-item img {
       width: 100%;
       height: auto;
+      display: block;
       object-fit: cover;
     }
 
-    .mobile-extra {
-      display: none;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────────────────────────── */
+    /* FOOTER */
     #site-footer {
       margin-top: 6rem;
       margin-bottom: 3rem;
@@ -427,9 +396,6 @@
       fill: #000000;
     }
 
-    /* ─────────────────────────────────────────────────────────────
-       RESPONSIVE MOBILE (< 768px)
-    ───────────────────────────────────────────────────────────── */
     @media (max-width: 767px) {
       .header-inner {
         padding: 1rem;
@@ -445,27 +411,6 @@
 
       .nav-mobile {
         display: flex;
-      }
-
-      #gallery {
-        padding: 0.75rem;
-      }
-
-      .grid-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.6rem;
-      }
-
-      .grid-col {
-        gap: 0.6rem;
-      }
-
-      #col-3 {
-        display: none;
-      }
-
-      .mobile-extra {
-        display: block;
       }
 
       #site-footer {
@@ -486,15 +431,6 @@
         padding: 1.25rem 2rem;
       }
 
-      #gallery {
-        padding: 2rem;
-      }
-
-      .grid-wrapper,
-      .grid-col {
-        gap: 1rem;
-      }
-
       #site-footer {
         padding: 0 2rem;
       }
@@ -505,27 +441,16 @@
         padding: 1.75rem 4rem;
       }
 
-      #gallery {
-        padding: 3rem 4rem;
-      }
-
-      .grid-wrapper,
-      .grid-col {
-        gap: 2rem;
-      }
-
       #site-footer {
         padding: 0 4rem;
         margin-top: 8rem;
       }
     }
   </style>
-
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-
   <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
     <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
       <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;"
@@ -575,81 +500,50 @@
     </div>
   </header>
 
+  <!-- GALERIE APLATIE (SANS COLONNES HTML) -->
   <main id="gallery" role="main">
-    <div class="grid-wrapper">
-
-      <!-- COLONNE 1 -->
-      <div class="grid-col" id="col-1">
-        <div class="grid-item"><img src="assets/DSC07978.webp" alt="Portrait profil" loading="eager" decoding="async" style="aspect-ratio: 2640/3300;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC03180-5.webp" alt="Concert lumières bleues"
-            decoding="async" loading="lazy" style="aspect-ratio: 6000/4000;" /></div>
-        <div class="grid-item"><img src="assets/SIM01217.webp" alt="Street plan serré"
-            decoding="async" loading="lazy" style="aspect-ratio: 4672/6382;" /></div>
-        <div class="grid-item"><img src="assets/DSC00318.webp" alt="Portrait lumière douce"
-            decoding="async" loading="lazy" style="aspect-ratio: 2872/3860;" /></div>
-        <div class="grid-item"><img src="assets/HR9A0769.webp" alt="Scène de nuit" decoding="async" loading="lazy" style="aspect-ratio: 5464/8192;" />
-        </div>
-        <div class="grid-item"><img src="assets/HR9A0808.webp" alt="Architecture" decoding="async" loading="lazy" style="aspect-ratio: 5464/8192;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC04588.webp" alt="Portrait éditorial"
-            decoding="async" loading="lazy" style="aspect-ratio: 4000/5313;" /></div>
-
-        <!-- Mobile extra -->
-        <div class="grid-item mobile-extra"><img src="assets/DSC05094.webp" alt="Vue du dessus"
-            decoding="async" loading="lazy" style="aspect-ratio: 4672/7008;" /></div>
-        <div class="grid-item mobile-extra"><img src="assets/DSC00231.webp" alt="Silhouette mode"
-            decoding="async" loading="lazy" style="aspect-ratio: 2422/3162;" /></div>
-        <div class="grid-item mobile-extra"><img src="assets/SIM02244.webp" alt="Street action"
-            decoding="async" loading="lazy" style="aspect-ratio: 1211/1518;" /></div>
-        <div class="grid-item mobile-extra"><img src="assets/HR9A0963.webp" alt="Détail tons chauds"
-            decoding="async" loading="lazy" style="aspect-ratio: 4396/6584;" /></div>
+    <div class="masonry-gallery">
+      <!-- 21 images chargées naturellement par le navigateur -->
+      <div class="masonry-item"><img src="assets/DSC07978.webp" alt="Portrait profil" loading="eager"
+          decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/DSC03180-5.webp" alt="Concert" loading="eager" decoding="async" />
       </div>
-
-      <!-- COLONNE 2 -->
-      <div class="grid-col" id="col-2">
-        <div class="grid-item"><img src="assets/DSC08492.webp" alt="Portrait néons" loading="eager" decoding="async" style="aspect-ratio: 1075/1433;" />
-        </div>
-        <div class="grid-item"><img src="assets/SIM01733.webp" alt="Street drapeau" decoding="async" loading="lazy" style="aspect-ratio: 4238/6357;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC08908-Modifier.webp" alt="Graphique tunnel"
-            decoding="async" loading="lazy" style="aspect-ratio: 6397/7230;" /></div>
-        <div class="grid-item"><img src="assets/HR9A0911.webp" alt="Street perspective"
-            decoding="async" loading="lazy" style="aspect-ratio: 3662/4621;" /></div>
-        <div class="grid-item"><img src="assets/DSC05214.webp" alt="Concert artiste" decoding="async" loading="lazy" style="aspect-ratio: 4433/5911;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSCF2573.webp" alt="Street mouvement" decoding="async" loading="lazy" style="aspect-ratio: 8736/11648;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC08891.webp" alt="Intérieur lignes" decoding="async" loading="lazy" style="aspect-ratio: 4024/6036;" />
-        </div>
-
-        <!-- Mobile extra -->
-        <div class="grid-item mobile-extra"><img src="assets/DSC08603.webp" alt="Artiste flash"
-            decoding="async" loading="lazy" style="aspect-ratio: 1372/1830;" /></div>
-        <div class="grid-item mobile-extra"><img src="assets/SIM01938.webp" alt="Street vélo"
-            decoding="async" loading="lazy" style="aspect-ratio: 7008/4672;" /></div>
-        <div class="grid-item mobile-extra"><img src="assets/DSC09915.webp" alt="Mode urbain"
-            decoding="async" loading="lazy" style="aspect-ratio: 4128/5504;" /></div>
+      <div class="masonry-item"><img src="assets/SIM01217.webp" alt="Street urbain" loading="eager" decoding="async" />
       </div>
-
-      <!-- COLONNE 3 -->
-      <div class="grid-col" id="col-3">
-        <div class="grid-item"><img src="assets/DSC05094.webp" alt="Vue du dessus" decoding="async" loading="lazy" style="aspect-ratio: 4672/7008;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC08603.webp" alt="Artiste flash" decoding="async" loading="lazy" style="aspect-ratio: 1372/1830;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC00231.webp" alt="Silhouette mode" decoding="async" loading="lazy" style="aspect-ratio: 2422/3162;" />
-        </div>
-        <div class="grid-item"><img src="assets/SIM01938.webp" alt="Street vélo" decoding="async" loading="lazy" style="aspect-ratio: 7008/4672;" />
-        </div>
-        <div class="grid-item"><img src="assets/SIM02244.webp" alt="Street action" decoding="async" loading="lazy" style="aspect-ratio: 1211/1518;" />
-        </div>
-        <div class="grid-item"><img src="assets/DSC09915.webp" alt="Mode urbain" decoding="async" loading="lazy" style="aspect-ratio: 4128/5504;" />
-        </div>
-        <div class="grid-item"><img src="assets/HR9A0963.webp" alt="Détail tons chauds"
-            decoding="async" loading="lazy" style="aspect-ratio: 4396/6584;" /></div>
+      <div class="masonry-item"><img src="assets/DSC00318.webp" alt="Portrait studio" loading="eager"
+          decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/HR9A0769.webp" alt="Scène nuit" loading="lazy" decoding="async" />
       </div>
-
+      <div class="masonry-item"><img src="assets/HR9A0808.webp" alt="Architecture" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC04588.webp" alt="Portrait vert" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC08492.webp" alt="Portrait néons" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/SIM01733.webp" alt="Street drapeau" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC08908-Modifier.webp" alt="Tunnel lumière" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/HR9A0911.webp" alt="Perspective dôme" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/DSC05214.webp" alt="Concert micro" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSCF2573.webp" alt="Mouvement" loading="lazy" decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/DSC08891.webp" alt="Lignes de fuite" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC05094.webp" alt="Vue foule" loading="lazy" decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/DSC08603.webp" alt="Artiste flash" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC00231.webp" alt="Silhouette mode" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/SIM01938.webp" alt="Homme vélo" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/SIM02244.webp" alt="Guitare rue" loading="lazy" decoding="async" />
+      </div>
+      <div class="masonry-item"><img src="assets/DSC09915.webp" alt="Mode perspective" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item"><img src="assets/HR9A0963.webp" alt="Détail tons chauds" loading="lazy"
+          decoding="async" /></div>
     </div>
   </main>
 
@@ -662,20 +556,19 @@
       </p>
       <div class="footer-socials" aria-label="Réseaux sociaux">
         <a href="https://www.instagram.com/owen.peria/" target="_blank" rel="noopener noreferrer"
-          aria-label="Instagram de Owen Peria">
+          aria-label="Instagram">
           <svg viewBox="0 0 24 24">
             <path
               d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
           </svg>
         </a>
-        <a href="https://www.tiktok.com/@owen.peria" target="_blank" rel="noopener noreferrer"
-          aria-label="TikTok de Owen Peria">
+        <a href="https://www.tiktok.com/@owen.peria" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
           <svg viewBox="0 0 24 24">
             <path
               d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.26 8.26 0 0 0 4.84 1.55V6.79a4.84 4.84 0 0 1-1.07-.1z" />
           </svg>
         </a>
-        <a href="mailto:Owenperia27@gmail.com" aria-label="Envoyer un email à Owen Peria">
+        <a href="mailto:Owenperia27@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24">
             <path
               d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
