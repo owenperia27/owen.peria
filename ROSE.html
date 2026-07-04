@@ -68,6 +68,8 @@
     img {
       display: block;
       max-width: 100%;
+      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
+      contain: layout paint;
     }
 
         /* ─────────────────────────────────────────────────────────────
@@ -580,8 +582,18 @@
       }
     }
 
+  
+    /* SAFARI MEMORY FIXES */
+    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .grid-item img, #gallery img, main img {
+      contain: layout paint;
+    }
+    
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
 </head>
 
 <body>
@@ -638,39 +650,39 @@
 
         <!-- Colonne A mobile (15 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Rose Festival 2025" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="eager" decoding="async" fetchpriority="high" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2724 / 3625;" loading="eager" decoding="async" fetchpriority="high" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2837 / 3755;" loading="eager" decoding="async" fetchpriority="high" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 5386;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4528 / 6701;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 1075 / 1433;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 1673 / 1655;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4103 / 5506;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2392 / 2976;" loading="lazy" decoding="async" /></div>
         </div><!-- /mobile col-A -->
 
         <!-- Colonne B mobile (14 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Rose Festival 2025" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 5826 / 7887;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4656 / 6312;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4652 / 5892;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4369 / 5778;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2643 / 3701;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /mobile col-B -->
 
       </div><!-- /mobile-grid -->
@@ -682,43 +694,43 @@
 
         <!-- Colonne 1 desktop (10 images — DSC05030 en pos. 6) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Rose Festival 2025" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2724 / 3625;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2837 / 3755;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 5386;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4528 / 6701;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-1 -->
 
         <!-- Colonne 2 desktop (10 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Rose Festival 2025" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 1075 / 1433;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 1673 / 1655;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4103 / 5506;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2392 / 2976;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Rose Festival 2025" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 5826 / 7887;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4656 / 6312;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4652 / 5892;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-2 -->
 
         <!-- Colonne 3 desktop (9 images — DSC05094 au milieu) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Rose Festival 2025" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Rose Festival 2025" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4369 / 5778;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 2643 / 3701;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Rose Festival 2025" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-3 -->
 
       </div><!-- /desktop-grid -->

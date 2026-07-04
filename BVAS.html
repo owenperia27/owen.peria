@@ -68,6 +68,8 @@
     img {
       display: block;
       max-width: 100%;
+      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
+      contain: layout paint;
     }
 
         /* ─────────────────────────────────────────────────────────────
@@ -580,8 +582,18 @@
       }
     }
 
+  
+    /* SAFARI MEMORY FIXES */
+    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .grid-item img, #gallery img, main img {
+      contain: layout paint;
+    }
+    
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
 </head>
 
 <body>
@@ -646,7 +658,7 @@
              iframe.classList.remove('hidden');
              this.classList.add('hidden');
            ">
-        <img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars - Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101">
+        <img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars - Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101" style="height: auto; aspect-ratio: 6930 / 4620;" loading="eager" decoding="async" fetchpriority="high" />
         <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
           <svg class="w-14 h-14 text-white opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
@@ -669,28 +681,28 @@
 
         <!-- Colonne A mobile (9 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4461 / 6691;" loading="eager" decoding="async" fetchpriority="high" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4566 / 6450;" loading="eager" decoding="async" fetchpriority="high" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4439 / 6557;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 6557 / 4439;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 1211 / 1518;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4118 / 5993;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4461 / 6691;" loading="lazy" decoding="async" /></div>
         </div><!-- /mobile col-A -->
 
         <!-- Colonne B mobile (9 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4090 / 6135;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 6930 / 4620;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4001 / 5760;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4383 / 6574;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4125 / 6093;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4238 / 6357;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /mobile col-B -->
 
       </div><!-- /mobile-grid -->
@@ -702,32 +714,32 @@
 
         <!-- Colonne 1 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4461 / 6691;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4566 / 6450;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4439 / 6557;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 6557 / 4439;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-1 -->
 
         <!-- Colonne 2 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 1211 / 1518;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4118 / 5993;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4461 / 6691;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4090 / 6135;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 6930 / 4620;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4001 / 5760;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-2 -->
 
         <!-- Colonne 3 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="eager" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4383 / 6574;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4125 / 6093;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4238 / 6357;" loading="lazy" decoding="async" /></div>
+          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Buena Vista All Stars — Rio Loco Toulouse" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" /></div>
         </div><!-- /desktop col-3 -->
 
       </div><!-- /desktop-grid -->

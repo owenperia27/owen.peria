@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OWEN PERIA — INFO & PROCESS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
   <style>
     @font-face {
       font-family: 'Pliant';
@@ -31,6 +31,21 @@
     body {
       background-color: #FFFFFF;
     }
+
+    /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
+    img {
+      contain: layout paint;
+    }
+  
+    /* SAFARI MEMORY FIXES */
+    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .grid-item img, #gallery img, main img {
+      contain: layout paint;
+    }
+    
   </style>
 </head>
 
@@ -74,7 +89,7 @@
     <section class="w-full max-w-5xl mx-auto px-4 md:px-12 my-16">
       <div class="bg-black text-white grid grid-cols-1 md:grid-cols-12 overflow-hidden">
         <div class="md:col-span-5 relative aspect-square md:aspect-auto min-h-[350px] bg-neutral-900">
-          <img src="personal/HR9A0766.webp" alt="Owen Peria" class="w-full h-full object-cover grayscale opacity-90">
+          <img src="personal/HR9A0766.webp" alt="Owen Peria" class="w-full h-full object-cover grayscale opacity-90" style="height: auto; aspect-ratio: 4788 / 5893;" loading="eager" decoding="async" fetchpriority="high" />
         </div>
         <div class="md:col-span-7 p-8 md:p-16 flex flex-col justify-between space-y-12">
           <div class="space-y-4">

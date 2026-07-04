@@ -68,6 +68,8 @@
     img {
       display: block;
       max-width: 100%;
+      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
+      contain: layout paint;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -90,6 +92,24 @@
     .mb-6 { margin-bottom: 1.5rem; }
     .h-auto { height: auto; }
     .object-cover { object-fit: cover; }
+    /* ── Règle 1 : Hardware Acceleration sur colonnes masonry */
+    .columns-2, .md\:columns-3 {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    /* Règle 4 : Dimensions stables sur toutes les images masonry */
+    .break-inside-avoid img {
+      width: 100%;
+      height: auto;
+      /* ── Règle 4 : aspect-ratio safe-mode */
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+    }
+    /* ── Règle 1 : Calque GPU par item masonry */
+    .break-inside-avoid {
+      will-change: transform;
+      transform: translateZ(0);
+    }
 
     @media (min-width: 768px) {
       .md\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
@@ -505,8 +525,18 @@
       }
     }
 
+  
+    /* SAFARI MEMORY FIXES */
+    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .grid-item img, #gallery img, main img {
+      contain: layout paint;
+    }
+    
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
 </head>
 
 <body>
@@ -551,39 +581,39 @@
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Viola — Designed by Celena Presti</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00231.webp" class="w-full h-auto object-cover" loading="eager" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00115.webp" class="w-full h-auto object-cover" loading="eager" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00298.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00318.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00132.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00108.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00304-2.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00328.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC00127.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00231.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 2422 / 3162;" loading="eager" decoding="async" fetchpriority="high" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00115.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 2600;" loading="eager" decoding="async" fetchpriority="high" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00298.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 6000;" loading="eager" decoding="async" fetchpriority="high" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00318.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 2872 / 3860;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00132.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00108.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00304-2.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00328.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 3686 / 4917;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00127.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
   </div>
 
   <div class="w-full text-center my-16">
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Pavl — Cover Story</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04369.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04588.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04527.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04845-Modifier.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04736-2.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04454.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04862-Modifier.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC04613.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04369.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04588.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 5313;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04527.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 4964;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04845-Modifier.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 6228 / 8410;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04736-2.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 1080 / 1350;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04454.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 4351;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04862-Modifier.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 6330 / 6968;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04613.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 4391;" loading="lazy" decoding="async" /></div>
   </div>
 
   <div class="w-full text-center my-16">
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Street Editorial</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC03681.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC03713.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC03834.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
-      <div class="break-inside-avoid mb-6"><img src="studio/DSC03921.webp" class="w-full h-auto object-cover" loading="lazy" decoding="async"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03681.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 3669 / 5586;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03713.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03834.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 3821 / 5685;" loading="lazy" decoding="async" /></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03921.webp" class="w-full h-auto object-cover" style="height: auto; aspect-ratio: 3614 / 5529;" loading="lazy" decoding="async" /></div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════

@@ -68,6 +68,8 @@
     img {
       display: block;
       max-width: 100%;
+      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
+      contain: layout paint;
     }
 
         /* ─────────────────────────────────────────────────────────────
@@ -379,12 +381,18 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       align-items: start;
+      /* ── Règle 1 : Hardware Acceleration — calque de composition matériel */
+      will-change: transform;
+      transform: translateZ(0);
     }
 
     .grid-col {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      /* ── Règle 1 : Isolation mémoire par colonne */
+      will-change: transform;
+      transform: translateZ(0);
     }
 
     .grid-item {
@@ -392,14 +400,19 @@
       width: 100%;
       line-height: 0;
       overflow: hidden;
+      /* ── Règle 1 : Calque GPU isolé par item */
+      will-change: transform;
+      transform: translateZ(0);
     }
 
-    /* Zéro effet au survol */
+    /* Règle 2 + 4 : contain paint + dimensions safe-mode */
     .grid-item img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: cover;
+      /* ── Règle 4 : Dimensions stables — empêche Safari de calculer des tailles erronées */
+      aspect-ratio: 2 / 3;
     }
 
     /* Desktop : masquer les blocs réservés au mobile */
@@ -578,8 +591,18 @@
       }
     }
 
+  
+    /* SAFARI MEMORY FIXES */
+    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .grid-item img, #gallery img, main img {
+      contain: layout paint;
+    }
+    
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
 </head>
 
 <body>
@@ -623,242 +646,242 @@
     <div class="grid-wrapper">
       <div class="grid-col" id="col-1">
         <div class="grid-item">
-          <img src="artists/DSC00022.webp" alt="Artist photography" loading="eager" decoding="async" />
+          <img src="artists/DSC00022.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="eager" decoding="async" fetchpriority="high" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08806.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08806.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4526 / 5730;" loading="eager" decoding="async" fetchpriority="high" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00089.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00089.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="eager" decoding="async" fetchpriority="high" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00101.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00101.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1401 / 1871;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00197.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00197.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3888 / 5109;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00306-2.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00306-2.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00595.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00595.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3064 / 4086;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC05308.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05308.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4312 / 6468;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC01011.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC01011.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4230 / 5586;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC01016.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC01016.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC01624.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC01624.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4286 / 5715;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC02047.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC02047.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 1837;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC07978.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07978.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2640 / 3300;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC02983.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC02983.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3273 / 4922;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC03163-2.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC03163-2.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1709 / 2284;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC03180-2.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC03180-2.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC03180-5.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC03180-5.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC03198.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC03198.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1542 / 2520;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC03717.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC03717.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3695 / 5679;" loading="lazy" decoding="async" />
         </div>
 
         <!-- ─ Mobile extra : col-3 images redistributed (col-1) ─ -->
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC05125.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05125.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4090 / 5825;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09798.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09798.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1557 / 1963;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08502-2.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08502-2.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2339 / 2614;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08603.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08603.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1372 / 1830;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08618.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08618.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4059 / 5412;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08765.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08765.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2924 / 3784;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08823.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08823.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4302 / 5047;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC07193.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07193.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4161 / 5674;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC08913.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08913.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3899 / 5848;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09062.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09062.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2044 / 2726;" loading="lazy" decoding="async" />
         </div>
       </div>
 
       <div class="grid-col" id="col-2">
         <div class="grid-item">
-          <img src="artists/DSC00767.webp" alt="Artist photography" loading="eager" decoding="async" />
+          <img src="artists/DSC00767.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1765 / 2745;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC05167.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05167.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC05177.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05177.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3881 / 5204;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC05214.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05214.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4433 / 5911;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC05329.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC05329.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06600.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06600.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06064.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06064.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06626.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06626.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3763 / 5255;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06723.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06723.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2838 / 3274;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06852-Modifier.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06852-Modifier.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3978 / 4965;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06900.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06900.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08501 modifier.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08501 modifier.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 5931 / 7414;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC06915.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC06915.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4803 / 6016;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC07307.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07307.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2241 / 2930;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC07591.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07591.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 5087 / 6106;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08908-Modifier.webp" alt="Artist photography" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast;" />
+          <img src="artists/DSC08908-Modifier.webp" alt="Artist photography" style="image-rendering: -webkit-optimize-contrast ; height: auto; aspect-ratio: 6397 / 7230;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC07871.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07871.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3755 / 5007;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08052.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08052.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 6267;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08449.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08449.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4460 / 5927;" loading="lazy" decoding="async" />
         </div>
 
         <!-- ─ Mobile extra : col-3 images redistributed (col-2) ─ -->
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09110.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09110.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3544 / 4725;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09209.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09209.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4121 / 2644;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09457.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09457.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2096 / 2859;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09809.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09809.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09818.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09818.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4055 / 5626;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC09847.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09847.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC00595.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00595.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3064 / 4086;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC00772.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00772.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="artists/DSC00800.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00800.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
       </div>
 
       <div class="grid-col" id="col-3">
         <div class="grid-item">
-          <img src="artists/DSC05125.webp" alt="Artist photography" loading="eager" decoding="async" />
+          <img src="artists/DSC05125.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4090 / 5825;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09798.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09798.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1557 / 1963;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08502-2.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08502-2.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2339 / 2614;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08603.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08603.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 1372 / 1830;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08618.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08618.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4059 / 5412;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08765.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08765.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2924 / 3784;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08823.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08823.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4302 / 5047;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC07193.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC07193.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4161 / 5674;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC08913.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC08913.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3899 / 5848;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09062.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09062.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2044 / 2726;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09110.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09110.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3544 / 4725;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09209.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09209.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4121 / 2644;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09457.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09457.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 2096 / 2859;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09809.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09809.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 6000 / 4000;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09818.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09818.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4055 / 5626;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC09847.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC09847.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00595.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00595.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 3064 / 4086;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00772.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00772.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
         <div class="grid-item">
-          <img src="artists/DSC00800.webp" alt="Artist photography" loading="lazy" decoding="async" />
+          <img src="artists/DSC00800.webp" alt="Artist photography" / style="height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
         </div>
       </div>
 
