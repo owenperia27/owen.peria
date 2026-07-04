@@ -303,7 +303,7 @@
     }
 
     /* ─────────────────────────────────────────────────────────────
-       GALERIE — CSS MASONRY NATIVE (MÉTHODE FRANCOFOLIES)
+       GALERIE — CSS MASONRY STRICTE
     ───────────────────────────────────────────────────────────── */
     #gallery {
       width: 100%;
@@ -327,8 +327,10 @@
     .masonry-item {
       break-inside: avoid;
       margin-bottom: 0.75rem;
-      transform: translateZ(0);
-      /* Sécurise le GPU iOS */
+      background-color: #f0f0f0;
+      /* Fond neutre pendant le chargement */
+      border-radius: 2px;
+      overflow: hidden;
     }
 
     @media (min-width: 768px) {
@@ -337,11 +339,20 @@
       }
     }
 
+    /* Le secret est ici : Les classes forcent les ratios AVANT le chargement */
+    .portrait {
+      aspect-ratio: 3/4;
+    }
+
+    .landscape {
+      aspect-ratio: 4/3;
+    }
+
     .masonry-item img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     /* FOOTER */
@@ -500,49 +511,54 @@
     </div>
   </header>
 
-  <!-- GALERIE APLATIE (SANS COLONNES HTML) -->
   <main id="gallery" role="main">
     <div class="masonry-gallery">
-      <!-- 21 images chargées naturellement par le navigateur -->
-      <div class="masonry-item"><img src="assets/DSC07978.webp" alt="Portrait profil" loading="eager"
+      <!-- Les images reçoivent leur ratio exact avant le chargement -->
+      <div class="masonry-item portrait"><img src="assets/DSC07978.webp" alt="Portrait profil" loading="eager"
           decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/DSC03180-5.webp" alt="Concert" loading="eager" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/SIM01217.webp" alt="Street urbain" loading="eager" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC00318.webp" alt="Portrait studio" loading="eager"
+      <div class="masonry-item portrait"><img src="assets/DSC03180-5.webp" alt="Concert" loading="eager"
           decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0769.webp" alt="Scène nuit" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/HR9A0808.webp" alt="Architecture" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC04588.webp" alt="Portrait vert" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC08492.webp" alt="Portrait néons" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/SIM01733.webp" alt="Street drapeau" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC08908-Modifier.webp" alt="Tunnel lumière" loading="lazy"
+      <div class="masonry-item landscape"><img src="assets/SIM01217.webp" alt="Street urbain" loading="eager"
           decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0911.webp" alt="Perspective dôme" loading="lazy"
+      <div class="masonry-item portrait"><img src="assets/DSC00318.webp" alt="Portrait studio" loading="eager"
           decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/DSC05214.webp" alt="Concert micro" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSCF2573.webp" alt="Mouvement" loading="lazy" decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/DSC08891.webp" alt="Lignes de fuite" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC05094.webp" alt="Vue foule" loading="lazy" decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/DSC08603.webp" alt="Artiste flash" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC00231.webp" alt="Silhouette mode" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/SIM01938.webp" alt="Homme vélo" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/SIM02244.webp" alt="Guitare rue" loading="lazy" decoding="async" />
-      </div>
-      <div class="masonry-item"><img src="assets/DSC09915.webp" alt="Mode perspective" loading="lazy"
+
+      <div class="masonry-item landscape"><img src="assets/HR9A0769.webp" alt="Scène nuit" loading="lazy"
           decoding="async" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0963.webp" alt="Détail tons chauds" loading="lazy"
+      <div class="masonry-item portrait"><img src="assets/HR9A0808.webp" alt="Architecture" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC04588.webp" alt="Portrait vert" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC08492.webp" alt="Portrait néons" loading="lazy"
+          decoding="async" /></div>
+
+      <div class="masonry-item landscape"><img src="assets/SIM01733.webp" alt="Street drapeau" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC08908-Modifier.webp" alt="Tunnel lumière" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/HR9A0911.webp" alt="Perspective dôme" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC05214.webp" alt="Concert micro" loading="lazy"
+          decoding="async" /></div>
+
+      <div class="masonry-item landscape"><img src="assets/DSCF2573.webp" alt="Mouvement" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item landscape"><img src="assets/DSC08891.webp" alt="Lignes de fuite" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item landscape"><img src="assets/DSC05094.webp" alt="Vue foule" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC08603.webp" alt="Artiste flash" loading="lazy"
+          decoding="async" /></div>
+
+      <div class="masonry-item portrait"><img src="assets/DSC00231.webp" alt="Silhouette mode" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item landscape"><img src="assets/SIM01938.webp" alt="Homme vélo" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item landscape"><img src="assets/SIM02244.webp" alt="Guitare rue" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item portrait"><img src="assets/DSC09915.webp" alt="Mode perspective" loading="lazy"
+          decoding="async" /></div>
+      <div class="masonry-item landscape"><img src="assets/HR9A0963.webp" alt="Détail tons chauds" loading="lazy"
           decoding="async" /></div>
     </div>
   </main>
@@ -550,28 +566,13 @@
   <footer id="site-footer" role="contentinfo">
     <hr class="footer-rule" />
     <div class="footer-inner">
-      <p class="footer-signature">
-        Photographer &amp; Filmmaker<br />
-        Based in Paris
-      </p>
+      <p class="footer-signature">Photographer &amp; Filmmaker<br />Based in Paris</p>
       <div class="footer-socials" aria-label="Réseaux sociaux">
         <a href="https://www.instagram.com/owen.peria/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram">
           <svg viewBox="0 0 24 24">
             <path
               d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-          </svg>
-        </a>
-        <a href="https://www.tiktok.com/@owen.peria" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.26 8.26 0 0 0 4.84 1.55V6.79a4.84 4.84 0 0 1-1.07-.1z" />
-          </svg>
-        </a>
-        <a href="mailto:Owenperia27@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
           </svg>
         </a>
       </div>
@@ -586,7 +587,6 @@
       var siteHeader = document.getElementById('site-header');
 
       if (!btnHamburger || !navMobile) return;
-
       function openMenu() { btnHamburger.classList.add('is-open'); navMobile.classList.add('is-open'); }
       function closeMenu() { btnHamburger.classList.remove('is-open'); navMobile.classList.remove('is-open'); }
       function toggleMenu() { navMobile.classList.contains('is-open') ? closeMenu() : openMenu(); }
@@ -596,18 +596,6 @@
       navMobile.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
       window.addEventListener('resize', function () { if (window.innerWidth >= 768) closeMenu(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-
-      var liveTrigger = document.getElementById('mobile-live-trigger');
-      var liveItem = document.getElementById('mobile-live-item');
-      var liveSubmenu = document.getElementById('mobile-live-submenu');
-
-      if (liveTrigger) {
-        liveTrigger.addEventListener('click', function (e) {
-          e.stopPropagation();
-          liveSubmenu.classList.toggle('is-open');
-          liveItem.classList.toggle('is-open');
-        });
-      }
     }());
   </script>
 </body>
