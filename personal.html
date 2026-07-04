@@ -86,7 +86,7 @@
 
   <!-- STRATEGIE DE CURATION DU FLUX (24 Images Harmonisées) -->
   <main class="flex-grow">
-<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]" style="content-visibility: auto; contain-intrinsic-size: auto 3000px;">
+<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]">
   <!-- Top 3 requested -->
   <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
   <div class="break-inside-avoid"><img src="personal/DSCF2648.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
@@ -141,56 +141,6 @@
       © 2026 OWEN PERIA. ALL RIGHTS RESERVED.
     </p>
   </footer>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Sélectionne toutes les images (on suppose que les images de galerie sont les principales)
-    // On peut cibler plus spécifiquement si nécessaire, mais l'instruction dit "de chaque image de la galerie (sauf les 3 premières)"
-    const images = Array.from(document.querySelectorAll("img"));
-    const galleryImages = images.slice(3);
-    
-    // Pixel transparent pour vider le src proprement sans afficher d'icône d'erreur
-    const transparentPixel = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-
-    // Étape A : Stocker le src et vider l'image
-    galleryImages.forEach(img => {
-      if (img.src && !img.getAttribute('data-src')) {
-        img.setAttribute('data-src', img.src);
-        img.src = transparentPixel;
-      }
-    });
-
-    // Observer pour le recyclage
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const img = entry.target;
-        const dataSrc = img.getAttribute('data-src');
-        if (!dataSrc) return;
-        
-        if (entry.isIntersecting) {
-          // Étape B : Injection du src pour affichage
-          if (img.src !== dataSrc) {
-            img.src = dataSrc;
-          }
-        } else {
-          // Étape C : Suppression du src pour libérer la RAM (texture unloading)
-          // On ne le fait que si ce n'est pas déjà le pixel transparent
-          if (img.src !== transparentPixel) {
-            img.src = transparentPixel;
-          }
-        }
-      });
-    }, {
-      rootMargin: "300px 0px 300px 0px", // Précharge légèrement avant l'affichage
-      threshold: 0
-    });
-
-    galleryImages.forEach(img => {
-      observer.observe(img);
-    });
-  });
-</script>
 
 </body>
 
