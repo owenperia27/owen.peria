@@ -373,7 +373,6 @@
       width: 100%;
       line-height: 0;
       overflow: hidden;
-      /* Optimisation native d'isolation de rendu */
       contain: paint;
     }
 
@@ -389,7 +388,7 @@
     }
 
     /* ─────────────────────────────────────────────────────────────
-       FOOTER Éditorial
+       FOOTER 
     ───────────────────────────────────────────────────────────── */
     #site-footer {
       margin-top: 6rem;
@@ -444,7 +443,7 @@
     }
 
     /* ─────────────────────────────────────────────────────────────
-       RESPONSIVE MOBILE FLUIDE (< 768px)
+       RESPONSIVE MOBILE FLUIDE D'ORIGINE (< 768px)
     ───────────────────────────────────────────────────────────── */
     @media (max-width: 767px) {
       .header-inner {
@@ -467,7 +466,6 @@
         padding: 0.75rem;
       }
 
-      /* Conservation parfaite du style maçonnerie asymétrique originale */
       .grid-wrapper {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.6rem !important;
@@ -613,91 +611,104 @@
   </header>
 
   <!-- ═══════════════════════════════════════════════════════════
-       GALERIE — GRILLE AUTOMATIQUE ULTRA-FLUIDE
+       GALERIE — GRILLE PRÉ-CALCULÉE (LAZY-LOADING NATIF FIXÉ)
   ══════════════════════════════════════════════════════════════ -->
   <main id="gallery" role="main">
     <div class="grid-wrapper">
 
       <!-- ─── COLONNE 1 (Gauche) ──────────────────────────── -->
       <div class="grid-col" id="col-1">
-        <div class="grid-item">
-          <img src="assets/DSC07978.webp" alt="Portrait profil en noir et blanc épuré" loading="eager"
-            decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC07978.webp" alt="Portrait profil en noir et blanc épuré" loading="eager" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSC03180-5.webp" alt="Concert — lumières bleues plein phare" loading="lazy"
-            decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC03180-5.webp" alt="Concert — lumières bleues plein phare" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/SIM01217.webp" alt="Street — plan serré style urbain" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/SIM01217.webp" alt="Street — plan serré style urbain" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSC00318.webp" alt="Portrait — lumière et ombre studio douce" loading="lazy"
-            decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC00318.webp" alt="Portrait — lumière et ombre studio douce" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/HR9A0769.webp" alt="Scène de nuit contrastée" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/HR9A0769.webp" alt="Scène de nuit contrastée" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/HR9A0808.webp" alt="Architecture — entrée géométrique" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/HR9A0808.webp" alt="Architecture — entrée géométrique" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSC04588.webp" alt="Portrait éditorial — tons verts" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC04588.webp" alt="Portrait éditorial — tons verts" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
 
         <!-- Mobile extra -->
-        <div class="grid-item mobile-extra">
-          <img src="assets/DSC05094.webp" alt="Vue du dessus — foule et ombres portées" loading="lazy"
-            decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/DSC05094.webp" alt="Vue du dessus — foule et ombres portées" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item mobile-extra">
-          <img src="assets/DSC00231.webp" alt="Silhouette mode extérieur" loading="lazy" decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/DSC00231.webp" alt="Silhouette mode extérieur" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item mobile-extra">
-          <img src="assets/SIM02244.webp" alt="Street — action et guitare de rue" loading="lazy" decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/SIM02244.webp" alt="Street — action et guitare de rue" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item mobile-extra">
-          <img src="assets/HR9A0963.webp" alt="Détail — tons chauds de fin de journée" loading="lazy"
-            decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/HR9A0963.webp" alt="Détail — tons chauds de fin de journée" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
       </div>
 
       <!-- ─── COLONNE 2 (Milieu) ───────────────────────────── -->
       <div class="grid-col" id="col-2">
-        <div class="grid-item">
+        <div class="grid-item" style="min-height: 220px;">
           <img src="assets/DSC08492.webp" alt="Portrait serré aux reflets roses et néons" loading="eager"
-            decoding="async" />
+            decoding="async" onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/SIM01733.webp" alt="Street — composition drapeau" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/SIM01733.webp" alt="Street — composition drapeau" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
+        <div class="grid-item" style="min-height: 220px;">
           <img src="assets/DSC08908-Modifier.webp" alt="Graphique — tunnel de traits de lumière fins" loading="lazy"
-            decoding="async" />
+            decoding="async" onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/HR9A0911.webp" alt="Street — perspective dôme en journée" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/HR9A0911.webp" alt="Street — perspective dôme en journée" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSC05214.webp" alt="Concert — artiste micro en main" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC05214.webp" alt="Concert — artiste micro en main" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSCF2573.webp" alt="Street / life — scène de mouvement" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSCF2573.webp" alt="Street / life — scène de mouvement" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item">
-          <img src="assets/DSC08891.webp" alt="Intérieur — cadrage lignes de fuite" loading="lazy" decoding="async" />
+        <div class="grid-item" style="min-height: 220px;">
+          <img src="assets/DSC08891.webp" alt="Intérieur — cadrage lignes de fuite" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
 
         <!-- Mobile extra -->
-        <div class="grid-item mobile-extra">
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
           <img src="assets/DSC08603.webp" alt="Artiste — flash direct et fond rouge saturé" loading="lazy"
-            decoding="async" />
+            decoding="async" onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item mobile-extra">
-          <img src="assets/SIM01938.webp" alt="Street — homme à vélo sur le pont" loading="lazy" decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/SIM01938.webp" alt="Street — homme à vélo sur le pont" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
-        <div class="grid-item mobile-extra">
-          <img src="assets/DSC09915.webp" alt="Mode — perspective urbaine colorée" loading="lazy" decoding="async" />
+        <div class="grid-item mobile-extra" style="min-height: 220px;">
+          <img src="assets/DSC09915.webp" alt="Mode — perspective urbaine colorée" loading="lazy" decoding="async"
+            onload="this.parentElement.style.minHeight='0'" />
         </div>
       </div>
 
@@ -769,7 +780,7 @@
   </footer>
 
   <!-- ═══════════════════════════════════════════════════════════
-       JAVASCRIPT SÉCURISÉ — MENU SEULEMENT
+       JAVASCRIPT — MENU SEULEMENT (SANS EFFONDREMENT DE LAYOUT)
   ══════════════════════════════════════════════════════════════ -->
   <script>
     (function () {
@@ -793,7 +804,6 @@
         navMobile.classList.remove('is-open');
         btnHamburger.setAttribute('aria-expanded', 'false');
         btnHamburger.setAttribute('aria-label', 'Ouvrir le menu');
-        closeLiveSubmenu();
       }
 
       function toggleMenu() {
@@ -817,44 +827,6 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeMenu();
       });
-
-      var liveTrigger = document.getElementById('mobile-live-trigger');
-      var liveSubmenu = document.getElementById('mobile-live-submenu');
-      var liveItem = document.getElementById('mobile-live-item');
-
-      function openLiveSubmenu() {
-        if (!liveSubmenu || !liveItem || !liveTrigger) return;
-        liveSubmenu.classList.add('is-open');
-        liveItem.classList.add('is-open');
-        liveTrigger.setAttribute('aria-expanded', 'true');
-      }
-
-      function closeLiveSubmenu() {
-        if (!liveSubmenu || !liveItem || !liveTrigger) return;
-        liveSubmenu.classList.remove('is-open');
-        liveItem.classList.remove('is-open');
-        liveTrigger.setAttribute('aria-expanded', 'false');
-      }
-
-      if (liveTrigger) {
-        liveTrigger.addEventListener('click', function (e) {
-          e.stopPropagation();
-          liveItem.classList.contains('is-open') ? closeLiveSubmenu() : openLiveSubmenu();
-        });
-      }
-
-      var dropdownLive = document.getElementById('dropdown-live');
-      var navTrigger = dropdownLive ? dropdownLive.querySelector('.nav-trigger') : null;
-
-      if (navTrigger) {
-        navTrigger.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            var expanded = navTrigger.getAttribute('aria-expanded') === 'true';
-            navTrigger.setAttribute('aria-expanded', String(!expanded));
-          }
-        });
-      }
     }());
   </script>
 
