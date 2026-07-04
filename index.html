@@ -399,6 +399,7 @@
       width: 100%;
       line-height: 0;
       overflow: hidden;
+      contain: paint;
     }
 
     /* Images — zéro effet au survol */
@@ -587,24 +588,9 @@
 
   
     @media (max-width: 767px) {
-      #gallery {
-        padding: 0.75rem !important;
-      }
-      .grid-wrapper {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.6rem !important;
-      }
-      .grid-item {
-        height: auto !important;
-        aspect-ratio: 3/4 !important;
-        will-change: transform;
-        overflow: hidden;
-      }
-      .grid-item img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-      }
+      .grid-wrapper { grid-template-columns: repeat(2, 1fr) !important; gap: 0.6rem !important; }
+      .grid-col { display: flex; flex-direction: column; gap: 0.6rem !important; }
+      .grid-item img { display: block; width: 100% !important; height: auto !important; object-fit: cover; }
     }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
