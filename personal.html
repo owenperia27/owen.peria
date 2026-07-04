@@ -39,19 +39,19 @@
   <!-- HEADER UNIFIÉ (Style Micro-Typographique Premium) -->
   <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
     <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-      <a href="index.html" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+      <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
       <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
       <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
         <div class="relative group cursor-pointer py-2">
           <span class="flex items-center gap-1 hover:opacity-50 transition-opacity">LIVE & NIGHTLIFE +</span>
           <div class="absolute right-0 top-full hidden group-hover:flex flex-col bg-white border border-black/10 min-w-[150px] shadow-sm z-50">
-            <a href="artists.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
-            <a href="festivals.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
+          <a href="/artists" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
+            <a href="/festivals" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
           </div>
         </div>
-        <a href="studio.html" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
-        <a href="personal.html" class="hover:opacity-50 transition-opacity py-2 text-black border-b border-black">PERSONAL PROJECTS</a>
-        <a href="info.html" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
+        <a href="/studio" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
+        <a href="/personal" class="hover:opacity-50 transition-opacity py-2 text-black border-b border-black">PERSONAL PROJECTS</a>
+        <a href="/info" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
         <a href="https://rowenstudio.fr" target="_blank" class="hover:opacity-50 transition-opacity py-2 whitespace-nowrap text-black/80">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
       </nav>
     </div>
@@ -59,11 +59,11 @@
       <nav style="font-family: 'Pliant', sans-serif; font-size: 11px;" class="flex flex-col gap-5 font-medium uppercase tracking-[0.2em] text-black">
         <div class="border-b border-black/5 pb-2">
           <button onclick="document.getElementById('mobile-sub-menu').classList.toggle('hidden')" class="w-full flex justify-between items-center text-left uppercase tracking-[0.2em] focus:outline-none font-medium text-black"><span>LIVE & NIGHTLIFE</span><span class="text-xs text-black/50">+</span></button>
-          <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="artists.html" class="py-1">ARTISTS</a><a href="festivals.html" class="py-1">FESTIVALS</a></div>
+          <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="/artists" class="py-1">ARTISTS</a><a href="/festivals" class="py-1">FESTIVALS</a></div>
         </div>
-        <a href="studio.html" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
-        <a href="personal.html" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
-        <a href="info.html" class="py-1 border-b border-black/5">INFO & CONTACT</a>
+        <a href="/studio" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
+        <a href="/personal" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
+        <a href="/info" class="py-1 border-b border-black/5">INFO & CONTACT</a>
         <a href="https://rowenstudio.fr" target="_blank" class="py-1 text-black/70">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
       </nav>
     </div>
@@ -78,51 +78,51 @@
 
   <!-- STRATEGIE DE CURATION DU FLUX (24 Images Harmonisées) -->
   <main class="flex-grow">
-<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]">
+<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]" style="content-visibility: auto; contain-intrinsic-size: auto 3000px;">
   <!-- Top 3 requested -->
-  <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2648.webp" alt="Favori" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC04330.webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2648.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC04330.webp" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
 
   <!-- Mixed rest -->
-  <div class="break-inside-avoid"><img src="personal/IMG_8608.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09326.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0808.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0911.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09782.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2573.webp" alt="Favori" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_8608.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09326.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0808.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0911.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09782.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2573.webp" alt="Favori" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/IMG_1144.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2633.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0887.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC05044.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0963.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_0755.webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1144.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2633.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0887.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC05044.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0963.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_0755.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/DSC00152.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_1127.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0793.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC08074-2.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_1122.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2639.webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00152.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1127.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0793.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC08074-2.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1122.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2639.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/DSC00122.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0759.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0990.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09997.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0954.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00204(2).webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00122.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0759.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0990.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09997.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0954.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00204(2).webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/HR9A0769.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00318.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_9179.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00276.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0901.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2575.webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0769.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00318.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_9179.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00276.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0901.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2575.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/IMG_1129.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0774.webp" class="w-full h-auto object-cover block"></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09198.webp" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1129.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0774.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09198.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
 </div>
   </main>
 
