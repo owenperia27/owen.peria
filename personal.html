@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OWEN PERIA — PERSONAL PROJECTS</title>
-  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @font-face {
       font-family: 'Pliant';
@@ -31,39 +31,7 @@
     body {
       background-color: #FFFFFF;
     }
-
-    /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
-    img {
-      contain: layout paint;
-    }
-
-    /* ── Règles 1 + 4 : Hardware Acceleration + dimensions safe-mode sur galerie masonry */
-    .columns-2 {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .break-inside-avoid {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .break-inside-avoid img {
-      width: 100%;
-      height: auto;
-      /* ── Règle 4 : Dimensions stables — empêche Safari de calculer des tailles erronées */
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      display: block;
-    }
-<style>
-    /* SAFARI MEMORY FIXES */
-    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .grid-item img, #gallery img, main img {
-      contain: layout paint;
-    }
-    </style>
+  </style>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col">
@@ -110,51 +78,51 @@
 
   <!-- STRATEGIE DE CURATION DU FLUX (24 Images Harmonisées) -->
   <main class="flex-grow">
-<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]">
+<div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]" style="content-visibility: auto; contain-intrinsic-size: auto 3000px;">
   <!-- Top 3 requested -->
-  <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4788 / 5893;" loading="eager" decoding="async" fetchpriority="high" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2648.webp" alt="Favori" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 1207 / 1393;" loading="eager" decoding="async" fetchpriority="high" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC04330.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="eager" decoding="async" fetchpriority="high" /></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2648.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC04330.webp" loading="eager" decoding="async" class="w-full h-auto object-cover block"></div>
 
   <!-- Mixed rest -->
-  <div class="break-inside-avoid"><img src="personal/IMG_8608.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09326.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 2974 / 4527;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0808.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 5464 / 8192;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0911.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3662 / 4621;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09782.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2573.webp" alt="Favori" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 8736 / 11648;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_8608.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09326.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0808.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0911.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09782.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2573.webp" alt="Favori" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/IMG_1144.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3663 / 5513;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2633.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3317 / 4356;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0887.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 5258 / 7883;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC05044.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3116 / 3825;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0963.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4396 / 6584;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_0755.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3718 / 5609;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1144.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2633.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0887.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC05044.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0963.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_0755.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/DSC00152.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 1196 / 1595;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_1127.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0793.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 5175 / 7759;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC08074-2.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_1122.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 5388 / 3606;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2639.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 6760 / 8744;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00152.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1127.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0793.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC08074-2.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1122.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2639.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/DSC00122.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 6192 / 4128;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0759.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 8192 / 5464;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0990.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4651 / 6309;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09997.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 1558 / 2769;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0954.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 8192 / 5464;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00204(2).webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3570 / 4760;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00122.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0759.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0990.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09997.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0954.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00204(2).webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/HR9A0769.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 5464 / 8192;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00318.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3743 / 4990;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/IMG_9179.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC00276.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3580 / 4774;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0901.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 2191 / 2999;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSCF2575.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 8736 / 11648;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0769.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00318.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_9179.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC00276.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0901.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSCF2575.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
   
-  <div class="break-inside-avoid"><img src="personal/IMG_1129.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 4000 / 6000;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/HR9A0774.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3867 / 5030;" loading="lazy" decoding="async" /></div>
-  <div class="break-inside-avoid"><img src="personal/DSC09198.webp" class="w-full h-auto object-cover block" style="height: auto; aspect-ratio: 3672 / 5381;" loading="lazy" decoding="async" /></div>
+  <div class="break-inside-avoid"><img src="personal/IMG_1129.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/HR9A0774.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
+  <div class="break-inside-avoid"><img src="personal/DSC09198.webp" loading="lazy" decoding="async" class="w-full h-auto object-cover block"></div>
 </div>
   </main>
 

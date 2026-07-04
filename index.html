@@ -81,8 +81,6 @@
     img {
       display: block;
       max-width: 100%;
-      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
-      contain: layout paint;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -388,18 +386,12 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       align-items: start;
-      /* ── Règle 1 : Hardware Acceleration — calque de composition matériel */
-      will-change: transform;
-      transform: translateZ(0);
     }
 
     .grid-col {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      /* ── Règle 1 : Isolation mémoire par colonne */
-      will-change: transform;
-      transform: translateZ(0);
     }
 
     .grid-item {
@@ -407,19 +399,14 @@
       width: 100%;
       line-height: 0;
       overflow: hidden;
-      /* ── Règle 1 : Calque GPU isolé par item */
-      will-change: transform;
-      transform: translateZ(0);
     }
 
-    /* Images — Règle 2 + 4 : contain paint + dimensions safe-mode */
+    /* Images — zéro effet au survol */
     .grid-item img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: cover;
-      /* ── Règle 4 : Dimensions stables — empêche Safari de calculer des tailles erronées */
-      aspect-ratio: 2 / 3;
     }
 
     /* Sur desktop : masquer les blocs extra (réservés au mobile) */
@@ -598,18 +585,8 @@
       }
     }
 
-  
-    /* SAFARI MEMORY FIXES */
-    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .grid-item img, #gallery img, main img {
-      contain: layout paint;
-    }
-    
   </style>
-  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -657,45 +634,111 @@
       <div class="grid-col" id="col-1">
 
         <div class="grid-item">
-          <img src="assets/DSC07978.webp" alt="Portrait profil en noir et blanc épuré" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 2640 / 3300;" loading="eager" decoding="async" fetchpriority="high" />
+          <img
+            src="assets/DSC07978.webp"
+            alt="Portrait profil en noir et blanc épuré"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC03180-5.webp" alt="Concert — lumières bleues plein phare" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 6000 / 4000;" loading="eager" decoding="async" fetchpriority="high" />
+          <img
+            src="assets/DSC03180-5.webp"
+            alt="Concert — lumières bleues plein phare"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/SIM01217.webp" alt="Street — plan serré style urbain" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4672 / 6382;" loading="eager" decoding="async" fetchpriority="high" />
+          <img
+            src="assets/SIM01217.webp"
+            alt="Street — plan serré style urbain"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC00318.webp" alt="Portrait — lumière et ombre studio douce" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 2872 / 3860;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC00318.webp"
+            alt="Portrait — lumière et ombre studio douce"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/HR9A0769.webp" alt="Scène de nuit contrastée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 5464 / 8192;" loading="lazy" decoding="async" />
+          <img
+            src="assets/HR9A0769.webp"
+            alt="Scène de nuit contrastée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/HR9A0808.webp" alt="Architecture — entrée géométrique" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 5464 / 8192;" loading="lazy" decoding="async" />
+          <img
+            src="assets/HR9A0808.webp"
+            alt="Architecture — entrée géométrique"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC04588.webp" alt="Portrait éditorial — tons verts" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4000 / 5313;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC04588.webp"
+            alt="Portrait éditorial — tons verts"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <!-- Mobile extra : images col-3 redistribuées (positions impaires) -->
         <div class="grid-item mobile-extra">
-          <img src="assets/DSC05094.webp" alt="Vue du dessus — foule et ombres portées" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC05094.webp"
+            alt="Vue du dessus — foule et ombres portées"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="assets/DSC00231.webp" alt="Silhouette mode extérieur" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 2422 / 3162;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC00231.webp"
+            alt="Silhouette mode extérieur"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="assets/SIM02244.webp" alt="Street — action et guitare de rue" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 1211 / 1518;" loading="lazy" decoding="async" />
+          <img
+            src="assets/SIM02244.webp"
+            alt="Street — action et guitare de rue"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="assets/HR9A0963.webp" alt="Détail — tons chauds de fin de journée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4396 / 6584;" loading="lazy" decoding="async" />
+          <img
+            src="assets/HR9A0963.webp"
+            alt="Détail — tons chauds de fin de journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
       </div>
@@ -705,42 +748,102 @@
       <div class="grid-col" id="col-2">
 
         <div class="grid-item">
-          <img src="assets/DSC08492.webp" alt="Portrait serré aux reflets roses et néons" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 1075 / 1433;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC08492.webp"
+            alt="Portrait serré aux reflets roses et néons"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/SIM01733.webp" alt="Street — composition drapeau" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4238 / 6357;" loading="lazy" decoding="async" />
+          <img
+            src="assets/SIM01733.webp"
+            alt="Street — composition drapeau"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC08908-Modifier.webp" alt="Graphique — tunnel de traits de lumière fins" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 6397 / 7230;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC08908-Modifier.webp"
+            alt="Graphique — tunnel de traits de lumière fins"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/HR9A0911.webp" alt="Street — perspective dôme en journée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 3662 / 4621;" loading="lazy" decoding="async" />
+          <img
+            src="assets/HR9A0911.webp"
+            alt="Street — perspective dôme en journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC05214.webp" alt="Concert — artiste micro en main" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4433 / 5911;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC05214.webp"
+            alt="Concert — artiste micro en main"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSCF2573.webp" alt="Street / life — scène de mouvement" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 8736 / 11648;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSCF2573.webp"
+            alt="Street / life — scène de mouvement"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC08891.webp" alt="Intérieur — cadrage lignes de fuite" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4024 / 6036;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC08891.webp"
+            alt="Intérieur — cadrage lignes de fuite"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <!-- Mobile extra : images col-3 redistribuées (positions paires) -->
         <div class="grid-item mobile-extra">
-          <img src="assets/DSC08603.webp" alt="Artiste — flash direct et fond rouge saturé" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 1372 / 1830;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC08603.webp"
+            alt="Artiste — flash direct et fond rouge saturé"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="assets/SIM01938.webp" alt="Street — homme à vélo sur le pont" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" />
+          <img
+            src="assets/SIM01938.webp"
+            alt="Street — homme à vélo sur le pont"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
         <div class="grid-item mobile-extra">
-          <img src="assets/DSC09915.webp" alt="Mode — perspective urbaine colorée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4128 / 5504;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC09915.webp"
+            alt="Mode — perspective urbaine colorée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
       </div>
@@ -750,31 +853,73 @@
       <div class="grid-col" id="col-3">
 
         <div class="grid-item">
-          <img src="assets/DSC05094.webp" alt="Vue du dessus — foule et ombres portées" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4672 / 7008;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC05094.webp"
+            alt="Vue du dessus — foule et ombres portées"
+            loading="eager"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC08603.webp" alt="Artiste — flash direct et fond rouge saturé" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 1372 / 1830;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC08603.webp"
+            alt="Artiste — flash direct et fond rouge saturé"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC00231.webp" alt="Silhouette mode extérieur" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 2422 / 3162;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC00231.webp"
+            alt="Silhouette mode extérieur"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/SIM01938.webp" alt="Street — homme à vélo sur le pont" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" />
+          <img
+            src="assets/SIM01938.webp"
+            alt="Street — homme à vélo sur le pont"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/SIM02244.webp" alt="Street — action et guitare de rue" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 1211 / 1518;" loading="lazy" decoding="async" />
+          <img
+            src="assets/SIM02244.webp"
+            alt="Street — action et guitare de rue"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/DSC09915.webp" alt="Mode — perspective urbaine colorée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4128 / 5504;" loading="lazy" decoding="async" />
+          <img
+            src="assets/DSC09915.webp"
+            alt="Mode — perspective urbaine colorée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
         <div class="grid-item">
-          <img src="assets/HR9A0963.webp" alt="Détail — tons chauds de fin de journée" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges ; height: auto; aspect-ratio: 4396 / 6584;" loading="lazy" decoding="async" />
+          <img
+            src="assets/HR9A0963.webp"
+            alt="Détail — tons chauds de fin de journée"
+            loading="lazy"
+            decoding="async"
+            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+          />
         </div>
 
       </div>

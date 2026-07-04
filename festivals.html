@@ -68,8 +68,6 @@
     img {
       display: block;
       max-width: 100%;
-      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
-      contain: layout paint;
     }
 
         /* ─────────────────────────────────────────────────────────────
@@ -374,24 +372,20 @@
     .festival-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      /* ── Règle 1 : Hardware Acceleration — calque de composition matériel */
-      will-change: transform;
-      transform: translateZ(0);
+      gap: 0.5rem; /* ~8px — inter-espace équilibré sur tous les écrans */
     }
 
     .festival-card {
+      /* relative group overflow-hidden — ratio paysage 16:9 strict */
       position: relative;
       display: block;
       overflow: hidden;
       aspect-ratio: 16 / 9;
-      background-color: #f0f0f0;
-      /* ── Règle 1 : Calque GPU isolé par card */
-      will-change: transform;
-      transform: translateZ(0);
+      background-color: #f0f0f0; /* fallback pour images qui chargent */
     }
 
     .festival-card img {
+      /* couvre le conteneur 16:9 sans déformation */
       display: block;
       width: 100%;
       height: 100%;
@@ -482,18 +476,8 @@
       }
     }
 
-  
-    /* SAFARI MEMORY FIXES */
-    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .grid-item img, #gallery img, main img {
-      contain: layout paint;
-    }
-    
   </style>
-  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -537,7 +521,7 @@
   
   <!-- PROJET 01 : BVAS RIO LOCO -->
   <a href="/BVAS" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img src="BVAS-RIO-LOCO/SIM02306.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" style="height: auto; aspect-ratio: 6930 / 4620;" loading="eager" decoding="async" fetchpriority="high" />
+    <img src="BVAS-RIO-LOCO/SIM02306.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
       <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         BVAS — RIO LOCO
@@ -547,7 +531,7 @@
 
   <!-- PROJET 02 : ROSE FESTIVAL -->
   <a href="/ROSE" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img src="ROSE-Festival/DSC07549.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" style="height: auto; aspect-ratio: 1673 / 1655;" loading="eager" decoding="async" fetchpriority="high" />
+    <img src="ROSE-Festival/DSC07549.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
       <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         ROSE FESTIVAL
@@ -557,7 +541,7 @@
 
   <!-- PROJET 03 : FRANCOFOLIES -->
   <a href="/FRANCOFOLIES" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img src="Francofolies/DSC01010.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" style="height: auto; aspect-ratio: 6167 / 4672;" loading="eager" decoding="async" fetchpriority="high" />
+    <img src="Francofolies/DSC01010.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
       <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         FRANCOFOLIES DE LA ROCHELLE

@@ -68,8 +68,6 @@
     img {
       display: block;
       max-width: 100%;
-      /* ── Règle 2 : Déchargement peinture agressif (Safari iOS anti-crash) */
-      contain: layout paint;
     }
 
         /* ─────────────────────────────────────────────────────────────
@@ -393,9 +391,6 @@
       padding: 1rem;
       padding-top: 0;
       column-fill: auto;
-      /* ── Règle 1 : Hardware Acceleration — calque de composition matériel */
-      will-change: transform;
-      transform: translateZ(0);
     }
     @media (min-width: 768px) {
       .francofolies-gallery {
@@ -408,9 +403,6 @@
     .francofolies-item {
       break-inside: avoid;
       margin-bottom: 1rem;
-      /* ── Règle 1 : Calque GPU isolé par item */
-      will-change: transform;
-      transform: translateZ(0);
     }
     @media (min-width: 768px) {
       .francofolies-item {
@@ -418,14 +410,11 @@
       }
     }
 
-    /* Règle 2 + 4 : contain paint + dimensions safe-mode */
     .francofolies-item img {
       width: 100%;
       height: auto;
       object-fit: cover;
       display: block;
-      /* ── Règle 4 : Dimensions stables — empêche Safari de calculer des tailles erronées */
-      aspect-ratio: 2 / 3;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -551,18 +540,8 @@
       }
     }
 
-  
-    /* SAFARI MEMORY FIXES */
-    .grid-wrapper, .grid-col, .grid-item, #gallery, main {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .grid-item img, #gallery img, main img {
-      contain: layout paint;
-    }
-    
   </style>
-  <!-- ⚠️ Script Tailwind CDN supprimé : script tiers non compatible avec la gestion stable de la RAM iOS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -615,46 +594,46 @@
     <div class="francofolies-gallery">
       
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01010.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 6167 / 4672;" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="Francofolies/DSC01010.webp" alt="Francofolies de La Rochelle" loading="eager" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01012.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 4235 / 2472;" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="Francofolies/DSC01012.webp" alt="Francofolies de La Rochelle" loading="eager" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01035.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 4672 / 6550;" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="Francofolies/DSC01035.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01054.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3136 / 4230;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01054.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01159.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3326 / 4590;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01159.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01161.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3165 / 3721;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01161.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01166.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3939 / 4506;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01166.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01376.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3346 / 4512;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01376.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01493.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 7008 / 4672;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01493.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC01577.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 4672 / 6224;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC01577.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC02121.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 6224 / 4672;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC02121.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC02135.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3144 / 4132;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC02135.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC03383.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 3033 / 4016;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC03383.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
       <div class="francofolies-item">
-        <img src="Francofolies/DSC03390.webp" alt="Francofolies de La Rochelle" style="height: auto; aspect-ratio: 2554 / 3420;" loading="lazy" decoding="async" />
+        <img src="Francofolies/DSC03390.webp" alt="Francofolies de La Rochelle" loading="lazy" decoding="async">
       </div>
 
     </div>
