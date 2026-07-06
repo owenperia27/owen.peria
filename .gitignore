@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+
+# Local dev/test tooling (not part of the deployed site)
+serve.cjs
+.claude/
