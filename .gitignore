@@ -4,3 +4,10 @@ node_modules/
 # Local dev/test tooling (not part of the deployed site)
 serve.cjs
 .claude/
+
+# Images sources pleine résolution déposées à la racine (converties en assets/*.webp,
+# originaux sauvegardés hors repo) — ne pas déployer sur Vercel
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.png
