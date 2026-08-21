@@ -534,6 +534,63 @@
     </div>
   </main>
 
+  <script>
+    // MOBILE : reprend l'ordre LIGNE PAR LIGNE du desktop (PC).
+    // PC ligne i = [col1[i], col2[i], col3[i]] ; on relit tout le PC ligne par
+    // ligne (séquence S), puis on répartit S en 2 colonnes ENTRELACÉES :
+    //   colonne gauche  = S[0], S[2], S[4]...   (impaires)
+    //   colonne droite  = S[1], S[3], S[5]...   (paires)
+    // -> visuellement, ligne 1 = S0|S1, ligne 2 = S2|S3, etc. « comme le PC ».
+    // Une coupure de colonne forcée garantit le point de césure (pas d'aléa
+    // d'équilibrage). Aucune image dupliquée, aucun coût mémoire.
+    (function () {
+      'use strict';
+      var gallery = document.querySelector('.masonry-gallery');
+      if (!gallery) return;
+      var items = Array.prototype.slice.call(gallery.querySelectorAll('.masonry-item'));
+      var keyOf = function (it) { var img = it.querySelector('img'); return img ? img.getAttribute('src') : ''; };
+      var map = {};
+      items.forEach(function (it) { map[keyOf(it)] = it; });
+      var desktopOrder = items.map(keyOf); // = ordre du HTML (desktop)
+
+      // Ordre DOM mobile = colonne gauche (impaires de S) puis colonne droite (paires de S).
+      var mobileOrder = [
+        // --- colonne GAUCHE ---
+        'assets/DSC07978.webp', 'assets/DSC05094.webp', 'assets/DSC05214.webp', 'assets/DSC00318.webp',
+        'assets/HR9A3076.webp', 'assets/HR9A2661.webp', 'assets/HR9A0769.webp', 'assets/DSC00231.webp',
+        'assets/DSC08908-Modifier.webp', 'assets/HR9A3890.webp', 'assets/DSC09915.webp', 'assets/DSCF2573.webp',
+        'assets/SIM01938.webp',
+        // --- colonne DROITE ---
+        'assets/DSC08492.webp', 'assets/SIM01217.webp', 'assets/HR9A4345.webp', 'assets/SIM01733.webp',
+        'assets/HR9A2996.webp', 'assets/DSC08603.webp', 'assets/DSC04588.webp', 'assets/HR9A0808.webp',
+        'assets/SIM02244.webp', 'assets/HR9A0911.webp', 'assets/IMG_8305.webp', 'assets/HR9A4946.webp',
+        'assets/HR9A2825.webp'
+      ];
+
+      function apply(order, mobile) {
+        var seen = {};
+        order.forEach(function (k) { var el = map[k]; if (el) { gallery.appendChild(el); el.style.breakBefore = ''; seen[k] = true; } });
+        items.forEach(function (it) { if (!seen[keyOf(it)]) { gallery.appendChild(it); it.style.breakBefore = ''; } }); // filet de sécurité
+        if (mobile) {
+          var live = gallery.querySelectorAll('.masonry-item');
+          var half = Math.ceil(live.length / 2); // coupure déterministe au milieu
+          if (live[half]) live[half].style.breakBefore = 'column';
+        }
+      }
+
+      var mq = window.matchMedia('(max-width: 767px)');
+      var current = null;
+      function update() {
+        var want = mq.matches ? 'mobile' : 'desktop';
+        if (want === current) return;
+        current = want;
+        apply(want === 'mobile' ? mobileOrder : desktopOrder, want === 'mobile');
+      }
+      update();
+      if (mq.addEventListener) { mq.addEventListener('change', update); } else if (mq.addListener) { mq.addListener(update); }
+    }());
+  </script>
+
   <footer id="site-footer" role="contentinfo">
     <hr class="footer-rule" />
     <div class="footer-inner">
