@@ -1,5 +1,82 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/BVAS",
+      "destination": "/festivals/bvas",
+      "statusCode": 301
+    },
+    {
+      "source": "/BVAS.html",
+      "destination": "/festivals/bvas",
+      "statusCode": 301
+    },
+    {
+      "source": "/bvas",
+      "destination": "/festivals/bvas",
+      "statusCode": 301
+    },
+    {
+      "source": "/bvas.html",
+      "destination": "/festivals/bvas",
+      "statusCode": 301
+    },
+    {
+      "source": "/BVAS/:path*",
+      "destination": "/festivals/bvas",
+      "statusCode": 301
+    },
+    {
+      "source": "/ROSE",
+      "destination": "/festivals/rose",
+      "statusCode": 301
+    },
+    {
+      "source": "/ROSE.html",
+      "destination": "/festivals/rose",
+      "statusCode": 301
+    },
+    {
+      "source": "/rose",
+      "destination": "/festivals/rose",
+      "statusCode": 301
+    },
+    {
+      "source": "/rose.html",
+      "destination": "/festivals/rose",
+      "statusCode": 301
+    },
+    {
+      "source": "/ROSE/:path*",
+      "destination": "/festivals/rose",
+      "statusCode": 301
+    },
+    {
+      "source": "/FRANCOFOLIES",
+      "destination": "/festivals/francofolies",
+      "statusCode": 301
+    },
+    {
+      "source": "/FRANCOFOLIES.html",
+      "destination": "/festivals/francofolies",
+      "statusCode": 301
+    },
+    {
+      "source": "/francofolies",
+      "destination": "/festivals/francofolies",
+      "statusCode": 301
+    },
+    {
+      "source": "/francofolies.html",
+      "destination": "/festivals/francofolies",
+      "statusCode": 301
+    },
+    {
+      "source": "/FRANCOFOLIES/:path*",
+      "destination": "/festivals/francofolies",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
       "source": "/fonts/(.*)",

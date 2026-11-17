@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Owen Peria — Francofolie de la Rochelle Edition 2025. Festival photography." />
+  <meta name="description" content="Owen Peria — Rose Festival Edition 2025. Festival photography." />
   <meta name="author" content="Owen Peria" />
-  <meta property="og:title" content="Owen Peria — Francofolie de la Rochelle 2025" />
-  <meta property="og:description" content="Francofolie de la Rochelle Edition 2025 — Photography by Owen Peria." />
+  <meta property="og:title" content="Owen Peria — Rose Festival 2025" />
+  <meta property="og:description" content="Rose Festival Edition 2025 — Photography by Owen Peria." />
   <meta property="og:type" content="website" />
-  <title>Owen Peria — Francofolie de la Rochelle 2025</title>
+  <title>Owen Peria — Rose Festival 2025</title>
 
   <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
@@ -408,38 +408,70 @@
     }
 
     /* ─────────────────────────────────────────────────────────────
-       GALERIE — CSS MASONRY (14 IMAGES)
+       GALERIE — STRUCTURE MOBILE / DESKTOP SÉPARÉES
     ───────────────────────────────────────────────────────────── */
-    .francofolies-gallery {
-      column-count: 2;
-      column-gap: 1rem;
+    #gallery {
       padding: 1rem;
       padding-top: 0;
-      column-fill: auto;
     }
+
     @media (min-width: 768px) {
-      .francofolies-gallery {
-        column-count: 3;
-        column-gap: 1.5rem;
+      #gallery {
         padding: 0 3rem 3rem;
       }
     }
 
-    .francofolies-item {
-      break-inside: avoid;
-      margin-bottom: 1rem;
-    }
+    /* ── Blocs de visibilité ──────────────────────────────────── */
+    .gallery-mobile  { display: block; }
+    .gallery-desktop { display: none;  }
+
     @media (min-width: 768px) {
-      .francofolies-item {
-        margin-bottom: 1.5rem;
-      }
+      .gallery-mobile  { display: none;  }
+      .gallery-desktop { display: block; }
     }
 
-    .francofolies-item img {
+    /* ── Grille mobile : 2 colonnes ──────────────────────────── */
+    .mobile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .mobile-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* ── Grille desktop : 3 colonnes ─────────────────────────── */
+    .desktop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .desktop-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Item commun ─────────────────────────────────────────── */
+    .grid-item {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .grid-item img {
+      display: block;
       width: 100%;
       height: auto;
       object-fit: cover;
-      display: block;
+      /* pas de image-rendering global — appliqué uniquement sur DSC08934-2 */
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -555,8 +587,16 @@
         padding: 1.75rem 4rem;
       }
 
-      .francofolies-gallery {
+      #gallery {
         padding: 0 4rem 4rem;
+      }
+
+      .grid-wrapper {
+        gap: 2rem;
+      }
+
+      .grid-col {
+        gap: 2rem;
       }
 
       #site-footer {
@@ -639,60 +679,107 @@
   ══════════════════════════════════════════════════════════════ -->
   <div class="project-title-wrap">
     <h1 class="project-title">
-      FRANCOFOLIE DE LA ROCHELLE — ÉDITION 2025
+      Rose Festival — Edition 2025
     </h1>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════
-       GALERIE — CSS MASONRY
+       GALERIE — STRUCTURE MOBILE / DESKTOP SÉPARÉES
   ══════════════════════════════════════════════════════════════ -->
   <main id="gallery" role="main">
-    <div class="francofolies-gallery">
-      
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01010.webp" alt="Festival main stage and crowd at golden hour" loading="eager" decoding="async" width="6167" height="4672">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01012.webp" alt="Covered grandstand with flags above a seated audience" loading="lazy" decoding="async" width="4235" height="2472">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01035.webp" alt="Man in a cap among the audience" loading="lazy" decoding="async" width="4672" height="6550">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01054.webp" alt="Dense crowd lit from above inside a venue" loading="lazy" decoding="async" width="3136" height="4230">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01159.webp" alt="Festival sign above a hangar against a pale evening sky" loading="lazy" decoding="async" width="3326" height="4590">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01161.webp" alt="Woman watching from a window of a tiled-roof house" loading="lazy" decoding="async" width="3165" height="3721">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01166.webp" alt="People watching from the windows of a house above a stage" loading="lazy" decoding="async" width="3939" height="4506">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01376.webp" alt="Festival audience standing in daylight" loading="lazy" decoding="async" width="3346" height="4512">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01493.webp" alt="Stage lit red at night above a packed crowd" loading="lazy" decoding="async" width="7008" height="4672">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC01577.webp" alt="Night crowd seen from above under white light" loading="lazy" decoding="async" width="4672" height="6224">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC02121.webp" alt="Blurred crowd moving during a concert" loading="lazy" decoding="async" width="6224" height="4672">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC02135.webp" alt="Long-exposure blur of a crowd under warm light" loading="lazy" decoding="async" width="3144" height="4132">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC03383.webp" alt="Motion-blurred crowd in grey light" loading="lazy" decoding="async" width="3033" height="4016">
-      </div>
-      <div class="francofolies-item">
-        <img src="Francofolies/DSC03390.webp" alt="Motion-blurred crowd under red light" loading="lazy" decoding="async" width="2554" height="3420">
-      </div>
 
-    </div>
+    <!-- ══════════ MOBILE : 2 colonnes — 29 images ══════════ -->
+    <div class="gallery-mobile">
+      <div class="mobile-grid">
+
+        <!-- Colonne A mobile (15 images) -->
+        <div class="mobile-col">
+          <div class="grid-item"><img src="/rose-festival/DSC04593-star.webp" alt="Fireworks bursting over a festival crowd at night" loading="eager" decoding="async" width="6000" height="4000" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05083.webp" alt="Festival-goer in a pink jersey seen from the side" loading="lazy" decoding="async" width="2724" height="3625" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05086.webp" alt="Group of friends in pink laughing together at a festival" loading="lazy" decoding="async" width="2837" height="3755" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05087.webp" alt="Festival crowd dressed in pink walking along a wall" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05089.webp" alt="People in pink crossing a large concrete hall" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05030.webp" alt="Festival-goers being served at a pink stand" loading="lazy" decoding="async" width="4000" height="6000" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09925.webp" alt="Group of friends in pink posing in a festival alley" loading="lazy" decoding="async" width="4672" height="5386" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05090.webp" alt="Two people in a ferris wheel gondola against a blue sky" loading="lazy" decoding="async" width="4528" height="6701" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05095.webp" alt="Overhead view of a crowd in pink walking through the grounds" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05107.webp" alt="Fans at the barrier filming with their phones" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08492.webp" alt="Close-up of a face with glitter make-up under pink light" loading="lazy" decoding="async" width="1075" height="1433" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC07549.webp" alt="Close-up of a glittery pendant on a pink festival jersey" loading="lazy" decoding="async" width="1673" height="1655" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08481.webp" alt="Fans making a heart with their hands at the barrier" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08490.webp" alt="Festival crowd at dusk under pink light" loading="lazy" decoding="async" width="4103" height="5506" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08491.webp" alt="Two festival-goers close together under pink light" loading="lazy" decoding="async" width="2392" height="2976" /></div>
+        </div><!-- /mobile col-A -->
+
+        <!-- Colonne B mobile (14 images) -->
+        <div class="mobile-col">
+          <div class="grid-item"><img src="/rose-festival/DSC08934-2.webp" alt="Silhouettes of a couple watching fireworks over the stage" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" width="5826" height="7887" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08874.webp" alt="Main stage and a huge night crowd seen from above" loading="lazy" decoding="async" width="4656" height="6312" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09774.webp" alt="Festival-goer drinking at the barrier in front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09779.webp" alt="Woman wearing heart-shaped sunglasses in the crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09960.webp" alt="Two women leaning on the barrier under pink light" loading="lazy" decoding="async" width="4652" height="5892" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09776.webp" alt="Festival-goers walking past a stand in the afternoon" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09875.webp" alt="Friends in pink making a heart sign under a blue sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09877.webp" alt="Group of fans at the barrier, one holding a phone" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09933.webp" alt="Two friends in pink, one in a cowboy hat, arm in arm" loading="lazy" decoding="async" width="4369" height="5778" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05094.webp" alt="Overhead view of festival-goers casting long shadows on the grass" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09938.webp" alt="Festival graffiti painted on a brick arch above the crowd" loading="lazy" decoding="async" width="2643" height="3701" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09949.webp" alt="Silhouette of a festival-goer against a teal evening sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09950.webp" alt="Woman in a pink hat and rain poncho holding a cup" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09951.webp" alt="Festival-goers in pink gathered under evening lights" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+        </div><!-- /mobile col-B -->
+
+      </div><!-- /mobile-grid -->
+    </div><!-- /gallery-mobile -->
+
+    <!-- ══════════ DESKTOP : 3 colonnes — 10 + 10 + 9 ══════════ -->
+    <div class="gallery-desktop">
+      <div class="desktop-grid">
+
+        <!-- Colonne 1 desktop (10 images — DSC05030 en pos. 6) -->
+        <div class="desktop-col">
+          <div class="grid-item"><img src="/rose-festival/DSC04593-star.webp" alt="Fireworks bursting over a festival crowd at night" loading="lazy" decoding="async" width="6000" height="4000" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05083.webp" alt="Festival-goer in a pink jersey seen from the side" loading="lazy" decoding="async" width="2724" height="3625" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05086.webp" alt="Group of friends in pink laughing together at a festival" loading="lazy" decoding="async" width="2837" height="3755" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05087.webp" alt="Festival crowd dressed in pink walking along a wall" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05089.webp" alt="People in pink crossing a large concrete hall" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05030.webp" alt="Festival-goers being served at a pink stand" loading="lazy" decoding="async" width="4000" height="6000" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09925.webp" alt="Group of friends in pink posing in a festival alley" loading="lazy" decoding="async" width="4672" height="5386" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05090.webp" alt="Two people in a ferris wheel gondola against a blue sky" loading="lazy" decoding="async" width="4528" height="6701" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05095.webp" alt="Overhead view of a crowd in pink walking through the grounds" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05107.webp" alt="Fans at the barrier filming with their phones" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+        </div><!-- /desktop col-1 -->
+
+        <!-- Colonne 2 desktop (10 images) -->
+        <div class="desktop-col">
+          <div class="grid-item"><img src="/rose-festival/DSC08492.webp" alt="Close-up of a face with glitter make-up under pink light" loading="lazy" decoding="async" width="1075" height="1433" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC07549.webp" alt="Close-up of a glittery pendant on a pink festival jersey" loading="lazy" decoding="async" width="1673" height="1655" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08481.webp" alt="Fans making a heart with their hands at the barrier" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08490.webp" alt="Festival crowd at dusk under pink light" loading="lazy" decoding="async" width="4103" height="5506" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08491.webp" alt="Two festival-goers close together under pink light" loading="lazy" decoding="async" width="2392" height="2976" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08934-2.webp" alt="Silhouettes of a couple watching fireworks over the stage" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" width="5826" height="7887" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC08874.webp" alt="Main stage and a huge night crowd seen from above" loading="lazy" decoding="async" width="4656" height="6312" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09774.webp" alt="Festival-goer drinking at the barrier in front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09779.webp" alt="Woman wearing heart-shaped sunglasses in the crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09960.webp" alt="Two women leaning on the barrier under pink light" loading="lazy" decoding="async" width="4652" height="5892" /></div>
+        </div><!-- /desktop col-2 -->
+
+        <!-- Colonne 3 desktop (9 images — DSC05094 au milieu) -->
+        <div class="desktop-col">
+          <div class="grid-item"><img src="/rose-festival/DSC09776.webp" alt="Festival-goers walking past a stand in the afternoon" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09875.webp" alt="Friends in pink making a heart sign under a blue sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09877.webp" alt="Group of fans at the barrier, one holding a phone" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09933.webp" alt="Two friends in pink, one in a cowboy hat, arm in arm" loading="lazy" decoding="async" width="4369" height="5778" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC05094.webp" alt="Overhead view of festival-goers casting long shadows on the grass" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09938.webp" alt="Festival graffiti painted on a brick arch above the crowd" loading="lazy" decoding="async" width="2643" height="3701" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09949.webp" alt="Silhouette of a festival-goer against a teal evening sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09950.webp" alt="Woman in a pink hat and rain poncho holding a cup" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/rose-festival/DSC09951.webp" alt="Festival-goers in pink gathered under evening lights" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+        </div><!-- /desktop col-3 -->
+
+      </div><!-- /desktop-grid -->
+    </div><!-- /gallery-desktop -->
+
   </main>
 
   <!-- ═══════════════════════════════════════════════════════════

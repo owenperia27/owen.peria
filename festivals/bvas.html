@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Owen Peria — Rose Festival Edition 2025. Festival photography." />
+  <meta name="description" content="Owen Peria — Buena Vista All Stars, Rio Loco Toulouse. Festival photography." />
   <meta name="author" content="Owen Peria" />
-  <meta property="og:title" content="Owen Peria — Rose Festival 2025" />
-  <meta property="og:description" content="Rose Festival Edition 2025 — Photography by Owen Peria." />
+  <meta property="og:title" content="Owen Peria — BVAS · Rio Loco" />
+  <meta property="og:description" content="Buena Vista All Stars at Rio Loco Toulouse — Photography by Owen Peria." />
   <meta property="og:type" content="website" />
-  <title>Owen Peria — Rose Festival 2025</title>
+  <title>Owen Peria — BVAS · Rio Loco Toulouse</title>
 
   <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
@@ -386,15 +386,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem 1rem;
+      padding: 4rem 1rem; /* my-16 ≈ 4rem top & bottom */
     }
 
     .project-title {
       font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
                    'Helvetica Neue', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.3em;
+      font-size: 0.75rem;       /* text-xs */
+      font-weight: 500;         /* font-medium */
+      letter-spacing: 0.3em;    /* tracking-[0.3em] */
       text-transform: uppercase;
       color: #000000;
       text-align: center;
@@ -403,7 +403,7 @@
 
     @media (min-width: 768px) {
       .project-title {
-        font-size: 0.875rem;
+        font-size: 0.875rem;    /* md:text-sm */
       }
     }
 
@@ -471,7 +471,7 @@
       width: 100%;
       height: auto;
       object-fit: cover;
-      /* pas de image-rendering global — appliqué uniquement sur DSC08934-2 */
+      image-rendering: -webkit-optimize-contrast;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -677,10 +677,41 @@
 <!-- ═══════════════════════════════════════════════════════════
        TITRE DU PROJET
   ══════════════════════════════════════════════════════════════ -->
-  <div class="project-title-wrap">
+  <div class="project-title-wrap" style="padding-bottom: 1.5rem;">
     <h1 class="project-title">
-      Rose Festival — Edition 2025
+      Buena Vista All Stars — Rio Loco Toulouse
     </h1>
+  </div>
+
+  <div class="w-full max-w-4xl mx-auto px-4 mb-12">
+    <div id="bvas-video-container" class="relative w-full aspect-[16/9] bg-black overflow-hidden">
+      
+      <iframe 
+        id="bvas-iframe"
+        data-src="https://www.youtube.com/embed/h3CMUMy8UGc?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3" 
+        class="absolute top-0 left-0 w-full h-full hidden border-0 outline-none" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+
+      <div id="video-cover" class="absolute inset-0 z-10 cursor-pointer group" 
+           onclick="
+             var iframe = document.getElementById('bvas-iframe');
+             iframe.src = iframe.getAttribute('data-src');
+             iframe.classList.remove('hidden');
+             this.classList.add('hidden');
+           ">
+        <img src="/bvas-rio-loco/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101" width="6930" height="4620">
+        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+          <svg class="w-14 h-14 text-white opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+            <circle cx="12" cy="12" r="10" stroke-width="1"></circle>
+          </svg>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -688,93 +719,71 @@
   ══════════════════════════════════════════════════════════════ -->
   <main id="gallery" role="main">
 
-    <!-- ══════════ MOBILE : 2 colonnes — 29 images ══════════ -->
+    <!-- ══════════ MOBILE : 2 colonnes — 18 images ══════════ -->
     <div class="gallery-mobile">
       <div class="mobile-grid">
 
-        <!-- Colonne A mobile (15 images) -->
+        <!-- Colonne A mobile (9 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Fireworks bursting over a festival crowd at night" loading="eager" decoding="async" width="6000" height="4000" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Festival-goer in a pink jersey seen from the side" loading="lazy" decoding="async" width="2724" height="3625" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Group of friends in pink laughing together at a festival" loading="lazy" decoding="async" width="2837" height="3755" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Festival crowd dressed in pink walking along a wall" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="People in pink crossing a large concrete hall" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Festival-goers being served at a pink stand" loading="lazy" decoding="async" width="4000" height="6000" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Group of friends in pink posing in a festival alley" loading="lazy" decoding="async" width="4672" height="5386" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Two people in a ferris wheel gondola against a blue sky" loading="lazy" decoding="async" width="4528" height="6701" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Overhead view of a crowd in pink walking through the grounds" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Fans at the barrier filming with their phones" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Close-up of a face with glitter make-up under pink light" loading="lazy" decoding="async" width="1075" height="1433" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Close-up of a glittery pendant on a pink festival jersey" loading="lazy" decoding="async" width="1673" height="1655" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Fans making a heart with their hands at the barrier" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Festival crowd at dusk under pink light" loading="lazy" decoding="async" width="4103" height="5506" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Two festival-goers close together under pink light" loading="lazy" decoding="async" width="2392" height="2976" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01623.webp" alt="Stage rigging and lanterns above a crowd at an open-air concert" loading="lazy" decoding="async" width="4461" height="6691" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01110.webp" alt="Trumpet player in white warming up beside the stage" loading="lazy" decoding="async" width="4566" height="6450" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01331.webp" alt="Older musician playing a small guitar on stage" loading="lazy" decoding="async" width="4439" height="6557" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01938.webp" alt="Musicians seen from behind on stage facing a large open-air crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02196.webp" alt="Band dressed in white performing on an open-air stage" loading="lazy" decoding="async" width="6557" height="4439" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02370.webp" alt="Three singers in hats laughing together on stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02244.webp" alt="Close-up of hands playing an acoustic guitar in a white shirt" loading="lazy" decoding="async" width="1211" height="1518" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01194.webp" alt="Musicians on stage, one playing a small guitar" loading="lazy" decoding="async" width="4118" height="5993" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01544.webp" alt="Daytime festival crowd facing a lit stage under trees" loading="lazy" decoding="async" width="4461" height="6691" /></div>
         </div><!-- /mobile col-A -->
 
-        <!-- Colonne B mobile (14 images) -->
+        <!-- Colonne B mobile (9 images) -->
         <div class="mobile-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Silhouettes of a couple watching fireworks over the stage" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" width="5826" height="7887" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Main stage and a huge night crowd seen from above" loading="lazy" decoding="async" width="4656" height="6312" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Festival-goer drinking at the barrier in front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Woman wearing heart-shaped sunglasses in the crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Two women leaning on the barrier under pink light" loading="lazy" decoding="async" width="4652" height="5892" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Festival-goers walking past a stand in the afternoon" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Friends in pink making a heart sign under a blue sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Group of fans at the barrier, one holding a phone" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Two friends in pink, one in a cowboy hat, arm in arm" loading="lazy" decoding="async" width="4369" height="5778" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Overhead view of festival-goers casting long shadows on the grass" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Festival graffiti painted on a brick arch above the crowd" loading="lazy" decoding="async" width="2643" height="3701" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Silhouette of a festival-goer against a teal evening sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Woman in a pink hat and rain poncho holding a cup" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Festival-goers in pink gathered under evening lights" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02004.webp" alt="Dancers' legs as a couple spins on stage" loading="lazy" decoding="async" width="4090" height="6135" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" loading="lazy" decoding="async" width="6930" height="4620" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02446.webp" alt="Festival crowd holding a Cuban flag in front of the stage" loading="lazy" decoding="async" width="4001" height="5760" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01495.webp" alt="Percussionists seen from behind facing a crowd under the trees" loading="lazy" decoding="async" width="4383" height="6574" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01248.webp" alt="Side view of the stage with musicians and the crowd beyond" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01269.webp" alt="Couple dancing on stage, the dancer's dress swirling" loading="lazy" decoding="async" width="4125" height="6093" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01580.webp" alt="Audience standing among trees at an open-air concert" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01733.webp" alt="Audience at a barrier holding up a Cuban flag" loading="lazy" decoding="async" width="4238" height="6357" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02349.webp" alt="Musicians dancing together at the front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
         </div><!-- /mobile col-B -->
 
       </div><!-- /mobile-grid -->
     </div><!-- /gallery-mobile -->
 
-    <!-- ══════════ DESKTOP : 3 colonnes — 10 + 10 + 9 ══════════ -->
+    <!-- ══════════ DESKTOP : 3 colonnes — 6 + 6 + 6 ══════════ -->
     <div class="gallery-desktop">
       <div class="desktop-grid">
 
-        <!-- Colonne 1 desktop (10 images — DSC05030 en pos. 6) -->
+        <!-- Colonne 1 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC04593 star.webp" alt="Fireworks bursting over a festival crowd at night" loading="lazy" decoding="async" width="6000" height="4000" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05083.webp" alt="Festival-goer in a pink jersey seen from the side" loading="lazy" decoding="async" width="2724" height="3625" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05086.webp" alt="Group of friends in pink laughing together at a festival" loading="lazy" decoding="async" width="2837" height="3755" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05087.webp" alt="Festival crowd dressed in pink walking along a wall" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05089.webp" alt="People in pink crossing a large concrete hall" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05030.webp" alt="Festival-goers being served at a pink stand" loading="lazy" decoding="async" width="4000" height="6000" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09925.webp" alt="Group of friends in pink posing in a festival alley" loading="lazy" decoding="async" width="4672" height="5386" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05090.webp" alt="Two people in a ferris wheel gondola against a blue sky" loading="lazy" decoding="async" width="4528" height="6701" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05095.webp" alt="Overhead view of a crowd in pink walking through the grounds" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05107.webp" alt="Fans at the barrier filming with their phones" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01623.webp" alt="Stage rigging and lanterns above a crowd at an open-air concert" loading="lazy" decoding="async" width="4461" height="6691" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01110.webp" alt="Trumpet player in white warming up beside the stage" loading="lazy" decoding="async" width="4566" height="6450" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01331.webp" alt="Older musician playing a small guitar on stage" loading="lazy" decoding="async" width="4439" height="6557" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01938.webp" alt="Musicians seen from behind on stage facing a large open-air crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02196.webp" alt="Band dressed in white performing on an open-air stage" loading="lazy" decoding="async" width="6557" height="4439" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02370.webp" alt="Three singers in hats laughing together on stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
         </div><!-- /desktop col-1 -->
 
-        <!-- Colonne 2 desktop (10 images) -->
+        <!-- Colonne 2 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC08492.webp" alt="Close-up of a face with glitter make-up under pink light" loading="lazy" decoding="async" width="1075" height="1433" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC07549.webp" alt="Close-up of a glittery pendant on a pink festival jersey" loading="lazy" decoding="async" width="1673" height="1655" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08481.webp" alt="Fans making a heart with their hands at the barrier" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08490.webp" alt="Festival crowd at dusk under pink light" loading="lazy" decoding="async" width="4103" height="5506" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08491.webp" alt="Two festival-goers close together under pink light" loading="lazy" decoding="async" width="2392" height="2976" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08934-2.webp" alt="Silhouettes of a couple watching fireworks over the stage" loading="lazy" decoding="async" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" width="5826" height="7887" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC08874.webp" alt="Main stage and a huge night crowd seen from above" loading="lazy" decoding="async" width="4656" height="6312" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09774.webp" alt="Festival-goer drinking at the barrier in front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09779.webp" alt="Woman wearing heart-shaped sunglasses in the crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09960.webp" alt="Two women leaning on the barrier under pink light" loading="lazy" decoding="async" width="4652" height="5892" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02244.webp" alt="Close-up of hands playing an acoustic guitar in a white shirt" loading="lazy" decoding="async" width="1211" height="1518" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01194.webp" alt="Musicians on stage, one playing a small guitar" loading="lazy" decoding="async" width="4118" height="5993" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01544.webp" alt="Daytime festival crowd facing a lit stage under trees" loading="lazy" decoding="async" width="4461" height="6691" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02004.webp" alt="Dancers' legs as a couple spins on stage" loading="lazy" decoding="async" width="4090" height="6135" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" loading="lazy" decoding="async" width="6930" height="4620" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02446.webp" alt="Festival crowd holding a Cuban flag in front of the stage" loading="lazy" decoding="async" width="4001" height="5760" /></div>
         </div><!-- /desktop col-2 -->
 
-        <!-- Colonne 3 desktop (9 images — DSC05094 au milieu) -->
+        <!-- Colonne 3 desktop (6 images) -->
         <div class="desktop-col">
-          <div class="grid-item"><img src="ROSE-Festival/DSC09776.webp" alt="Festival-goers walking past a stand in the afternoon" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09875.webp" alt="Friends in pink making a heart sign under a blue sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09877.webp" alt="Group of fans at the barrier, one holding a phone" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09933.webp" alt="Two friends in pink, one in a cowboy hat, arm in arm" loading="lazy" decoding="async" width="4369" height="5778" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC05094.webp" alt="Overhead view of festival-goers casting long shadows on the grass" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09938.webp" alt="Festival graffiti painted on a brick arch above the crowd" loading="lazy" decoding="async" width="2643" height="3701" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09949.webp" alt="Silhouette of a festival-goer against a teal evening sky" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09950.webp" alt="Woman in a pink hat and rain poncho holding a cup" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="ROSE-Festival/DSC09951.webp" alt="Festival-goers in pink gathered under evening lights" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01495.webp" alt="Percussionists seen from behind facing a crowd under the trees" loading="lazy" decoding="async" width="4383" height="6574" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01248.webp" alt="Side view of the stage with musicians and the crowd beyond" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01269.webp" alt="Couple dancing on stage, the dancer's dress swirling" loading="lazy" decoding="async" width="4125" height="6093" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01580.webp" alt="Audience standing among trees at an open-air concert" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM01733.webp" alt="Audience at a barrier holding up a Cuban flag" loading="lazy" decoding="async" width="4238" height="6357" /></div>
+          <div class="grid-item"><img src="/bvas-rio-loco/SIM02349.webp" alt="Musicians dancing together at the front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
         </div><!-- /desktop col-3 -->
 
       </div><!-- /desktop-grid -->

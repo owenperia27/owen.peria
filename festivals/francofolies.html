@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Owen Peria — Buena Vista All Stars, Rio Loco Toulouse. Festival photography." />
+  <meta name="description" content="Owen Peria — Francofolies de La Rochelle Edition 2025. Festival photography." />
   <meta name="author" content="Owen Peria" />
-  <meta property="og:title" content="Owen Peria — BVAS · Rio Loco" />
-  <meta property="og:description" content="Buena Vista All Stars at Rio Loco Toulouse — Photography by Owen Peria." />
+  <meta property="og:title" content="Owen Peria — Francofolies de La Rochelle 2025" />
+  <meta property="og:description" content="Francofolies de La Rochelle Edition 2025 — Photography by Owen Peria." />
   <meta property="og:type" content="website" />
-  <title>Owen Peria — BVAS · Rio Loco Toulouse</title>
+  <title>Owen Peria — Francofolies de La Rochelle 2025</title>
 
   <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
@@ -386,15 +386,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem 1rem; /* my-16 ≈ 4rem top & bottom */
+      padding: 4rem 1rem;
     }
 
     .project-title {
       font-family: 'Pliant', 'Inter', -apple-system, BlinkMacSystemFont,
                    'Helvetica Neue', sans-serif;
-      font-size: 0.75rem;       /* text-xs */
-      font-weight: 500;         /* font-medium */
-      letter-spacing: 0.3em;    /* tracking-[0.3em] */
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #000000;
       text-align: center;
@@ -403,75 +403,43 @@
 
     @media (min-width: 768px) {
       .project-title {
-        font-size: 0.875rem;    /* md:text-sm */
+        font-size: 0.875rem;
       }
     }
 
     /* ─────────────────────────────────────────────────────────────
-       GALERIE — STRUCTURE MOBILE / DESKTOP SÉPARÉES
+       GALERIE — CSS MASONRY (14 IMAGES)
     ───────────────────────────────────────────────────────────── */
-    #gallery {
+    .francofolies-gallery {
+      column-count: 2;
+      column-gap: 1rem;
       padding: 1rem;
       padding-top: 0;
+      column-fill: auto;
     }
-
     @media (min-width: 768px) {
-      #gallery {
+      .francofolies-gallery {
+        column-count: 3;
+        column-gap: 1.5rem;
         padding: 0 3rem 3rem;
       }
     }
 
-    /* ── Blocs de visibilité ──────────────────────────────────── */
-    .gallery-mobile  { display: block; }
-    .gallery-desktop { display: none;  }
-
+    .francofolies-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
     @media (min-width: 768px) {
-      .gallery-mobile  { display: none;  }
-      .gallery-desktop { display: block; }
+      .francofolies-item {
+        margin-bottom: 1.5rem;
+      }
     }
 
-    /* ── Grille mobile : 2 colonnes ──────────────────────────── */
-    .mobile-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-      align-items: start;
-    }
-
-    .mobile-col {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    /* ── Grille desktop : 3 colonnes ─────────────────────────── */
-    .desktop-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .desktop-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    /* ── Item commun ─────────────────────────────────────────── */
-    .grid-item {
-      display: block;
-      width: 100%;
-      line-height: 0;
-      overflow: hidden;
-    }
-
-    .grid-item img {
-      display: block;
+    .francofolies-item img {
       width: 100%;
       height: auto;
       object-fit: cover;
-      image-rendering: -webkit-optimize-contrast;
+      display: block;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -587,16 +555,8 @@
         padding: 1.75rem 4rem;
       }
 
-      #gallery {
+      .francofolies-gallery {
         padding: 0 4rem 4rem;
-      }
-
-      .grid-wrapper {
-        gap: 2rem;
-      }
-
-      .grid-col {
-        gap: 2rem;
       }
 
       #site-footer {
@@ -677,118 +637,62 @@
 <!-- ═══════════════════════════════════════════════════════════
        TITRE DU PROJET
   ══════════════════════════════════════════════════════════════ -->
-  <div class="project-title-wrap" style="padding-bottom: 1.5rem;">
+  <div class="project-title-wrap">
     <h1 class="project-title">
-      Buena Vista All Stars — Rio Loco Toulouse
+      FRANCOFOLIES DE LA ROCHELLE — ÉDITION 2025
     </h1>
   </div>
 
-  <div class="w-full max-w-4xl mx-auto px-4 mb-12">
-    <div id="bvas-video-container" class="relative w-full aspect-[16/9] bg-black overflow-hidden">
+  <!-- ═══════════════════════════════════════════════════════════
+       GALERIE — CSS MASONRY
+  ══════════════════════════════════════════════════════════════ -->
+  <main id="gallery" role="main">
+    <div class="francofolies-gallery">
       
-      <iframe 
-        id="bvas-iframe"
-        data-src="https://www.youtube.com/embed/h3CMUMy8UGc?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3" 
-        class="absolute top-0 left-0 w-full h-full hidden border-0 outline-none" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-
-      <div id="video-cover" class="absolute inset-0 z-10 cursor-pointer group" 
-           onclick="
-             var iframe = document.getElementById('bvas-iframe');
-             iframe.src = iframe.getAttribute('data-src');
-             iframe.classList.remove('hidden');
-             this.classList.add('hidden');
-           ">
-        <img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101" width="6930" height="4620">
-        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-          <svg class="w-14 h-14 text-white opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-            <circle cx="12" cy="12" r="10" stroke-width="1"></circle>
-          </svg>
-        </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01010.webp" alt="Festival main stage and crowd at golden hour" loading="eager" decoding="async" width="6167" height="4672">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01012.webp" alt="Covered grandstand with flags above a seated audience" loading="lazy" decoding="async" width="4235" height="2472">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01035.webp" alt="Man in a cap among the audience" loading="lazy" decoding="async" width="4672" height="6550">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01054.webp" alt="Dense crowd lit from above inside a venue" loading="lazy" decoding="async" width="3136" height="4230">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01159.webp" alt="Festival sign above a hangar against a pale evening sky" loading="lazy" decoding="async" width="3326" height="4590">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01161.webp" alt="Woman watching from a window of a tiled-roof house" loading="lazy" decoding="async" width="3165" height="3721">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01166.webp" alt="People watching from the windows of a house above a stage" loading="lazy" decoding="async" width="3939" height="4506">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01376.webp" alt="Festival audience standing in daylight" loading="lazy" decoding="async" width="3346" height="4512">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01493.webp" alt="Stage lit red at night above a packed crowd" loading="lazy" decoding="async" width="7008" height="4672">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC01577.webp" alt="Night crowd seen from above under white light" loading="lazy" decoding="async" width="4672" height="6224">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC02121.webp" alt="Blurred crowd moving during a concert" loading="lazy" decoding="async" width="6224" height="4672">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC02135.webp" alt="Long-exposure blur of a crowd under warm light" loading="lazy" decoding="async" width="3144" height="4132">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC03383.webp" alt="Motion-blurred crowd in grey light" loading="lazy" decoding="async" width="3033" height="4016">
+      </div>
+      <div class="francofolies-item">
+        <img src="/francofolies/DSC03390.webp" alt="Motion-blurred crowd under red light" loading="lazy" decoding="async" width="2554" height="3420">
       </div>
 
     </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       GALERIE — STRUCTURE MOBILE / DESKTOP SÉPARÉES
-  ══════════════════════════════════════════════════════════════ -->
-  <main id="gallery" role="main">
-
-    <!-- ══════════ MOBILE : 2 colonnes — 18 images ══════════ -->
-    <div class="gallery-mobile">
-      <div class="mobile-grid">
-
-        <!-- Colonne A mobile (9 images) -->
-        <div class="mobile-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Stage rigging and lanterns above a crowd at an open-air concert" loading="lazy" decoding="async" width="4461" height="6691" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Trumpet player in white warming up beside the stage" loading="lazy" decoding="async" width="4566" height="6450" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Older musician playing a small guitar on stage" loading="lazy" decoding="async" width="4439" height="6557" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Musicians seen from behind on stage facing a large open-air crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Band dressed in white performing on an open-air stage" loading="lazy" decoding="async" width="6557" height="4439" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Three singers in hats laughing together on stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Close-up of hands playing an acoustic guitar in a white shirt" loading="lazy" decoding="async" width="1211" height="1518" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Musicians on stage, one playing a small guitar" loading="lazy" decoding="async" width="4118" height="5993" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Daytime festival crowd facing a lit stage under trees" loading="lazy" decoding="async" width="4461" height="6691" /></div>
-        </div><!-- /mobile col-A -->
-
-        <!-- Colonne B mobile (9 images) -->
-        <div class="mobile-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Dancers' legs as a couple spins on stage" loading="lazy" decoding="async" width="4090" height="6135" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" loading="lazy" decoding="async" width="6930" height="4620" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Festival crowd holding a Cuban flag in front of the stage" loading="lazy" decoding="async" width="4001" height="5760" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Percussionists seen from behind facing a crowd under the trees" loading="lazy" decoding="async" width="4383" height="6574" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Side view of the stage with musicians and the crowd beyond" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Couple dancing on stage, the dancer's dress swirling" loading="lazy" decoding="async" width="4125" height="6093" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Audience standing among trees at an open-air concert" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Audience at a barrier holding up a Cuban flag" loading="lazy" decoding="async" width="4238" height="6357" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Musicians dancing together at the front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-        </div><!-- /mobile col-B -->
-
-      </div><!-- /mobile-grid -->
-    </div><!-- /gallery-mobile -->
-
-    <!-- ══════════ DESKTOP : 3 colonnes — 6 + 6 + 6 ══════════ -->
-    <div class="gallery-desktop">
-      <div class="desktop-grid">
-
-        <!-- Colonne 1 desktop (6 images) -->
-        <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01623.webp" alt="Stage rigging and lanterns above a crowd at an open-air concert" loading="lazy" decoding="async" width="4461" height="6691" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01110.webp" alt="Trumpet player in white warming up beside the stage" loading="lazy" decoding="async" width="4566" height="6450" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01331.webp" alt="Older musician playing a small guitar on stage" loading="lazy" decoding="async" width="4439" height="6557" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01938.webp" alt="Musicians seen from behind on stage facing a large open-air crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02196.webp" alt="Band dressed in white performing on an open-air stage" loading="lazy" decoding="async" width="6557" height="4439" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02370.webp" alt="Three singers in hats laughing together on stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-        </div><!-- /desktop col-1 -->
-
-        <!-- Colonne 2 desktop (6 images) -->
-        <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02244.webp" alt="Close-up of hands playing an acoustic guitar in a white shirt" loading="lazy" decoding="async" width="1211" height="1518" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01194.webp" alt="Musicians on stage, one playing a small guitar" loading="lazy" decoding="async" width="4118" height="5993" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01544.webp" alt="Daytime festival crowd facing a lit stage under trees" loading="lazy" decoding="async" width="4461" height="6691" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02004.webp" alt="Dancers' legs as a couple spins on stage" loading="lazy" decoding="async" width="4090" height="6135" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02306.webp" alt="Musicians in white seen from behind, arms raised to an open-air crowd" loading="lazy" decoding="async" width="6930" height="4620" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02446.webp" alt="Festival crowd holding a Cuban flag in front of the stage" loading="lazy" decoding="async" width="4001" height="5760" /></div>
-        </div><!-- /desktop col-2 -->
-
-        <!-- Colonne 3 desktop (6 images) -->
-        <div class="desktop-col">
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01495.webp" alt="Percussionists seen from behind facing a crowd under the trees" loading="lazy" decoding="async" width="4383" height="6574" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01248.webp" alt="Side view of the stage with musicians and the crowd beyond" loading="lazy" decoding="async" width="7008" height="4672" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01269.webp" alt="Couple dancing on stage, the dancer's dress swirling" loading="lazy" decoding="async" width="4125" height="6093" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01580.webp" alt="Audience standing among trees at an open-air concert" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM01733.webp" alt="Audience at a barrier holding up a Cuban flag" loading="lazy" decoding="async" width="4238" height="6357" /></div>
-          <div class="grid-item"><img src="BVAS-RIO-LOCO/SIM02349.webp" alt="Musicians dancing together at the front of the stage" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-        </div><!-- /desktop col-3 -->
-
-      </div><!-- /desktop-grid -->
-    </div><!-- /gallery-desktop -->
-
   </main>
 
   <!-- ═══════════════════════════════════════════════════════════
