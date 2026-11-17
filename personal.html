@@ -5,29 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OWEN PERIA — PERSONAL PROJECTS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-Regular.woff2') format('woff2');
-      font-weight: normal;
+      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
+      font-weight: 100 900;
       font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-Medium.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
+      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
     }
-
-    @font-face {
-      font-family: 'Pliant';
-      src: url('fonts/Pliant-Bold.woff2') format('woff2');
-      font-weight: bold;
-      font-style: normal;
-    }
-
     body {
       background-color: #FFFFFF;
     }
@@ -40,6 +35,7 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
+  <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body class="bg-white min-h-screen flex flex-col">

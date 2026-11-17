@@ -1,0 +1,28 @@
+Recompiler css/tailwind.css (à faire seulement si une classe Tailwind NOUVELLE
+est ajoutée dans une page HTML ; la régie photo n'en ajoute pas).
+
+Depuis ce dossier, une fois pour installer les outils (ils ne sont jamais déployés) :
+
+  npm init -y
+  npm i -D tailwindcss@3.4.17 postcss postcss-cli autoprefixer cssnano
+
+Puis, à chaque recompilation :
+
+  npx postcss tailwind-source.css --config ./postcss.config.js -o ../css/tailwind.css --no-map
+
+Le fichier produit (css/tailwind.css, ~14 Ko) est le seul à committer et à déployer.
+Réglages choisis pour que le rendu soit identique à celui du CDN :
+ - Tailwind 3.4.17, configuration par défaut (aucun thème personnalisé dans les pages) ;
+ - le socle « preflight » est inclus ;
+ - autoprefixer avec Safari/iOS >= 12, sans quoi il manque -webkit-text-decoration-color ;
+ - la feuille est liée en FIN de <head>, là où le CDN injectait son style : l'ordre compte.
+
+Polices (dossier fonts/) : Pliant et Inter sont converties/sous-ensemblées en woff2 avec
+fonttools + brotli (pyftsubset --flavor=woff2, axes variables conservés, latin étendu).
+Les TTF d'origine sont conservés dans fonts/originaux/.
+
+Cache (vercel.json) : /fonts/* est mis en cache un an chez le visiteur (les fichiers
+de police ne changent jamais sous le même nom). /css/tailwind.css est mis en cache
+un jour seulement, avec revalidation en arrière-plan : si tu recompiles le CSS, les
+visiteurs déjà venus voient la nouvelle version au plus tard le lendemain. Ne pas
+mettre /assets/* en cache long tant que les noms des photos peuvent changer (phase 5).

@@ -10,10 +10,36 @@
   <meta property="og:type" content="website" />
   <title>Owen Peria — Artists</title>
 
-  <!-- Google Fonts : Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    /* Inter (variable, latin) — hébergée sur le site, plus d'appel à Google Fonts */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
 
   <style>
 
@@ -22,7 +48,7 @@
     ───────────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -30,12 +56,11 @@
 
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: italic;
       font-display: swap;
     }
-
     /* ─────────────────────────────────────────────────────────────
        RESET GLOBAL
     ───────────────────────────────────────────────────────────── */
@@ -579,8 +604,6 @@
     }
 
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
-
 <style>
   /* OPTIMISATION SCROLL FLUIDE */
   html, body {
@@ -588,6 +611,7 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
+  <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body>
