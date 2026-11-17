@@ -11,3 +11,6 @@ serve.cjs
 /*.jpeg
 /*.JPG
 /*.png
+
+# Notes de travail Claude Code (pas déployées)
+_chantier/
