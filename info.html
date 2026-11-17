@@ -34,6 +34,20 @@
   </style>
 
 <style>
+  /* CHAMP PIEGE ANTI-SPAM : invisible, hors flux, non focalisable */
+  .hp-field {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+  }
+
   /* OPTIMISATION SCROLL FLUIDE */
   html, body {
     scroll-behavior: smooth;
@@ -105,9 +119,17 @@
       <div class="text-center mb-16">
         <h2 style="font-family: 'Pliant', sans-serif;" class="text-xs uppercase tracking-[0.3em] text-black font-medium">GET IN TOUCH — BOOKING & INQUIRIES</h2>
       </div>
-      <form action="https://formsubmit.co/owenperia27@gmail.com" method="POST" class="space-y-8">
+      <p id="form-confirmation" hidden role="status" style="font-family: 'Pliant', sans-serif;" class="text-center text-xs uppercase tracking-[0.2em] text-black font-medium mb-16">
+        Message sent. Thank you.
+      </p>
+      <form id="contact-form" action="https://formsubmit.co/owen@rowenstudio.fr" method="POST" class="space-y-8">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="/info">
+        <input type="hidden" name="_subject" value="Portfolio — new inquiry">
+        <input type="hidden" name="_next" value="https://www.owenperia.com/info?sent=1">
+        <div class="hp-field" aria-hidden="true">
+          <label for="_honey">Leave this field empty</label>
+          <input type="text" id="_honey" name="_honey" value="" tabindex="-1" autocomplete="off">
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label style="font-family: 'Pliant', sans-serif;" class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2 font-medium">Name</label>
@@ -141,6 +163,15 @@
       © 2026 OWEN PERIA. ALL RIGHTS RESERVED.
     </p>
   </footer>
+
+  <script>
+    // Au retour de formsubmit (/info?sent=1) : confirmation a la place du formulaire.
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      var f = document.getElementById('contact-form');
+      var c = document.getElementById('form-confirmation');
+      if (f && c) { f.hidden = true; c.hidden = false; }
+    }
+  </script>
 
 </body>
 
