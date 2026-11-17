@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -35,10 +35,34 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
+  <style>
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Pliant', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
   <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body class="bg-white min-h-screen flex flex-col">
+  <a class="skip-link" href="#main">Skip to content</a>
+
 
   <!-- HEADER UNIFIÉ (Style Micro-Typographique Premium) -->
   <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
@@ -81,7 +105,7 @@
   </div>
 
   <!-- STRATEGIE DE CURATION DU FLUX (24 Images Harmonisées) -->
-  <main class="flex-grow">
+  <main id="main" class="flex-grow">
 <div class="columns-2 md:columns-3 gap-4 md:gap-6 p-4 md:p-12 space-y-4 md:space-y-6 [column-fill:_auto]">
   <!-- Top 3 requested -->
   <div class="break-inside-avoid"><img src="personal/HR9A0766.webp" alt="Favori" loading="eager" decoding="async" class="w-full h-auto object-cover block" width="4788" height="5893"></div>

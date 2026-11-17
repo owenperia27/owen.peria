@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -471,14 +471,38 @@
       }
     }
   </style>
+  <style>
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Pliant', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
   <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#gallery">Skip to content</a>
+
   <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
     <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-      <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;"
-        class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+      <h1 style="font-family: 'Pliant', sans-serif; font-size: 15px;"><a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;"
+        class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a></h1>
       <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')"
         class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor"
           viewBox="0 0 24 24">
@@ -624,7 +648,7 @@
         Photographer &amp; Filmmaker<br />
         Based in Paris
       </p>
-      <div class="footer-socials" aria-label="Réseaux sociaux">
+      <div class="footer-socials" aria-label="Social networks">
         <a href="https://www.instagram.com/owen.peria/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram">
           <svg viewBox="0 0 24 24">

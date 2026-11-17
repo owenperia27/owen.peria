@@ -573,10 +573,34 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
+  <style>
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Pliant', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
   <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#gallery">Skip to content</a>
+
 
 <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
   <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
