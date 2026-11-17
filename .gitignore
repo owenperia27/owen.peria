@@ -11,3 +11,9 @@ serve.cjs
 /*.jpeg
 /*.JPG
 /*.png
+
+# Originaux pleine résolution déposés à la racine, rangés ici (jamais déployés)
+_originaux/
+
+# Notes de travail du chantier (hors site)
+_chantier/

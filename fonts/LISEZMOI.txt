@@ -1,0 +1,12 @@
+Ce que le site charge réellement (depuis la phase 3) :
+
+  Pliant-Variable.woff2          titres et navigation
+  Pliant-Italic-Variable.woff2   présente, jamais chargée aujourd'hui
+  Inter-Variable-latin.woff2     textes courants
+
+Tout le reste est rangé dans originaux/ : les deux TTF d'origine et le
+dossier static/ (54 fichiers, 7,9 Mo) fourni avec la police. Rien n'est
+supprimé, mais originaux/ n'est plus mis en ligne (.vercelignore) : aucune
+page ne s'en sert, et ces fichiers alourdissaient chaque déploiement.
+
+Comment ces woff2 ont été fabriqués : voir outils/LISEZMOI.txt.
