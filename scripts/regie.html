@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Régie photo — owenperia.com</title>
+<style>
+:root { --bg:#ffffff; --surface:#f6f6f6; --encre:#111111; --gris:#6b6b6b;
+  --trait:rgba(0,0,0,0.12); --accent:#111111;
+  --font:'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--encre); font-family:var(--font); font-size:15px; line-height:1.55; }
+img { display:block; max-width:100%; }
+button, input, select { font-family:inherit; font-size:inherit; color:inherit; }
+:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+header { position:sticky; top:0; z-index:40; background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--trait); padding:14px 20px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+header h1 { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.2em; font-weight:600; }
+header .etat { font-size:0.8rem; color:var(--gris); margin-left:auto; }
+
+.btn { background:var(--accent); color:#fff; border:none; border-radius:2px; cursor:pointer;
+  padding:11px 16px; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; min-height:42px; }
+.btn:hover { opacity:0.85; }
+.btn[disabled] { opacity:0.3; cursor:default; }
+.btn.fant { background:none; color:var(--encre); border:1px solid var(--trait); font-weight:500; }
+.btn.fant:hover { border-color:var(--encre); opacity:1; }
+.btn.danger { background:none; color:#b3261e; border:1px solid #e3c4c1; font-weight:500; }
+.btn.danger:hover { background:#fcefee; }
+
+nav.onglets { display:flex; gap:6px; overflow-x:auto; padding:12px 20px; border-bottom:1px solid var(--trait); }
+nav.onglets button { white-space:nowrap; background:none; border:1px solid var(--trait); color:var(--gris);
+  border-radius:2px; padding:9px 13px; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; }
+nav.onglets button[aria-pressed="true"] { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+nav.series { padding:10px 20px; border-bottom:1px solid var(--trait); }
+nav.series button { text-transform:none; letter-spacing:0.04em; font-size:0.78rem; }
+
+main { padding:20px; max-width:1500px; margin:0 auto; }
+.info { color:var(--gris); font-size:0.85rem; margin-bottom:16px; }
+.info b { color:var(--encre); font-weight:600; }
+
+.grille { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px; }
+.vignette { position:relative; background:var(--surface); border:1px solid transparent; cursor:pointer; padding:0; text-align:left; }
+.vignette.choisie { border-color:var(--accent); }
+.vignette .cadre { aspect-ratio:3/4; overflow:hidden; background:#eee; }
+.vignette img { width:100%; height:100%; object-fit:cover; }
+.vignette .rang { position:absolute; top:6px; left:6px; background:rgba(255,255,255,0.92);
+  font-size:0.62rem; letter-spacing:0.12em; padding:3px 7px; font-weight:600; }
+.vignette .leg { padding:7px 8px 9px 8px; font-size:0.72rem; color:var(--gris);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.vignette .leg.vide { color:#b3261e; }
+
+.panneau { position:fixed; right:0; top:0; bottom:0; width:min(400px, 100%); background:#fff;
+  border-left:1px solid var(--trait); z-index:50; display:flex; flex-direction:column;
+  transform:translateX(100%); transition:transform .25s ease; box-shadow:-10px 0 30px rgba(0,0,0,0.06); }
+.panneau.ouvert { transform:none; }
+.panneau .haut { padding:16px 18px; border-bottom:1px solid var(--trait); display:flex; align-items:center; gap:10px; }
+.panneau .haut strong { font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; }
+.panneau .corps { padding:18px; overflow:auto; display:flex; flex-direction:column; gap:16px; }
+.panneau .apercu { aspect-ratio:3/4; max-height:280px; background:#f0f0f0; }
+.panneau .apercu img { width:100%; height:100%; object-fit:contain; }
+.panneau label { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gris); display:block; margin-bottom:6px; }
+.panneau input[type=text] { width:100%; background:#fff; border:1px solid var(--trait); padding:11px 12px; border-radius:2px; }
+.panneau .actions { display:flex; flex-wrap:wrap; gap:8px; }
+.chemin { font-size:0.72rem; color:#999; word-break:break-all; }
+
+.modale { position:fixed; inset:0; background:rgba(255,255,255,0.98); z-index:60; display:none;
+  flex-direction:column; padding:18px; }
+.modale.ouverte { display:flex; }
+.modale .haut { display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+.modale input[type=search], .modale input[type=text] { flex:1; min-width:160px; background:#fff;
+  border:1px solid var(--trait); padding:11px 12px; border-radius:2px; }
+.modale .liste { overflow:auto; }
+.vide { color:var(--gris); padding:40px 0; text-align:center; }
+
+.toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(20px);
+  background:var(--encre); color:#fff; padding:13px 20px; border-radius:2px; font-weight:600;
+  font-size:0.8rem; opacity:0; pointer-events:none; transition:.25s; z-index:80; max-width:90vw; }
+.toast.vu { opacity:1; transform:translateX(-50%); }
+.toast.erreur { background:#b3261e; }
+
+.demande { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:70; display:none;
+  align-items:center; justify-content:center; padding:20px; }
+.demande.ouverte { display:flex; }
+.demande .boite { background:#fff; padding:24px; max-width:460px; display:flex; flex-direction:column; gap:14px; }
+.demande p { font-size:0.92rem; }
+
+/* Recadrage */
+.rc-zone { flex:1; display:flex; align-items:center; justify-content:center; min-height:0; }
+.rc-cadre { position:relative; display:inline-block; touch-action:none; user-select:none; -webkit-user-select:none; }
+.rc-cadre img { max-width:min(92vw, 1100px); max-height:calc(100vh - 200px); display:block; pointer-events:none; }
+.rc-boite { position:absolute; border:2px solid var(--encre); box-shadow:0 0 0 9999px rgba(255,255,255,0.72); cursor:move; }
+.rc-poignee { position:absolute; width:22px; height:22px; background:var(--encre); border:2px solid #fff; z-index:2; }
+.rc-poignee.nw { left:-11px; top:-11px; cursor:nwse-resize; } .rc-poignee.ne { right:-11px; top:-11px; cursor:nesw-resize; }
+.rc-poignee.sw { left:-11px; bottom:-11px; cursor:nesw-resize; } .rc-poignee.se { right:-11px; bottom:-11px; cursor:nwse-resize; }
+.rc-ratios { display:flex; flex-wrap:wrap; gap:6px; }
+.rc-ratios button { background:none; border:1px solid var(--trait); color:var(--gris); border-radius:2px; padding:8px 11px; font-size:0.72rem; cursor:pointer; }
+.rc-ratios button[aria-pressed="true"] { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+.aide { color:var(--gris); font-size:0.8rem; margin-bottom:10px; }
+
+@media (max-width:700px) {
+  .grille { grid-template-columns:repeat(auto-fill, minmax(110px, 1fr)); gap:8px; }
+  main { padding:14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Régie photo — owenperia.com</h1>
+  <span class="etat" id="etat">Chargement…</span>
+  <button class="btn fant" id="annuler">Annuler la dernière modification</button>
+</header>
+
+<nav class="onglets" id="onglets"></nav>
+<nav class="onglets series" id="series"></nav>
+
+<main>
+  <p class="info" id="info"></p>
+  <div class="grille" id="grille"></div>
+</main>
+
+<aside class="panneau" id="panneau" aria-hidden="true">
+  <div class="haut">
+    <strong id="p-titre">Photo</strong>
+    <button class="btn fant" style="margin-left:auto; min-height:34px; padding:7px 12px;" id="p-fermer">Fermer</button>
+  </div>
+  <div class="corps">
+    <div class="apercu"><img id="p-img" alt=""></div>
+    <p class="chemin" id="p-chemin"></p>
+    <div>
+      <label for="p-alt">Légende (en anglais — ce que montre la photo)</label>
+      <input type="text" id="p-alt" placeholder="Singer on stage in red light">
+    </div>
+    <div class="actions">
+      <button class="btn" id="p-remplacer">Remplacer</button>
+      <button class="btn fant" id="p-recadrer">Recadrer</button>
+      <button class="btn fant" id="p-monter">Monter</button>
+      <button class="btn fant" id="p-descendre">Descendre</button>
+      <button class="btn danger" id="p-retirer">Retirer de la page</button>
+    </div>
+  </div>
+</aside>
+
+<div class="modale" id="modale" aria-hidden="true">
+  <div class="haut">
+    <input type="search" id="recherche" placeholder="Chercher une photo (nom de fichier)…">
+    <input type="text" id="nom-import" placeholder="Nom à donner aux photos importées (facultatif)">
+    <label class="btn fant" for="fichiers" style="cursor:pointer; display:inline-flex; align-items:center;">Importer des photos</label>
+    <input type="file" id="fichiers" accept="image/*" multiple hidden>
+    <button class="btn fant" id="m-fermer">Annuler</button>
+  </div>
+  <p class="aide" id="m-aide"></p>
+  <div class="liste"><div class="grille" id="m-grille"></div></div>
+</div>
+
+<div class="modale" id="rc-modale" aria-hidden="true">
+  <div class="haut">
+    <strong style="font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;">Recadrer</strong>
+    <div class="rc-ratios" id="rc-ratios"></div>
+    <span style="margin-left:auto; display:flex; gap:8px;">
+      <button class="btn fant" id="rc-annuler">Annuler</button>
+      <button class="btn" id="rc-valider">Valider le recadrage</button>
+    </span>
+  </div>
+  <p class="aide">Déplace le cadre ou tire ses coins. La photo d'origine n'est jamais modifiée : une nouvelle version recadrée prend sa place sur la page, et tu peux toujours revenir à l'originale.</p>
+  <div class="rc-zone"><div class="rc-cadre" id="rc-cadre"><img id="rc-img" alt=""><div class="rc-boite" id="rc-boite"><span class="rc-poignee nw" data-c="nw"></span><span class="rc-poignee ne" data-c="ne"></span><span class="rc-poignee sw" data-c="sw"></span><span class="rc-poignee se" data-c="se"></span></div></div></div>
+</div>
+
+<div class="demande" id="demande">
+  <div class="boite">
+    <p id="d-texte"></p>
+    <div class="actions" style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button class="btn" id="d-ici">Sur cette page seulement</button>
+      <button class="btn fant" id="d-partout">Partout sur le site</button>
+      <button class="btn fant" id="d-annuler">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var etat = null, pageIdx = 0, serieIdx = 0, choisie = null, modeAjout = false, enAttente = null;
+
+function $(id) { return document.getElementById(id); }
+function toast(msg, erreur) {
+  var t = $('toast'); t.textContent = msg;
+  t.className = 'toast vu' + (erreur ? ' erreur' : '');
+  clearTimeout(t._t); t._t = setTimeout(function () { t.className = 'toast'; }, 3600);
+}
+function vignetteSrc(base) { return base.replace(/\.webp$/, '-600.webp'); }
+document.addEventListener('error', function (e) {
+  var im = e.target;
+  if (im.tagName !== 'IMG') return;
+  if (/-600\.webp$/.test(im.getAttribute('src') || '')) im.src = im.getAttribute('src').replace(/-600\.webp$/, '.webp');
+}, true);
+
+function charger(apres) {
+  fetch('/api/etat').then(function (r) { return r.json(); }).then(function (d) {
+    etat = d;
+    $('etat').textContent = d.phototheque.length + ' photos dans la photothèque';
+    $('annuler').disabled = !d.annulations;
+    $('annuler').textContent = d.annulations
+      ? 'Annuler la dernière modification (' + d.derniere + ')'
+      : 'Rien à annuler';
+    var n = $('onglets'); n.innerHTML = '';
+    d.pages.forEach(function (p, i) {
+      var b = document.createElement('button');
+      b.textContent = p.nom;
+      b.setAttribute('aria-pressed', i === pageIdx ? 'true' : 'false');
+      b.onclick = function () { pageIdx = i; serieIdx = 0; fermerPanneau(); dessiner(); };
+      n.appendChild(b);
+    });
+    dessiner();
+    if (apres) apres();
+  });
+}
+
+function page() { return etat.pages[pageIdx]; }
+function listes() {
+  var l = page().series.map(function (s, i) { return { nom: s.nom, photos: s.photos, idx: i, serie: true, mobile: !!s.mobile }; });
+  if (page().fixes.length) l.push({ nom: 'Photos hors mosaïque', photos: page().fixes, idx: -1, serie: false });
+  return l;
+}
+function liste() { return listes()[Math.min(serieIdx, listes().length - 1)]; }
+function photos() { return liste().photos; }
+function items() { return photos().map(function (p) { return { base: p.base, alt: p.alt }; }); }
+function ordonnable() { return liste().serie; }
+function estMobile() { return !!liste().mobile; }
+
+function dessiner() {
+  [].forEach.call($('onglets').children, function (b, i) {
+    b.setAttribute('aria-pressed', i === pageIdx ? 'true' : 'false');
+  });
+  var ls = listes(), n = $('series'); n.innerHTML = '';
+  if (ls.length > 1) {
+    ls.forEach(function (l, i) {
+      var b = document.createElement('button');
+      b.textContent = l.nom + ' (' + l.photos.length + ')';
+      b.setAttribute('aria-pressed', i === Math.min(serieIdx, ls.length - 1) ? 'true' : 'false');
+      b.onclick = function () { serieIdx = i; fermerPanneau(); dessiner(); };
+      n.appendChild(b);
+    });
+  }
+  var l = liste();
+  $('info').innerHTML = l.mobile
+    ? '<b>' + l.photos.length + ' photos</b> — ce sont les mêmes photos que la mosaïque, mais dans l\'ordre qu\'elles ont sur téléphone. Ici, tu peux seulement les déplacer : ajouter, retirer ou remplacer se fait dans la mosaïque, et se répercute ici tout seul.'
+    : l.serie
+    ? '<b>' + l.photos.length + ' photos</b> dans cette mosaïque. Clique une photo pour la remplacer, changer sa légende, la recadrer, la déplacer ou la retirer.'
+    : '<b>' + l.photos.length + ' photo(s)</b> posée(s) à la main sur cette page (couverture, portrait). On peut les remplacer, les légender et les recadrer, mais pas en ajouter ni en retirer : la mise en page est faite sur mesure.';
+  var g = $('grille'); g.innerHTML = '';
+  l.photos.forEach(function (ph, k) {
+    var b = document.createElement('button');
+    b.className = 'vignette' + (choisie === k ? ' choisie' : '');
+    b.innerHTML = '<div class="cadre"><img loading="lazy" src="' + vignetteSrc(ph.base) + '" alt=""></div>'
+      + '<span class="rang">' + ('0' + (k + 1)).slice(-2) + '</span>'
+      + '<div class="leg' + (ph.alt ? '' : ' vide') + '">' + (ph.alt || 'légende à écrire') + '</div>';
+    b.onclick = function () { ouvrirPanneau(k); };
+    g.appendChild(b);
+  });
+  if (l.serie && !l.mobile) {
+    var plus = document.createElement('button');
+    plus.className = 'vignette';
+    plus.innerHTML = '<div class="cadre" style="display:flex;align-items:center;justify-content:center;font-size:2rem;">+</div>'
+      + '<div class="leg">Ajouter une photo</div>';
+    plus.onclick = function () { modeAjout = true; ouvrirModale(); };
+    g.appendChild(plus);
+  }
+}
+
+function ouvrirPanneau(k) {
+  choisie = k;
+  var ph = photos()[k];
+  $('p-titre').textContent = 'Photo ' + ('0' + (k + 1)).slice(-2);
+  $('p-img').src = vignetteSrc(ph.base);
+  $('p-chemin').textContent = ph.base + ' — ' + ph.w + ' × ' + ph.h + ' px';
+  $('p-alt').value = ph.alt;
+  var g = ordonnable(), m = estMobile();
+  $('p-monter').hidden = !g; $('p-descendre').hidden = !g;
+  $('p-retirer').hidden = !g || m;
+  $('p-remplacer').hidden = m; $('p-recadrer').hidden = m;
+  $('p-alt').disabled = m;
+  $('p-monter').disabled = k === 0;
+  $('p-descendre').disabled = k === photos().length - 1;
+  $('panneau').classList.add('ouvert');
+  dessiner();
+}
+function fermerPanneau() { choisie = null; $('panneau').classList.remove('ouvert'); dessiner(); }
+
+function ouvrirModale() {
+  $('recherche').value = '';
+  $('m-aide').textContent = 'Les photos importées sont converties pour le site (trois tailles) et rangées dans le dossier '
+    + (page().dossier || 'assets') + '.';
+  dessinerModale('');
+  $('modale').classList.add('ouverte');
+  $('recherche').focus();
+}
+function dessinerModale(filtre) {
+  var g = $('m-grille'); g.innerHTML = '';
+  var l = etat.phototheque.filter(function (b) { return b.toLowerCase().indexOf(filtre.toLowerCase()) !== -1; });
+  if (!l.length) { g.innerHTML = '<p class="vide">Aucune photo ne correspond.</p>'; return; }
+  l.forEach(function (base) {
+    var b = document.createElement('button');
+    b.className = 'vignette';
+    b.innerHTML = '<div class="cadre"><img loading="lazy" src="' + vignetteSrc(base) + '" alt=""></div>'
+      + '<div class="leg">' + base.split('/').pop() + '</div>';
+    b.onclick = function () { choisir(base); };
+    g.appendChild(b);
+  });
+}
+
+function choisir(base) {
+  $('modale').classList.remove('ouverte');
+  if (modeAjout) {
+    modeAjout = false;
+    var l = items(); l.push({ base: base, alt: '' });
+    enregistrer(l, 'photo ajoutée');
+    return;
+  }
+  var ph = photos()[choisie];
+  fetch('/api/usages', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ base: ph.base }) })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d.pages && d.pages.length > 1) {
+        enAttente = { ancienne: ph.base, nouvelle: base };
+        $('d-texte').textContent = 'Cette photo est aussi utilisée sur : ' + d.pages.join(', ')
+          + '. Tu veux la remplacer partout, ou seulement ici ?';
+        $('demande').classList.add('ouverte');
+      } else {
+        remplacerIci(base);
+      }
+    })
+    .catch(function () { remplacerIci(base); });
+}
+
+function remplacerIci(base) {
+  var ph = photos()[choisie];
+  if (ordonnable()) {
+    var l = items();
+    l[choisie] = { base: base, alt: base === ph.base ? $('p-alt').value : '' };
+    enregistrer(l, 'photo remplacée');
+  } else {
+    poster('/api/fixe', { page: page().f, i: ph.i, base: base, alt: base === ph.base ? $('p-alt').value : '', quoi: 'photo remplacée' }, 'Photo remplacée.');
+  }
+}
+
+$('d-ici').onclick = function () { $('demande').classList.remove('ouverte'); remplacerIci(enAttente.nouvelle); enAttente = null; };
+$('d-partout').onclick = function () {
+  $('demande').classList.remove('ouverte');
+  poster('/api/partout', { ancienne: enAttente.ancienne, nouvelle: enAttente.nouvelle, alt: '', quoi: 'photo remplacée partout' }, 'Photo remplacée partout.');
+  enAttente = null;
+};
+$('d-annuler').onclick = function () { $('demande').classList.remove('ouverte'); enAttente = null; };
+
+function enregistrer(l, quoi) {
+  poster('/api/serie', { page: page().f, serie: liste().idx, photos: l, quoi: quoi },
+    quoi.charAt(0).toUpperCase() + quoi.slice(1) + '.');
+}
+function poster(url, corps, msg) {
+  fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(corps) })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (!d.ok) { toast(d.erreur || 'Échec', true); return; }
+      toast(msg + ' ' + (d.pages || []).join(', ') + ' mis à jour.');
+      fermerPanneau(); charger();
+    })
+    .catch(function (e) { toast('Échec : ' + e.message, true); });
+}
+
+$('p-fermer').onclick = fermerPanneau;
+$('m-fermer').onclick = function () { modeAjout = false; $('modale').classList.remove('ouverte'); };
+$('recherche').oninput = function () { dessinerModale(this.value); };
+$('p-remplacer').onclick = function () { modeAjout = false; ouvrirModale(); };
+
+$('p-alt').onchange = function () {
+  var ph = photos()[choisie];
+  if (ordonnable()) {
+    var l = items(); l[choisie].alt = $('p-alt').value;
+    enregistrer(l, 'légende enregistrée');
+  } else {
+    poster('/api/fixe', { page: page().f, i: ph.i, base: ph.base, alt: $('p-alt').value, quoi: 'légende enregistrée' }, 'Légende enregistrée.');
+  }
+};
+
+function deplacer(sens) {
+  var l = items(), j = choisie + sens;
+  if (j < 0 || j >= l.length) return;
+  var t = l[choisie]; l[choisie] = l[j]; l[j] = t;
+  enregistrer(l, 'ordre modifié');
+}
+$('p-monter').onclick = function () { deplacer(-1); };
+$('p-descendre').onclick = function () { deplacer(1); };
+$('p-retirer').onclick = function () {
+  var l = items(); l.splice(choisie, 1);
+  enregistrer(l, 'photo retirée de la page');
+};
+
+$('annuler').onclick = function () {
+  poster('/api/annuler', {}, 'Dernière modification annulée.');
+};
+
+$('fichiers').onchange = function () {
+  if (!this.files.length) return;
+  var dossier = (page().dossier || 'assets');
+  var fd = new FormData();
+  [].forEach.call(this.files, function (f) { fd.append('f', f); });
+  toast('Conversion en cours…');
+  fetch('/api/importer?dossier=' + encodeURIComponent(dossier) + '&nom=' + encodeURIComponent($('nom-import').value || ''),
+    { method: 'POST', body: fd })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (!d.ok) { toast(d.erreur || 'Échec', true); return; }
+      toast(d.ajoutees.length + ' photo(s) importée(s) : ' + d.ajoutees.map(function (b) { return b.split('/').pop(); }).join(', '));
+      fetch('/api/etat').then(function (r) { return r.json(); }).then(function (e) {
+        etat = e; $('etat').textContent = e.phototheque.length + ' photos dans la photothèque';
+        dessinerModale($('recherche').value);
+      });
+    })
+    .catch(function (e) { toast('Échec : ' + e.message, true); });
+  this.value = '';
+};
+
+/* ------------------------------------------------------------ recadrage */
+var rc = { x: 0, y: 0, w: 1, h: 1 }, rcRatio = null, rcBase = '', rcGlisse = null;
+var RC_RATIOS = [['Libre', null], ['Comme sur la page', 'page'], ['Toute la photo', 'orig'],
+                 ['2:3', 2 / 3], ['3:4', 3 / 4], ['1:1', 1], ['3:2', 3 / 2], ['16:9', 16 / 9]];
+function rcNat() { var i = $('rc-img'); return { W: i.naturalWidth || 1, H: i.naturalHeight || 1 }; }
+function rcBorne(v, a, b) { return Math.max(a, Math.min(b, v)); }
+function rcDessiner() {
+  var b = $('rc-boite').style;
+  b.left = rc.x * 100 + '%'; b.top = rc.y * 100 + '%'; b.width = rc.w * 100 + '%'; b.height = rc.h * 100 + '%';
+}
+function rcValeurRatio(v) {
+  var ph = photos()[choisie], n = rcNat();
+  if (v === 'page') return (+ph.w) / (+ph.h);
+  if (v === 'orig') return n.W / n.H;
+  return v;
+}
+function rcChoisirRatio(k) {
+  rcRatio = rcValeurRatio(RC_RATIOS[k][1]);
+  [].forEach.call($('rc-ratios').children, function (b, j) { b.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+  if (rcRatio) {
+    var n = rcNat(), cx = rc.x + rc.w / 2, cy = rc.y + rc.h / 2;
+    var w = 1, h = n.W / (n.H * rcRatio);
+    if (h > 1) { h = 1; w = n.H * rcRatio / n.W; }
+    rc.w = w; rc.h = h;
+    rc.x = rcBorne(cx - w / 2, 0, 1 - w); rc.y = rcBorne(cy - h / 2, 0, 1 - h);
+  }
+  rcDessiner();
+}
+function ouvrirRecadrage() {
+  var ph = photos()[choisie];
+  rcBase = ph.base.replace(/-recadre(-\d+)?\.webp$/, '.webp');
+  var r = $('rc-ratios'); r.innerHTML = '';
+  RC_RATIOS.forEach(function (x, k) {
+    var b = document.createElement('button'); b.textContent = x[0];
+    b.onclick = function () { rcChoisirRatio(k); }; r.appendChild(b);
+  });
+  var img = $('rc-img');
+  img.onload = function () { rc = { x: 0, y: 0, w: 1, h: 1 }; rcChoisirRatio(1); };
+  img.src = rcBase;
+  $('rc-modale').classList.add('ouverte');
+}
+function fermerRecadrage() { $('rc-modale').classList.remove('ouverte'); rcGlisse = null; }
+$('rc-cadre').addEventListener('pointerdown', function (e) {
+  var c = e.target.getAttribute('data-c') || (e.target.id === 'rc-boite' ? 'move' : null);
+  if (!c) return;
+  e.preventDefault();
+  rcGlisse = { c: c, px: e.clientX, py: e.clientY, s: { x: rc.x, y: rc.y, w: rc.w, h: rc.h } };
+  this.setPointerCapture(e.pointerId);
+});
+$('rc-cadre').addEventListener('pointermove', function (e) {
+  if (!rcGlisse) return;
+  var r = $('rc-img').getBoundingClientRect(), s = rcGlisse.s, c = rcGlisse.c, n = rcNat(), min = 0.05;
+  var dx = (e.clientX - rcGlisse.px) / r.width, dy = (e.clientY - rcGlisse.py) / r.height;
+  if (c === 'move') {
+    rc.x = rcBorne(s.x + dx, 0, 1 - s.w); rc.y = rcBorne(s.y + dy, 0, 1 - s.h);
+  } else {
+    var gauche = c.indexOf('w') !== -1, haut = c.indexOf('n') !== -1;
+    if (rcRatio) {
+      var dispoW = gauche ? s.x + s.w : 1 - s.x, dispoH = haut ? s.y + s.h : 1 - s.y;
+      var maxW = Math.min(dispoW, dispoH * n.H * rcRatio / n.W);
+      var nw = rcBorne(gauche ? s.w - dx : s.w + dx, min, maxW), nh = nw * n.W / (n.H * rcRatio);
+      rc.w = nw; rc.h = nh;
+      rc.x = gauche ? s.x + s.w - nw : s.x; rc.y = haut ? s.y + s.h - nh : s.y;
+    } else {
+      var x1 = s.x, x2 = s.x + s.w, y1 = s.y, y2 = s.y + s.h;
+      if (gauche) x1 = rcBorne(x1 + dx, 0, x2 - min); else x2 = rcBorne(x2 + dx, x1 + min, 1);
+      if (haut) y1 = rcBorne(y1 + dy, 0, y2 - min); else y2 = rcBorne(y2 + dy, y1 + min, 1);
+      rc.x = x1; rc.y = y1; rc.w = x2 - x1; rc.h = y2 - y1;
+    }
+  }
+  rcDessiner();
+});
+['pointerup', 'pointercancel'].forEach(function (t) { $('rc-cadre').addEventListener(t, function () { rcGlisse = null; }); });
+$('p-recadrer').onclick = ouvrirRecadrage;
+$('rc-annuler').onclick = fermerRecadrage;
+$('rc-valider').onclick = function () {
+  var bouton = this; bouton.disabled = true;
+  fetch('/api/recadrer', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ base: rcBase, x: rc.x, y: rc.y, w: rc.w, h: rc.h }) })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      bouton.disabled = false;
+      if (!d.ok) { toast(d.erreur || 'Échec du recadrage', true); return; }
+      fermerRecadrage();
+      var ph = photos()[choisie];
+      if (ordonnable()) {
+        var l = items(); l[choisie] = { base: d.base, alt: ph.alt };
+        enregistrer(l, 'photo recadrée');
+      } else {
+        poster('/api/fixe', { page: page().f, i: ph.i, base: d.base, alt: ph.alt, quoi: 'photo recadrée' }, 'Photo recadrée.');
+      }
+    })
+    .catch(function (e) { bouton.disabled = false; toast('Échec : ' + e.message, true); });
+};
+
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  if ($('rc-modale').classList.contains('ouverte')) fermerRecadrage();
+  else if ($('demande').classList.contains('ouverte')) { $('demande').classList.remove('ouverte'); enAttente = null; }
+  else if ($('modale').classList.contains('ouverte')) { modeAjout = false; $('modale').classList.remove('ouverte'); }
+  else fermerPanneau();
+});
+
+charger();
+</script>
+</body>
+</html>

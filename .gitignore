@@ -17,3 +17,7 @@ _originaux/
 
 # Notes de travail du chantier (hors site)
 _chantier/
+
+# Régie photo : installation locale et copies de sécurité (jamais en ligne)
+.venv/
+scripts/sauvegardes/
