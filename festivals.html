@@ -10,10 +10,36 @@
   <meta property="og:type" content="website" />
   <title>Owen Peria — Festivals</title>
 
-  <!-- Google Fonts : Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    /* Inter (variable, latin) — hébergée sur le site, plus d'appel à Google Fonts */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
 
   <style>
 
@@ -22,7 +48,7 @@
     ───────────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -30,12 +56,11 @@
 
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: italic;
       font-display: swap;
     }
-
     /* ─────────────────────────────────────────────────────────────
        RESET GLOBAL
     ───────────────────────────────────────────────────────────── */
@@ -477,8 +502,6 @@
     }
 
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
-
 <style>
   /* OPTIMISATION SCROLL FLUIDE */
   html, body {
@@ -486,13 +509,38 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
+  <style>
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Pliant', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
 
 <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
   <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-    <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+    <h1 style="font-family: 'Pliant', sans-serif; font-size: 15px;"><a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a></h1>
     <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
     <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
       <div class="relative group cursor-pointer py-2">
@@ -525,39 +573,41 @@
 <!-- ======================================================================= -->
 <!-- GRILLE FESTIVALS AVEC LIENS ACTIFS (Format Paysage Épuré) -->
 <!-- ======================================================================= -->
+<main id="main">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-12">
   
   <!-- PROJET 01 : BVAS RIO LOCO -->
-  <a href="/BVAS" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img src="BVAS-RIO-LOCO/SIM02306.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="6930" height="4620">
+  <a href="/festivals/bvas" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img src="/bvas-rio-loco/SIM02306-1200.webp" srcset="/bvas-rio-loco/SIM02306-600.webp 600w, /bvas-rio-loco/SIM02306-1200.webp 1200w, /bvas-rio-loco/SIM02306.webp 2048w" sizes="(min-width: 768px) calc(50vw - 60px), calc(100vw - 32px)" fetchpriority="high" alt="Musicians in white seen from behind, arms raised to an open-air crowd" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="6930" height="4620">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+      <h2 style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         BVAS — RIO LOCO
-      </span>
+      </h2>
     </div>
   </a>
 
   <!-- PROJET 02 : ROSE FESTIVAL -->
-  <a href="/ROSE" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img loading="lazy" src="ROSE-Festival/DSC07549.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="1673" height="1655">
+  <a href="/festivals/rose" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img loading="lazy" decoding="async" src="/rose-festival/DSC07549-1200.webp" srcset="/rose-festival/DSC07549-600.webp 600w, /rose-festival/DSC07549-1200.webp 1200w, /rose-festival/DSC07549.webp 1673w" sizes="(min-width: 768px) calc(50vw - 60px), calc(100vw - 32px)" alt="Close-up of a glittery pendant on a pink festival jersey" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="1673" height="1655">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+      <h2 style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         ROSE FESTIVAL
-      </span>
+      </h2>
     </div>
   </a>
 
   <!-- PROJET 03 : FRANCOFOLIES -->
-  <a href="/FRANCOFOLIES" class="relative group overflow-hidden aspect-[16/9] block bg-black">
-    <img loading="lazy" src="Francofolies/DSC01010.webp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="6167" height="4672">
+  <a href="/festivals/francofolies" class="relative group overflow-hidden aspect-[16/9] block bg-black">
+    <img loading="lazy" decoding="async" src="/francofolies/DSC01010-1200.webp" srcset="/francofolies/DSC01010-600.webp 600w, /francofolies/DSC01010-1200.webp 1200w, /francofolies/DSC01010.webp 2048w" sizes="(min-width: 768px) calc(50vw - 60px), calc(100vw - 32px)" alt="Festival main stage and crowd at golden hour" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" width="6167" height="4672">
     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-      <span style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
+      <h2 style="font-family: 'Pliant', sans-serif;" class="text-white font-medium text-xs md:text-sm uppercase tracking-[0.2em] text-center px-4">
         FRANCOFOLIES DE LA ROCHELLE
-      </span>
+      </h2>
     </div>
   </a>
 
 </div>
+</main>
 
   <!-- Script pour le menu mobile (identique à l'index) -->
 

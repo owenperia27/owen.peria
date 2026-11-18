@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,14 +8,41 @@
     content="Owen Peria — Photographer, Filmmaker. Live &amp; Nightlife, Studio &amp; Editorial, Street Photography. Based in Paris." />
   <title>Owen Peria — Photographer, Filmmaker</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    /* Inter (variable, latin) — hébergée sur le site, plus d'appel à Google Fonts */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
 
   <style>
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -23,12 +50,11 @@
 
     @font-face {
       font-family: 'Pliant';
-      src: url('fonts/Pliant-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: italic;
       font-display: swap;
     }
-
     *,
     *::before,
     *::after {
@@ -445,14 +471,38 @@
       }
     }
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Lien d'évitement : invisible tant qu'il n'a pas le focus clavier */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Pliant', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#gallery">Skip to content</a>
+
   <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
     <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-      <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;"
-        class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+      <h1 style="font-family: 'Pliant', sans-serif; font-size: 15px;"><a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;"
+        class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a></h1>
       <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')"
         class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor"
           viewBox="0 0 24 24">
@@ -503,34 +553,34 @@
     <div class="masonry-gallery">
       <!-- 26 images — têtes de colonnes desktop : DSC07978 | DSC08492 | DSC05094 -->
       <!-- COLONNE 1 (desktop) — IMG_8305 en bas pour combler le vide -->
-      <div class="masonry-item"><img src="assets/DSC07978.webp" alt="Portrait profil" loading="eager" decoding="async" width="2640" height="3300" /></div>
-      <div class="masonry-item"><img src="assets/SIM01217.webp" alt="Street urbain" loading="lazy" decoding="async" width="4672" height="6382" /></div>
-      <div class="masonry-item"><img src="assets/DSC00318.webp" alt="Portrait studio" loading="lazy" decoding="async" width="2872" height="3860" /></div>
-      <div class="masonry-item"><img src="assets/HR9A2996.webp" alt="Portrait studio noir et blanc" loading="lazy" decoding="async" width="854" height="1280" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0769.webp" alt="Scène nuit" loading="lazy" decoding="async" width="5464" height="8192" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0808.webp" alt="Architecture" loading="lazy" decoding="async" width="5464" height="8192" /></div>
-      <div class="masonry-item"><img src="assets/HR9A3890.webp" alt="Scène pyrotechnie" loading="lazy" decoding="async" width="854" height="1280" /></div>
-      <div class="masonry-item"><img src="assets/IMG_8305.webp" alt="Arène esport" loading="lazy" decoding="async" width="1280" height="960" /></div>
-      <div class="masonry-item"><img src="assets/SIM01938.webp" alt="Homme vélo" loading="lazy" decoding="async" width="7008" height="4672" /></div>
+      <div class="masonry-item"><img src="/assets/DSC07978.webp" srcset="/assets/DSC07978-600.webp 600w, /assets/DSC07978.webp 1024w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" fetchpriority="high" alt="Singer in a white polo with an in-ear monitor, head tilted back" decoding="async" width="2640" height="3300" /></div>
+      <div class="masonry-item"><img src="/assets/SIM01217.webp" srcset="/assets/SIM01217-600.webp 600w, /assets/SIM01217.webp 937w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Musician's legs on stage beside a green guitar on its stand" loading="lazy" decoding="async" width="4672" height="6382" /></div>
+      <div class="masonry-item"><img src="/assets/DSC00318.webp" srcset="/assets/DSC00318-600.webp 600w, /assets/DSC00318.webp 952w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Model crouching against a concrete wall in a sheer blue blouse" loading="lazy" decoding="async" width="2872" height="3860" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A2996.webp" srcset="/assets/HR9A2996-600.webp 600w, /assets/HR9A2996.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Black and white studio portrait of a woman seated on the floor" loading="lazy" decoding="async" width="854" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A0769.webp" srcset="/assets/HR9A0769-600.webp 600w, /assets/HR9A0769.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Nightclub interior at an angle, people leaning on a metal railing" loading="lazy" decoding="async" width="5464" height="8192" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A0808.webp" srcset="/assets/HR9A0808-600.webp 600w, /assets/HR9A0808.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Classical stone facade with columns and a red double door in warm light" loading="lazy" decoding="async" width="5464" height="8192" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A3890.webp" srcset="/assets/HR9A3890-600.webp 600w, /assets/HR9A3890.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Festival stage scaffolding silhouetted against orange smoke and a flame jet" loading="lazy" decoding="async" width="854" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/IMG_8305.webp" srcset="/assets/IMG_8305-600.webp 600w, /assets/IMG_8305.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Gaming arena with blue lighting, screens and rows of seats" loading="lazy" decoding="async" width="1280" height="960" /></div>
+      <div class="masonry-item"><img src="/assets/SIM01938.webp" srcset="/assets/SIM01938-600.webp 600w, /assets/SIM01938.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Musicians seen from behind on stage facing a large open-air crowd" loading="lazy" decoding="async" width="7008" height="4672" /></div>
       <!-- COLONNE 2 (desktop) — tête : DSC08492 ; DSC05214 remonté, DSC04588 au milieu -->
-      <div class="masonry-item"><img src="assets/DSC08492.webp" alt="Portrait néons" loading="lazy" decoding="async" width="1075" height="1433" /></div>
-      <div class="masonry-item"><img src="assets/DSC05214.webp" alt="Concert micro" loading="lazy" decoding="async" width="4433" height="5911" /></div>
-      <div class="masonry-item"><img src="assets/SIM01733.webp" alt="Street drapeau" loading="lazy" decoding="async" width="4238" height="6357" /></div>
-      <div class="masonry-item"><img src="assets/HR9A2661.webp" alt="Portrait street" loading="lazy" decoding="async" width="1069" height="1280" /></div>
-      <div class="masonry-item"><img src="assets/DSC04588.webp" alt="Portrait vert" loading="lazy" decoding="async" width="4000" height="5313" /></div>
-      <div class="masonry-item"><img src="assets/DSC08908-Modifier.webp" alt="Tunnel lumière" loading="lazy" decoding="async" width="6397" height="7230" /></div>
-      <div class="masonry-item"><img src="assets/HR9A0911.webp" alt="Perspective dôme" loading="lazy" decoding="async" width="3662" height="4621" /></div>
-      <div class="masonry-item"><img src="assets/DSCF2573.webp" alt="Mouvement" loading="lazy" decoding="async" width="8736" height="11648" /></div>
-      <div class="masonry-item"><img src="assets/HR9A2825.webp" alt="Cycliste route" loading="lazy" decoding="async" width="1280" height="854" /></div>
+      <div class="masonry-item"><img src="/assets/DSC08492.webp" srcset="/assets/DSC08492-600.webp 600w, /assets/DSC08492.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Close-up of a face with glitter make-up under pink light" loading="lazy" decoding="async" width="1075" height="1433" /></div>
+      <div class="masonry-item"><img src="/assets/DSC05214.webp" srcset="/assets/DSC05214-600.webp 600w, /assets/DSC05214.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Singer with a ribbon headscarf and sunglasses at a headset mic" loading="lazy" decoding="async" width="4433" height="5911" /></div>
+      <div class="masonry-item"><img src="/assets/SIM01733.webp" srcset="/assets/SIM01733-600.webp 600w, /assets/SIM01733.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Audience at a barrier holding up a Cuban flag" loading="lazy" decoding="async" width="4238" height="6357" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A2661.webp" srcset="/assets/HR9A2661-600.webp 600w, /assets/HR9A2661.webp 1069w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Woman crouching on a street corner in a city square" loading="lazy" decoding="async" width="1069" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/DSC04588.webp" srcset="/assets/DSC04588-600.webp 600w, /assets/DSC04588.webp 964w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Man in a red cardigan smelling a flower beside a vintage TV" loading="lazy" decoding="async" width="4000" height="5313" /></div>
+      <div class="masonry-item"><img src="/assets/DSC08908-Modifier.webp" srcset="/assets/DSC08908-Modifier-600.webp 600w, /assets/DSC08908-Modifier.webp 1133w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Lone performer on a lit platform inside a glowing white arch" loading="lazy" decoding="async" width="6397" height="7230" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A0911.webp" srcset="/assets/HR9A0911-600.webp 600w, /assets/HR9A0911.webp 1014w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Older man with a white beard cycling on a bridge, a dome behind" loading="lazy" decoding="async" width="3662" height="4621" /></div>
+      <div class="masonry-item"><img src="/assets/DSCF2573.webp" srcset="/assets/DSCF2573-600.webp 600w, /assets/DSCF2573.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Low angle of a white kiosk with bunting against a blue sky" loading="lazy" decoding="async" width="8736" height="11648" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A2825.webp" srcset="/assets/HR9A2825-600.webp 600w, /assets/HR9A2825.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Cyclist riding through dust on a road while a runner watches" loading="lazy" decoding="async" width="1280" height="854" /></div>
       <!-- COLONNE 3 (desktop) — tête : DSC05094 -->
-      <div class="masonry-item"><img src="assets/DSC05094.webp" alt="Vue foule" loading="lazy" decoding="async" width="4672" height="7008" /></div>
-      <div class="masonry-item"><img src="assets/HR9A4345.webp" alt="Foule concert" loading="lazy" decoding="async" width="854" height="1280" /></div>
-      <div class="masonry-item"><img src="assets/HR9A3076.webp" alt="Éditorial intérieur" loading="lazy" decoding="async" width="1016" height="1280" /></div>
-      <div class="masonry-item"><img src="assets/DSC08603.webp" alt="Artiste flash" loading="lazy" decoding="async" width="1372" height="1830" /></div>
-      <div class="masonry-item"><img src="assets/DSC00231.webp" alt="Silhouette mode" loading="lazy" decoding="async" width="2422" height="3162" /></div>
-      <div class="masonry-item"><img src="assets/SIM02244.webp" alt="Guitare rue" loading="lazy" decoding="async" width="1211" height="1518" /></div>
-      <div class="masonry-item"><img src="assets/DSC09915.webp" alt="Mode perspective" loading="lazy" decoding="async" width="4128" height="5504" /></div>
-      <div class="masonry-item"><img src="assets/HR9A4946.webp" alt="Secours rue" loading="lazy" decoding="async" width="854" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/DSC05094.webp" srcset="/assets/DSC05094-600.webp 600w, /assets/DSC05094.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Overhead view of a crowd crossing grass, casting long shadows" loading="lazy" decoding="async" width="4672" height="7008" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A4345.webp" srcset="/assets/HR9A4345-600.webp 600w, /assets/HR9A4345.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Row of warm stage lights above a dark concert crowd" loading="lazy" decoding="async" width="854" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A3076.webp" srcset="/assets/HR9A3076-600.webp 600w, /assets/HR9A3076.webp 1016w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Woman lying back on a pink sofa in a bare room" loading="lazy" decoding="async" width="1016" height="1280" /></div>
+      <div class="masonry-item"><img src="/assets/DSC08603.webp" srcset="/assets/DSC08603-600.webp 600w, /assets/DSC08603.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Rapper in a red hoodie and sunglasses singing under red light" loading="lazy" decoding="async" width="1372" height="1830" /></div>
+      <div class="masonry-item"><img src="/assets/DSC00231.webp" srcset="/assets/DSC00231-600.webp 600w, /assets/DSC00231.webp 980w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Model crouching on a pavement in a white blouse and grey trousers" loading="lazy" decoding="async" width="2422" height="3162" /></div>
+      <div class="masonry-item"><img src="/assets/SIM02244.webp" srcset="/assets/SIM02244-600.webp 600w, /assets/SIM02244.webp 1021w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Close-up of hands playing an acoustic guitar in a white shirt" loading="lazy" decoding="async" width="1211" height="1518" /></div>
+      <div class="masonry-item"><img src="/assets/DSC09915.webp" srcset="/assets/DSC09915-600.webp 600w, /assets/DSC09915.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Two performers on a stage runway in front of large screens" loading="lazy" decoding="async" width="4128" height="5504" /></div>
+      <div class="masonry-item"><img src="/assets/HR9A4946.webp" srcset="/assets/HR9A4946-600.webp 600w, /assets/HR9A4946.webp 854w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 18px)" alt="Firefighter standing in a street beside an emergency vehicle" loading="lazy" decoding="async" width="854" height="1280" /></div>
     </div>
   </main>
 
@@ -556,15 +606,15 @@
       // Ordre DOM mobile = colonne gauche (impaires de S) puis colonne droite (paires de S).
       var mobileOrder = [
         // --- colonne GAUCHE ---
-        'assets/DSC07978.webp', 'assets/DSC05094.webp', 'assets/DSC05214.webp', 'assets/DSC00318.webp',
-        'assets/HR9A3076.webp', 'assets/HR9A2661.webp', 'assets/HR9A0769.webp', 'assets/DSC00231.webp',
-        'assets/DSC08908-Modifier.webp', 'assets/HR9A3890.webp', 'assets/DSC09915.webp', 'assets/DSCF2573.webp',
-        'assets/SIM01938.webp',
+        '/assets/DSC07978.webp', '/assets/DSC05094.webp', '/assets/DSC05214.webp', '/assets/DSC00318.webp',
+        '/assets/HR9A3076.webp', '/assets/HR9A2661.webp', '/assets/HR9A0769.webp', '/assets/DSC00231.webp',
+        '/assets/DSC08908-Modifier.webp', '/assets/HR9A3890.webp', '/assets/DSC09915.webp', '/assets/DSCF2573.webp',
+        '/assets/SIM01938.webp',
         // --- colonne DROITE ---
-        'assets/DSC08492.webp', 'assets/SIM01217.webp', 'assets/HR9A4345.webp', 'assets/SIM01733.webp',
-        'assets/HR9A2996.webp', 'assets/DSC08603.webp', 'assets/DSC04588.webp', 'assets/HR9A0808.webp',
-        'assets/SIM02244.webp', 'assets/HR9A0911.webp', 'assets/IMG_8305.webp', 'assets/HR9A4946.webp',
-        'assets/HR9A2825.webp'
+        '/assets/DSC08492.webp', '/assets/SIM01217.webp', '/assets/HR9A4345.webp', '/assets/SIM01733.webp',
+        '/assets/HR9A2996.webp', '/assets/DSC08603.webp', '/assets/DSC04588.webp', '/assets/HR9A0808.webp',
+        '/assets/SIM02244.webp', '/assets/HR9A0911.webp', '/assets/IMG_8305.webp', '/assets/HR9A4946.webp',
+        '/assets/HR9A2825.webp'
       ];
 
       function apply(order, mobile) {
@@ -598,7 +648,7 @@
         Photographer &amp; Filmmaker<br />
         Based in Paris
       </p>
-      <div class="footer-socials" aria-label="Réseaux sociaux">
+      <div class="footer-socials" aria-label="Social networks">
         <a href="https://www.instagram.com/owen.peria/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram">
           <svg viewBox="0 0 24 24">
