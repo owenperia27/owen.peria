@@ -88,14 +88,48 @@ def pillow():
 
 
 # ------------------------------------------------------------- petits outils
+_DIRS = "|".join(DOSSIERS_IMAGES)
+_RE_ATTR_IMG = re.compile(r'\b(src|srcset)=(["\'])(.*?)\2', re.S)
+_RE_CHEMIN_JS = re.compile(r"(['\"])((?:\.\./)*/?(?:%s)/[^'\"]*)\1" % _DIRS)
+
+
+def _vers_absolu(v, page):
+    """Chemin relatif à la page -> chemin du site (/assets/x.webp), en interne."""
+    if re.match(r"^(https?:|data:|//)", v) or v.startswith("/") or not v:
+        return v
+    return "/" + os.path.normpath(os.path.join(os.path.dirname(page), v)).replace(os.sep, "/")
+
+
+def _vers_relatif(v, page):
+    """Chemin du site -> chemin relatif à la page (jamais de « / » au début)."""
+    if not v.startswith("/") or v.startswith("//"):
+        return v
+    return os.path.relpath(v.lstrip("/"), os.path.dirname(page) or ".").replace(os.sep, "/")
+
+
+def _convertir(s, page, f):
+    def attr(m):
+        val = m.group(3)
+        if m.group(1) == "srcset":
+            val = ", ".join(" ".join([f(c.strip().split(" ")[0], page)] + c.strip().split(" ")[1:])
+                            for c in val.split(",") if c.strip())
+        else:
+            val = f(val, page)
+        return "%s=%s%s%s" % (m.group(1), m.group(2), val, m.group(2))
+    s = _RE_ATTR_IMG.sub(attr, s)
+    return _RE_CHEMIN_JS.sub(lambda m: m.group(1) + f(m.group(2), page) + m.group(1), s)
+
+
 def lire(p):
+    """Lit une page ; en interne, les chemins d'images sont ceux du site (/assets/…)."""
     with open(os.path.join(RACINE, p), encoding="utf-8") as f:
-        return f.read()
+        return _convertir(f.read(), p, _vers_absolu)
 
 
 def ecrire(p, s):
+    """Écrit une page avec des chemins relatifs à la page (../assets/… dans festivals/)."""
     with open(os.path.join(RACINE, p), "w", encoding="utf-8") as f:
-        f.write(s)
+        f.write(_convertir(s, p, _vers_relatif))
 
 
 def attribut(balise, nom):
