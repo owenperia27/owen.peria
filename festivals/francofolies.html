@@ -31,7 +31,7 @@
   <meta name="twitter:image" content="https://www.owenperia.com/og/francofolies.jpg" />
   <meta name="twitter:image:alt" content="Main stage at Francofolies de La Rochelle 2025, seen from the crowd." />
 
-  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     /* Inter (variable, latin) — hébergée sur le site, plus d'appel à Google Fonts */
     @font-face {
@@ -39,7 +39,7 @@
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('../fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
@@ -48,7 +48,7 @@
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('../fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
@@ -57,7 +57,7 @@
       font-style: normal;
       font-weight: 600;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('../fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
   </style>
@@ -69,7 +69,7 @@
     ───────────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Pliant';
-      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
+      src: url('../fonts/Pliant-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -77,7 +77,7 @@
 
     @font-face {
       font-family: 'Pliant';
-      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
+      src: url('../fonts/Pliant-Italic-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: italic;
       font-display: swap;
@@ -616,7 +616,7 @@
       left: 0;
     }
   </style>
-  <link rel="stylesheet" href="/css/tailwind.css" />
+  <link rel="stylesheet" href="../css/tailwind.css" />
 </head>
 
 <body>
@@ -625,19 +625,19 @@
 
 <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
   <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-    <a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
+    <a href="../index.html" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a>
     <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
     <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
       <div class="relative group cursor-pointer py-2">
         <span class="flex items-center gap-1 hover:opacity-50 transition-opacity">LIVE & NIGHTLIFE +</span>
         <div class="absolute right-0 top-full hidden group-hover:flex flex-col bg-white border border-black/10 min-w-[150px] shadow-sm z-50">
-          <a href="/artists" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
-          <a href="/festivals" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
+          <a href="../artists.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
+          <a href="../festivals.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
         </div>
       </div>
-      <a href="/studio" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
-      <a href="/personal" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
-      <a href="/info" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
+      <a href="../studio.html" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
+      <a href="../personal.html" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
+      <a href="../info.html" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
       <a href="https://rowenstudio.fr" target="_blank" class="hover:opacity-50 transition-opacity py-2 whitespace-nowrap text-black/80">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
     </nav>
   </div>
@@ -645,11 +645,11 @@
     <nav style="font-family: 'Pliant', sans-serif; font-size: 11px;" class="flex flex-col gap-5 font-medium uppercase tracking-[0.2em] text-black">
       <div class="border-b border-black/5 pb-2">
         <button onclick="document.getElementById('mobile-sub-menu').classList.toggle('hidden')" class="w-full flex justify-between items-center text-left uppercase tracking-[0.2em] focus:outline-none font-medium text-black"><span>LIVE & NIGHTLIFE</span><span class="text-xs text-black/50">+</span></button>
-        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="/artists" class="py-1">ARTISTS</a><a href="/festivals" class="py-1">FESTIVALS</a></div>
+        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="../artists.html" class="py-1">ARTISTS</a><a href="../festivals.html" class="py-1">FESTIVALS</a></div>
       </div>
-      <a href="/studio" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
-      <a href="/personal" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
-      <a href="/info" class="py-1 border-b border-black/5">INFO & CONTACT</a>
+      <a href="../studio.html" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
+      <a href="../personal.html" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
+      <a href="../info.html" class="py-1 border-b border-black/5">INFO & CONTACT</a>
       <a href="https://rowenstudio.fr" target="_blank" class="py-1 text-black/70">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
     </nav>
   </div>
@@ -671,46 +671,46 @@
     <div class="francofolies-gallery">
       
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01010-1200.webp" srcset="/francofolies/DSC01010-600.webp 600w, /francofolies/DSC01010-1200.webp 1200w, /francofolies/DSC01010.webp 2048w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" fetchpriority="high" alt="Festival main stage and crowd at golden hour" decoding="async" width="6167" height="4672">
+        <img src="../francofolies/DSC01010-1200.webp" srcset="../francofolies/DSC01010-600.webp 600w, ../francofolies/DSC01010-1200.webp 1200w, ../francofolies/DSC01010.webp 2048w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" fetchpriority="high" alt="Festival main stage and crowd at golden hour" decoding="async" width="6167" height="4672">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01012.webp" srcset="/francofolies/DSC01012-600.webp 600w, /francofolies/DSC01012.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Covered grandstand with flags above a seated audience" loading="lazy" decoding="async" width="4235" height="2472">
+        <img src="../francofolies/DSC01012.webp" srcset="../francofolies/DSC01012-600.webp 600w, ../francofolies/DSC01012.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Covered grandstand with flags above a seated audience" loading="lazy" decoding="async" width="4235" height="2472">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01035.webp" srcset="/francofolies/DSC01035-600.webp 600w, /francofolies/DSC01035.webp 913w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Man in a cap among the audience" loading="lazy" decoding="async" width="4672" height="6550">
+        <img src="../francofolies/DSC01035.webp" srcset="../francofolies/DSC01035-600.webp 600w, ../francofolies/DSC01035.webp 913w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Man in a cap among the audience" loading="lazy" decoding="async" width="4672" height="6550">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01054.webp" srcset="/francofolies/DSC01054-600.webp 600w, /francofolies/DSC01054.webp 949w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Dense crowd lit from above inside a venue" loading="lazy" decoding="async" width="3136" height="4230">
+        <img src="../francofolies/DSC01054.webp" srcset="../francofolies/DSC01054-600.webp 600w, ../francofolies/DSC01054.webp 949w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Dense crowd lit from above inside a venue" loading="lazy" decoding="async" width="3136" height="4230">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01159.webp" srcset="/francofolies/DSC01159-600.webp 600w, /francofolies/DSC01159.webp 928w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Festival sign above a hangar against a pale evening sky" loading="lazy" decoding="async" width="3326" height="4590">
+        <img src="../francofolies/DSC01159.webp" srcset="../francofolies/DSC01159-600.webp 600w, ../francofolies/DSC01159.webp 928w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Festival sign above a hangar against a pale evening sky" loading="lazy" decoding="async" width="3326" height="4590">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01161.webp" srcset="/francofolies/DSC01161-600.webp 600w, /francofolies/DSC01161.webp 1089w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Woman watching from a window of a tiled-roof house" loading="lazy" decoding="async" width="3165" height="3721">
+        <img src="../francofolies/DSC01161.webp" srcset="../francofolies/DSC01161-600.webp 600w, ../francofolies/DSC01161.webp 1089w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Woman watching from a window of a tiled-roof house" loading="lazy" decoding="async" width="3165" height="3721">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01166.webp" srcset="/francofolies/DSC01166-600.webp 600w, /francofolies/DSC01166.webp 1119w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="People watching from the windows of a house above a stage" loading="lazy" decoding="async" width="3939" height="4506">
+        <img src="../francofolies/DSC01166.webp" srcset="../francofolies/DSC01166-600.webp 600w, ../francofolies/DSC01166.webp 1119w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="People watching from the windows of a house above a stage" loading="lazy" decoding="async" width="3939" height="4506">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01376.webp" srcset="/francofolies/DSC01376-600.webp 600w, /francofolies/DSC01376.webp 949w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Festival audience standing in daylight" loading="lazy" decoding="async" width="3346" height="4512">
+        <img src="../francofolies/DSC01376.webp" srcset="../francofolies/DSC01376-600.webp 600w, ../francofolies/DSC01376.webp 949w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Festival audience standing in daylight" loading="lazy" decoding="async" width="3346" height="4512">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01493.webp" srcset="/francofolies/DSC01493-600.webp 600w, /francofolies/DSC01493.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Stage lit red at night above a packed crowd" loading="lazy" decoding="async" width="7008" height="4672">
+        <img src="../francofolies/DSC01493.webp" srcset="../francofolies/DSC01493-600.webp 600w, ../francofolies/DSC01493.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Stage lit red at night above a packed crowd" loading="lazy" decoding="async" width="7008" height="4672">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC01577.webp" srcset="/francofolies/DSC01577-600.webp 600w, /francofolies/DSC01577.webp 961w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Night crowd seen from above under white light" loading="lazy" decoding="async" width="4672" height="6224">
+        <img src="../francofolies/DSC01577.webp" srcset="../francofolies/DSC01577-600.webp 600w, ../francofolies/DSC01577.webp 961w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Night crowd seen from above under white light" loading="lazy" decoding="async" width="4672" height="6224">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC02121.webp" srcset="/francofolies/DSC02121-600.webp 600w, /francofolies/DSC02121.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Blurred crowd moving during a concert" loading="lazy" decoding="async" width="6224" height="4672">
+        <img src="../francofolies/DSC02121.webp" srcset="../francofolies/DSC02121-600.webp 600w, ../francofolies/DSC02121.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Blurred crowd moving during a concert" loading="lazy" decoding="async" width="6224" height="4672">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC02135.webp" srcset="/francofolies/DSC02135-600.webp 600w, /francofolies/DSC02135.webp 974w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Long-exposure blur of a crowd under warm light" loading="lazy" decoding="async" width="3144" height="4132">
+        <img src="../francofolies/DSC02135.webp" srcset="../francofolies/DSC02135-600.webp 600w, ../francofolies/DSC02135.webp 974w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Long-exposure blur of a crowd under warm light" loading="lazy" decoding="async" width="3144" height="4132">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC03383.webp" srcset="/francofolies/DSC03383-600.webp 600w, /francofolies/DSC03383.webp 967w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Motion-blurred crowd in grey light" loading="lazy" decoding="async" width="3033" height="4016">
+        <img src="../francofolies/DSC03383.webp" srcset="../francofolies/DSC03383-600.webp 600w, ../francofolies/DSC03383.webp 967w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Motion-blurred crowd in grey light" loading="lazy" decoding="async" width="3033" height="4016">
       </div>
       <div class="francofolies-item">
-        <img src="/francofolies/DSC03390.webp" srcset="/francofolies/DSC03390-600.webp 600w, /francofolies/DSC03390.webp 956w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Motion-blurred crowd under red light" loading="lazy" decoding="async" width="2554" height="3420">
+        <img src="../francofolies/DSC03390.webp" srcset="../francofolies/DSC03390-600.webp 600w, ../francofolies/DSC03390.webp 956w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 24px)" alt="Motion-blurred crowd under red light" loading="lazy" decoding="async" width="2554" height="3420">
       </div>
 
     </div>

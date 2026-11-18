@@ -21,3 +21,4 @@ _chantier/
 # Régie photo : installation locale et copies de sécurité (jamais en ligne)
 .venv/
 scripts/sauvegardes/
+_doublons/

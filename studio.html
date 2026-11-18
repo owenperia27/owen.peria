@@ -7,7 +7,7 @@
   <meta name="author" content="Owen Peria" />
   <title>Owen Peria — Studio & Editorial</title>
 
-  <link rel="preload" href="/fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Pliant-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <style>
     /* Inter (variable, latin) — hébergée sur le site, plus d'appel à Google Fonts */
     @font-face {
@@ -15,7 +15,7 @@
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
@@ -24,7 +24,7 @@
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
@@ -33,7 +33,7 @@
       font-style: normal;
       font-weight: 600;
       font-display: swap;
-      src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+      src: url('fonts/Inter-Variable-latin.woff2') format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
   </style>
@@ -65,7 +65,7 @@
     ───────────────────────────────────────────────────────────── */
     @font-face {
       font-family: 'Pliant';
-      src: url('/fonts/Pliant-Variable.woff2') format('woff2');
+      src: url('fonts/Pliant-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -73,7 +73,7 @@
 
     @font-face {
       font-family: 'Pliant';
-      src: url('/fonts/Pliant-Italic-Variable.woff2') format('woff2');
+      src: url('fonts/Pliant-Italic-Variable.woff2') format('woff2');
       font-weight: 100 900;
       font-style: italic;
       font-display: swap;
@@ -577,7 +577,7 @@
       left: 0;
     }
   </style>
-  <link rel="stylesheet" href="/css/tailwind.css" />
+  <link rel="stylesheet" href="css/tailwind.css" />
 </head>
 
 <body>
@@ -586,19 +586,19 @@
 
 <header class="relative w-full bg-[#FFFFFF] border-b border-black/5 z-50">
   <div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
-    <h1 style="font-family: 'Pliant', sans-serif; font-size: 15px;"><a href="/" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a></h1>
+    <h1 style="font-family: 'Pliant', sans-serif; font-size: 15px;"><a href="index.html" style="font-family: 'Pliant', sans-serif; font-size: 15px;" class="font-bold uppercase tracking-[0.2em] text-black whitespace-nowrap">OWEN PERIA</a></h1>
     <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="block md:hidden text-black focus:outline-none p-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
     <nav style="font-family: 'Pliant', sans-serif; font-size: 10px;" class="hidden md:flex font-medium uppercase tracking-[0.15em] items-center gap-4 md:gap-6 text-black">
       <div class="relative group cursor-pointer py-2">
         <span class="flex items-center gap-1 hover:opacity-50 transition-opacity">LIVE & NIGHTLIFE +</span>
         <div class="absolute right-0 top-full hidden group-hover:flex flex-col bg-white border border-black/10 min-w-[150px] shadow-sm z-50">
-          <a href="/artists" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
-          <a href="/festivals" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
+          <a href="artists.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">ARTISTS</a>
+          <a href="festivals.html" style="font-size: 10px;" class="px-4 py-3 hover:bg-black hover:text-white transition-colors tracking-[0.15em] text-left">FESTIVALS</a>
         </div>
       </div>
-      <a href="/studio" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
-      <a href="/personal" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
-      <a href="/info" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
+      <a href="studio.html" class="hover:opacity-50 transition-opacity py-2">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="hover:opacity-50 transition-opacity py-2">PERSONAL PROJECTS</a>
+      <a href="info.html" class="hover:opacity-50 transition-opacity py-2">INFO & CONTACT</a>
       <a href="https://rowenstudio.fr" target="_blank" class="hover:opacity-50 transition-opacity py-2 whitespace-nowrap text-black/80">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
     </nav>
   </div>
@@ -606,11 +606,11 @@
     <nav style="font-family: 'Pliant', sans-serif; font-size: 11px;" class="flex flex-col gap-5 font-medium uppercase tracking-[0.2em] text-black">
       <div class="border-b border-black/5 pb-2">
         <button onclick="document.getElementById('mobile-sub-menu').classList.toggle('hidden')" class="w-full flex justify-between items-center text-left uppercase tracking-[0.2em] focus:outline-none font-medium text-black"><span>LIVE & NIGHTLIFE</span><span class="text-xs text-black/50">+</span></button>
-        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="/artists" class="py-1">ARTISTS</a><a href="/festivals" class="py-1">FESTIVALS</a></div>
+        <div id="mobile-sub-menu" class="hidden flex flex-col gap-4 pl-4 mt-3 text-[10px] text-black/60 tracking-[0.15em]"><a href="artists.html" class="py-1">ARTISTS</a><a href="festivals.html" class="py-1">FESTIVALS</a></div>
       </div>
-      <a href="/studio" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
-      <a href="/personal" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
-      <a href="/info" class="py-1 border-b border-black/5">INFO & CONTACT</a>
+      <a href="studio.html" class="py-1 border-b border-black/5">STUDIO & EDITORIAL</a>
+      <a href="personal.html" class="py-1 border-b border-black/5">PERSONAL PROJECTS</a>
+      <a href="info.html" class="py-1 border-b border-black/5">INFO & CONTACT</a>
       <a href="https://rowenstudio.fr" target="_blank" class="py-1 text-black/70">MORE (FOOD, HOSPITALITY, SPIRITS) ↗</a>
     </nav>
   </div>
@@ -626,39 +626,39 @@
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Viola — Designed by Celena Presti</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00231.webp" srcset="/studio/DSC00231-600.webp 600w, /studio/DSC00231.webp 980w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" fetchpriority="high" alt="Model crouching on a pavement in a white blouse and grey trousers" class="w-full h-auto object-cover" decoding="async" width="2422" height="3162"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00115.webp" srcset="/studio/DSC00115-600.webp 600w, /studio/DSC00115.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model in dappled sunlight against a wall, hands in her hair" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="2600"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00298.webp" srcset="/studio/DSC00298-600.webp 600w, /studio/DSC00298.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white shot of a model beside a long concrete wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00318.webp" srcset="/studio/DSC00318-600.webp 600w, /studio/DSC00318.webp 952w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model crouching against a concrete wall in a sheer blue blouse" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="2872" height="3860"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00132.webp" srcset="/studio/DSC00132-600.webp 600w, /studio/DSC00132.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model walking along a sunlit concrete wall in dappled shade" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6000" height="4000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00108.webp" srcset="/studio/DSC00108-600.webp 600w, /studio/DSC00108.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model turning towards the camera against a sunlit wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6000" height="4000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00304-2.webp" srcset="/studio/DSC00304-2-600.webp 600w, /studio/DSC00304-2.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white portrait of a model leaning against a wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00328.webp" srcset="/studio/DSC00328-600.webp 600w, /studio/DSC00328.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white shot of a model seated against a concrete wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3686" height="4917"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC00127.webp" srcset="/studio/DSC00127-600.webp 600w, /studio/DSC00127.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model standing in a white blouse and wide grey trousers" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00231.webp" srcset="studio/DSC00231-600.webp 600w, studio/DSC00231.webp 980w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" fetchpriority="high" alt="Model crouching on a pavement in a white blouse and grey trousers" class="w-full h-auto object-cover" decoding="async" width="2422" height="3162"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00115.webp" srcset="studio/DSC00115-600.webp 600w, studio/DSC00115.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model in dappled sunlight against a wall, hands in her hair" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="2600"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00298.webp" srcset="studio/DSC00298-600.webp 600w, studio/DSC00298.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white shot of a model beside a long concrete wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00318.webp" srcset="studio/DSC00318-600.webp 600w, studio/DSC00318.webp 952w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model crouching against a concrete wall in a sheer blue blouse" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="2872" height="3860"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00132.webp" srcset="studio/DSC00132-600.webp 600w, studio/DSC00132.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model walking along a sunlit concrete wall in dappled shade" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6000" height="4000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00108.webp" srcset="studio/DSC00108-600.webp 600w, studio/DSC00108.webp 1280w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model turning towards the camera against a sunlit wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6000" height="4000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00304-2.webp" srcset="studio/DSC00304-2-600.webp 600w, studio/DSC00304-2.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white portrait of a model leaning against a wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00328.webp" srcset="studio/DSC00328-600.webp 600w, studio/DSC00328.webp 960w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Black and white shot of a model seated against a concrete wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3686" height="4917"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC00127.webp" srcset="studio/DSC00127-600.webp 600w, studio/DSC00127.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Model standing in a white blouse and wide grey trousers" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
   </div>
 
   <div class="w-full text-center my-16">
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Pavl — Cover Story</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04369.webp" srcset="/studio/DSC04369-600.webp 600w, /studio/DSC04369.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Portrait of a man in a striped polo shirt on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04588.webp" srcset="/studio/DSC04588-600.webp 600w, /studio/DSC04588.webp 964w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man in a red cardigan smelling a flower beside a vintage TV" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="5313"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04527.webp" srcset="/studio/DSC04527-600.webp 600w, /studio/DSC04527.webp 1031w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Still life of a leather shoe and flowers on a vintage television" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4964"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04845-Modifier.webp" srcset="/studio/DSC04845-Modifier-600.webp 600w, /studio/DSC04845-Modifier.webp 948w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man seen from behind in a bleached denim jacket on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6228" height="8410"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04736-2.webp" srcset="/studio/DSC04736-2-600.webp 600w, /studio/DSC04736-2.webp 1024w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Profile of a man holding flowers to his face on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="1080" height="1350"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04454.webp" srcset="/studio/DSC04454-600.webp 600w, /studio/DSC04454.webp 1177w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Crouching figure reaching for a flower, cropped to legs and hand" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4351"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04862-Modifier.webp" srcset="/studio/DSC04862-Modifier-600.webp 600w, /studio/DSC04862-Modifier.webp 1163w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Figure holding a lace parasol over their face on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6330" height="6968"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC04613.webp" srcset="/studio/DSC04613-600.webp 600w, /studio/DSC04613.webp 1166w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man in a red cardigan seated beside a vintage television" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4391"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04369.webp" srcset="studio/DSC04369-600.webp 600w, studio/DSC04369.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Portrait of a man in a striped polo shirt on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04588.webp" srcset="studio/DSC04588-600.webp 600w, studio/DSC04588.webp 964w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man in a red cardigan smelling a flower beside a vintage TV" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="5313"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04527.webp" srcset="studio/DSC04527-600.webp 600w, studio/DSC04527.webp 1031w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Still life of a leather shoe and flowers on a vintage television" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4964"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04845-Modifier.webp" srcset="studio/DSC04845-Modifier-600.webp 600w, studio/DSC04845-Modifier.webp 948w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man seen from behind in a bleached denim jacket on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6228" height="8410"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04736-2.webp" srcset="studio/DSC04736-2-600.webp 600w, studio/DSC04736-2.webp 1024w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Profile of a man holding flowers to his face on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="1080" height="1350"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04454.webp" srcset="studio/DSC04454-600.webp 600w, studio/DSC04454.webp 1177w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Crouching figure reaching for a flower, cropped to legs and hand" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4351"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04862-Modifier.webp" srcset="studio/DSC04862-Modifier-600.webp 600w, studio/DSC04862-Modifier.webp 1163w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Figure holding a lace parasol over their face on a green backdrop" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="6330" height="6968"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC04613.webp" srcset="studio/DSC04613-600.webp 600w, studio/DSC04613.webp 1166w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Man in a red cardigan seated beside a vintage television" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="4391"></div>
   </div>
 
   <div class="w-full text-center my-16">
       <h2 class="font-['Pliant'] font-medium text-xs md:text-sm uppercase tracking-[0.3em] text-black">Street Editorial</h2>
   </div>
   <div class="columns-2 md:columns-3 gap-6 p-4 md:px-12 [column-fill:_auto]">
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC03681.webp" srcset="/studio/DSC03681-600.webp 600w, /studio/DSC03681.webp 841w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men sitting on a wall in front of a white picket fence" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3669" height="5586"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC03713.webp" srcset="/studio/DSC03713-600.webp 600w, /studio/DSC03713.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Portrait of two men in hoodies in front of trees" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC03834.webp" srcset="/studio/DSC03834-600.webp 600w, /studio/DSC03834.webp 860w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men standing against a weathered door and brick wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3821" height="5685"></div>
-      <div class="break-inside-avoid mb-6"><img src="/studio/DSC03921.webp" srcset="/studio/DSC03921-600.webp 600w, /studio/DSC03921.webp 837w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men on an outdoor staircase, one seated, one standing" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3614" height="5529"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03681.webp" srcset="studio/DSC03681-600.webp 600w, studio/DSC03681.webp 841w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men sitting on a wall in front of a white picket fence" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3669" height="5586"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03713.webp" srcset="studio/DSC03713-600.webp 600w, studio/DSC03713.webp 853w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Portrait of two men in hoodies in front of trees" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="4000" height="6000"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03834.webp" srcset="studio/DSC03834-600.webp 600w, studio/DSC03834.webp 860w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men standing against a weathered door and brick wall" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3821" height="5685"></div>
+      <div class="break-inside-avoid mb-6"><img src="studio/DSC03921.webp" srcset="studio/DSC03921-600.webp 600w, studio/DSC03921.webp 837w" sizes="(min-width: 768px) calc(33.33vw - 48px), calc(50vw - 28px)" alt="Two men on an outdoor staircase, one seated, one standing" class="w-full h-auto object-cover" loading="lazy" decoding="async" width="3614" height="5529"></div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════
